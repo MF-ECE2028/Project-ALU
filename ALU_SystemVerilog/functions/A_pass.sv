@@ -1,16 +1,10 @@
 module A_pass(
 	input logic [7:0] A,
-	input logic [3:0] opcode,
+	input logic enable,
 	output logic [7:0] Y
 );
 
-always_comb begin
-	
-if (opcode == // TODO ADD ONCE DEFINED (TRUE CASE))
-	Y = A;
-else
-	Y = 8'b0;
+	assign Y = enable ? A : 8'bz;
 
-end
 
 endmodule
