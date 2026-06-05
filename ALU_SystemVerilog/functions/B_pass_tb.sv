@@ -6,7 +6,7 @@ module B_pass_tb;
 	logic done;
 	logic overflow;
 	
-	B_pass uut(
+	B_pass dut(
 		.B(B),
 		.enable(enable),
 		.Y(Y),

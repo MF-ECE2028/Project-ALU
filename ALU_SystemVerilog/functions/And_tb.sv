@@ -5,7 +5,7 @@ module And_tb;
 	logic done;
 	logic overflow;
 	
-	And uut(
+	And dut(
 		.A(A),
 		.B(B),
 		.enable(enable),

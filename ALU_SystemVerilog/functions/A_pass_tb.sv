@@ -1,12 +1,11 @@
 module A_pass_tb;
-
 	logic [7:0] A;
 	logic enable;
 	logic [7:0] Y;
 	logic done;
 	logic overflow;
 	
-	A_pass uut(
+	A_pass dut(
 		.A(A),
 		.enable(enable),
 		.Y(Y),

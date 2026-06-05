@@ -5,7 +5,7 @@ module Xor_tb;
 	logic done;
 	logic overflow;
 	
-	Xor uut(
+	Xor dut(
 		.A(A),
 		.B(B),
 		.enable(enable),
