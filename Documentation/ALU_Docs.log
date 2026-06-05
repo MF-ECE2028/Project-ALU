@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  5 JUN 2026 12:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  5 JUN 2026 15:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -557,8 +557,7 @@ runsystem(del ALU_Docs.aex)...executed.
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count347
 \l__pdf_internal_box=\box78
-)
-No file ALU_Docs.aux.
+) (ALU_Docs.aux)
 \openout1 = `ALU_Docs.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -575,7 +574,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
 LaTeX Font Info:    ... okay on input line 23.
-(C:\Users\nr308\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (C:\Users\nr308\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count348
 \scratchdimen=\dimen309
@@ -649,24 +648,29 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/nr308/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (ALU_Docs.aux)
+{C:/Users/nr308/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (12.9304pt too wide) in paragraph at lines 68--80
+[][] 
+ []
+
+[2] (ALU_Docs.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 30200 strings out of 475248
- 743195 string characters out of 5757813
- 1919785 words of memory out of 5000000
- 51263 multiletter control sequences out of 15000+600000
- 561612 words of font info for 50 fonts, out of 8000000 for 9000
+ 30241 strings out of 475248
+ 743810 string characters out of 5757813
+ 1927785 words of memory out of 5000000
+ 51294 multiletter control sequences out of 15000+600000
+ 566872 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,89p,781b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on ALU_Docs.pdf (1 page, 36626 bytes).
+ 84i,11n,89p,781b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on ALU_Docs.pdf (2 pages, 77588 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
+ 42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

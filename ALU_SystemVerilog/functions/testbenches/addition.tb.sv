@@ -30,6 +30,8 @@ task validate();
         for(int B = 0; B < 256; B++) begin
             A_input = A; B_input = B;
             {cout_exp, Y_exp} = A + B;
+
+            #5;
             
             if(cout_exp == cout_test && Y_exp == Y_test && Done_test == Done_exp) begin
                 $display("Calculation Correct");

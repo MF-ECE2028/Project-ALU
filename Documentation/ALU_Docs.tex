@@ -50,5 +50,36 @@
 
 
 \maketitle
+%Title page here
+\pagebreak
+
+\section{8 Bit ALU Functional Description}
+
+This 8 bit ALU accepts two 8 bit operands A and B, along with a 3 bit opcode (OP). 
+The state of the ALU is controlled by an active high enable pin (EN), and can be 
+reset using the active low reset pin (RST\_N). As this ALU supports sequential 
+operations which may take more than one clock cycle, the CLK input must be connected 
+to a clock signal. A table of the ALU's supported operations is given in table 
+\ref{operations_table}.
+
+
+\begin{table}[h]
+\setlength{\extrarowheight}{4pt}
+\begin{tabular}{|l|l|l|l|p{5cm}|}
+\hline
+\textbf{Operation} & \textbf{Opcode} & \textbf{Clock Cycles} & \textbf{Overflow Condition} & \textbf{Description}                                       \\ \hline \hline
+A pass             & 0x0             & 1                     & N/A                         & Passes A to Y unmodified                                   \\ \hline
+B pass             & 0x1             & 1                     & N/A                         & Passes B to Y unmodified                                   \\ \hline
+Bitwise AND        & 0x2             & 1                     & N/A                         & Y is bitwise AND combination of operands A and B           \\ \hline
+Bitwise OR         & 0x3             & 1                     & N/A                         & Y is bitwise OR combination of operands A and B            \\ \hline
+Bitwise XOR        & 0x4             & 1                     & N/A                         & Y is bitwise XOR combination of operands A and B           \\ \hline
+Addition           & 0x5             & 1                     & $A + B > 255$               & Y is the sum of operands A and B                           \\ \hline
+Subtraction        & 0x6             & 1                     & $A + (\bar{B} + 1) > 255$   & Y is the sum of A and the 2's complement inverse of B \\ \hline
+Multiplication     & 0x7             & Value of $B + 1$      & $A * B > 255$               & Y is the product of A and B                                \\ \hline
+\end{tabular}
+\caption{Table of supported operations}
+\label{operations_table}
+
+\end{table}
 
 \end{document}
