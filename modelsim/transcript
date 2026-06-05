@@ -1,0 +1,17 @@
+# Compile of subtraction.sv failed with 1 errors.
+# Compile of addition.tb.sv was successful.
+# Compile of bw_and.sv was successful.
+# Compile of and.sv was successful.
+# Compile of b_pass.tb.sv was successful.
+# Compile of bw_xor.tb.sv was successful.
+# Compile of a_pass.tb.sv was successful.
+# Compile of and.tb.sv was successful.
+# Compile of addition.sv was successful.
+# Compile of alu.sv failed with 1 errors.
+# Compile of a_pass.sv was successful.
+# Compile of b_pass.sv was successful.
+# Compile of bw_xor.sv was successful.
+# Compile of bw_or.sv failed with 1 errors.
+# Compile of multiplexer_4_en.sv failed with 1 errors.
+# Compile of register_en_rstn.sv failed with 1 errors.
+# 16 compiles, 5 failed with 5 errors.

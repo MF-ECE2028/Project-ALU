@@ -12,7 +12,7 @@ logic cout_test, Done_test;
 logic [7:0] Y_exp;
 logic cout_exp, Done_exp;
 
-addition dut(
+Addition dut(
     .A(A_input), .B(B_input),
     .enable(enable),
     .Y(Y_test),
