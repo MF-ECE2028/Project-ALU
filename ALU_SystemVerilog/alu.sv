@@ -21,7 +21,7 @@ module ALU_8 (
     logic reg_en = en & ~Rlk.out; //Enable or disable updating input registers
 
     Register_en_rstn Rlk #(1) ( //Lock register - prevents output of Ra and Rb and Rop from changing after rising edge of en
-        .clk(clk),
+        .clk(~clk),
         .enable(en),
         .rst_n(rst_n),
         .in(en)
