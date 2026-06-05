@@ -5,7 +5,7 @@ module addition(
     output logic carry, Done
 );
 
-    assign {carry, Y} = enable ? (A + B);
-    assign Done = 1;
+    assign {carry, Y} = enable ? (A + B) : 9'bz;
+    assign Done = enable ? 1'b1:1'bz;
 
 endmodule
