@@ -18,38 +18,47 @@ module Mult_8bit (
 logic [8:0] result;
 logic [7:0] multiplicand; 
 logic [4:0] i;
-logic trig_addstore, trig_iterator;
 
-    always @(posedge clock or posedge reset_n) begin
-        if(reset_n) begin
-            done            <= 0;
-            result          <= 0;
-            multiplicand    <= A;
-            i               <= 0;
-            trig_iterator   <= 0;
-            trig_addstore   <= 0;
+
+    always @(posedge (clock && enable) or negedge reset_n or negedge(enable)) begin
+        
+        if(~enable)begin
+            Y        <= 8'bz;
+            done     <= 1'bz;
+            overflow <= 1'bz;
         end else begin
 
-            if(i < 8) begin
-                multiplicand <= multiplicand << 1;
-
-                if(B[i] == 1) begin
-                    trig_addstore <= 1'b1;
-                end
-                
-            trig_iterator <= 1'b1;
-
+            if(~reset_n) begin
+                done            <= 1'b0;
+                result          <= 0;
+                multiplicand    <= A;
+                i               <= 0;
+                //trig_iterator   <= 0;
+                //trig_addstore   <= 0;
             end else begin
-                {overflow, Y}   <= result;
-                done            <= 1;
-            end
 
-            trig_addstore <= 0;
-            trig_iterator <= 0;
+                if(i < 8) begin
+                    multiplicand <= multiplicand << 1;
+
+                    if(B[i] == 1) begin
+                        //trig_addstore <= 1'b1;
+                        result <= result + multiplicand;
+                    end
+                i <= i + 1;    
+                //trig_iterator <= 1'b1;
+
+                end else begin
+                    {overflow, Y}   <= result;
+                    done            <= 1'b1;
+                end
+
+                //trig_addstore <= 0;
+                //trig_iterator <= 0;
+            end
         end
     end
 
-
+/*
 CounterNbit #(.N(7)) Iterator (
     .clock(clock),
     .reset_n(reset_n), .enable_n(trig_iterator),
@@ -64,6 +73,7 @@ CounterNbit #(.N(8)) AddStore (
     .count(result)
 
 );
+*/
 endmodule
 
 
