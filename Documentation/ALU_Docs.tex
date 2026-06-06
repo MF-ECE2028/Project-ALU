@@ -4,6 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{svg}
 \usepackage{tikz}
 \usepackage{caption}
 \usepackage{array}
@@ -59,11 +60,14 @@ This 8 bit ALU accepts two 8 bit operands A and B, along with a 3 bit opcode (OP
 The state of the ALU is controlled by an active high enable pin (EN), and can be 
 reset using the active low reset pin (RST\_N). As this ALU supports sequential 
 operations which may take more than one clock cycle, the CLK input must be connected 
-to a clock signal. A table of the ALU's supported operations is given in table 
-\ref{operations_table}.
+to a clock signal. The ALU provides one 8 bit result output (Y) an overflow flag (OVER)
+and a done flag (DONE). A table of the ALU's supported operations is given in table 
+\ref{operations_table}. A diagram of the inputs and outputs is shown in figure \ref{alu_io_diagram}.
+A descriton of the function of each bus/pin is given in table \ref{alu_io_table}.
 
 
 \begin{table}[h]
+\centering
 \setlength{\extrarowheight}{4pt}
 \begin{tabular}{|l|l|l|l|p{5cm}|}
 \hline
@@ -79,7 +83,105 @@ Multiplication     & 0x7             & Value of $B + 1$      & $A * B > 255$    
 \end{tabular}
 \caption{Table of supported operations}
 \label{operations_table}
-
 \end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/alu_black_box_diagram.png}
+    \caption{ALU Inputs and Outputs}
+    \label{alu_io_diagram}
+\end{figure}
+
+\begin{table}[h]
+\setlength{\extrarowheight}{4pt}
+\centering
+\begin{tabular}{lll}
+\hline
+\multicolumn{1}{|l|}{\textbf{Bus / Pin}} & \multicolumn{1}{l|}{\textbf{Width (Bits)}} & \multicolumn{1}{p{10cm}|}{\textbf{Function}}                                                                                                                    \\ \hline
+\textbf{Input}                           &                                            &                                                                                                                                                \\ \hline
+\multicolumn{1}{|l|}{A}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{First 8-Bit operand - input to mathematical or logical operation.}                                                                    \\ \hline
+\multicolumn{1}{|l|}{B}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{Second 8-Bit operand - input to mathematical or logical operation.}                                                                   \\ \hline
+\multicolumn{1}{|l|}{OP}                 & \multicolumn{1}{l|}{3}                     & \multicolumn{1}{p{10cm}|}{Opcode - selects which operation to perform.}                                                                                         \\ \hline
+\multicolumn{1}{|l|}{RST\_N}             & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Active low asynchronous reset - puts the ALU into initial ready state.}                                                               \\ \hline
+\multicolumn{1}{|l|}{EN}                 & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Enable - starts ALU when high if in ready state. Must be high for ALU to output data.}                                                             \\ \hline
+\textbf{Output}                          &                                            &                                                                                                                                                      \\ \hline
+\multicolumn{1}{|l|}{Y}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{8 Bit result - output of the ALU operation}                                                                                           \\ \hline
+\multicolumn{1}{|l|}{OVER}               & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Overflow flag - high value generally indicates result cannot be represented in bits of Y. Exact meaning can vary between operations.} \\ \hline
+\multicolumn{1}{|l|}{DONE}               & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Is low while operation is in progress or ALU is ready, high when operation is completed.}                                                             \\ \hline
+\end{tabular}
+\caption{ALU IO Functional Descriptions}
+\label{alu_io_table}
+\end{table}
+
+\subsection{ALU Operation}
+Before beginning an operation the ALU must be reset by setting RST\_N low, after reset occurs the
+ALU is considered to be in the "ready" state. EN must be low for all rising edges of CLK while the
+ALU is in the ready state. Once the inputs on A, B, and OP are stable, EN can be set
+high to begin ALU operation. The rising edge of EN must occur when CLK is low. EN must remain high until after the next falling edge of CLK. At this
+point the ALU enters the "running" state. From this point on the value of EN can be changed without 
+effecting the ALU (or the result when the ALU is done). The ALU will always output all zeros when EN
+is low. When DONE goes high the ALU is in the "done" state. The operation is finished, and results 
+can be read from Y, and OVER. A timing diagram of a normal ALU operation is shown in figure \ref{alu_timing}.
+
+\begin{figure}
+    \caption{ALU Operation Timing Diagram}
+    \label{alu_timing}
+\end{figure}
+
+\section{Design and Implementation}
+This ALU is designed to utilize modular operations, to allow the design to allow for easy testing during the design process,
+and potential rapid addition of new functions in the future. These modular operations are then linked together with
+integrated together with structures to allow for the selection of operations, forming the complete ALU.
+
+\subsection{Operation Modules}
+Each operation module accepts the inputs, and supplies the outputs shown in table \ref{operation_io_table}.
+All outputs of the modules are routed through tristate buffers - the outputs of an operation are floating
+unless its enable pin is high.
+
+\begin{table}
+    \setlength{\extrarowheight}{4pt}
+    \centering
+    \begin{tabular}{lll}
+    \hline
+    \multicolumn{1}{|l|}{\textbf{Bus / Pin}} & \multicolumn{1}{l|}{\textbf{Width (Bits)}} & \multicolumn{1}{p{10cm}|}{\textbf{Function}}                                                                                                                    \\ \hline
+    \textbf{Input}                           &                                            &                                                                                                                                                                 \\ \hline
+    \multicolumn{1}{|l|}{A}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{First 8-Bit operand - input to operation.}                                                                                            \\ \hline
+    \multicolumn{1}{|l|}{B}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{Second 8-Bit operand - input to operation.}                                                                                           \\ \hline
+    \multicolumn{1}{|l|}{RST\_N}             & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Active low asynchronous reset - resets the module to inial ready state.}                                                              \\ \hline
+    \multicolumn{1}{|l|}{EN}                 & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Enable - enables the module. The module will only output data when this pin is high}                                                  \\ \hline
+    \textbf{Output}                          &                                            &                                                                                                                                                                 \\ \hline
+    \multicolumn{1}{|l|}{Y}                  & \multicolumn{1}{l|}{8}                     & \multicolumn{1}{p{10cm}|}{8 Bit result - output of the operation}                                                                                               \\ \hline
+    \multicolumn{1}{|l|}{OVER}               & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Overflow flag - high value generally indicates result cannot be represented in bits of Y. Exact meaning can vary between operations.} \\ \hline
+    \multicolumn{1}{|l|}{DONE}               & \multicolumn{1}{l|}{1}                     & \multicolumn{1}{p{10cm}|}{Is low while operation is in progress or is ready, high when operation is completed.}                                             \\ \hline
+    \end{tabular}
+    \caption{Operation Module IO Descriptions}
+    \label{operation_io_table}
+\end{table}
+
+There are two primary types of operation modules utilized in this ALU, combinational logic operations,
+and sequential logic operations. For combinational logic operations, the CLK and RST\_N inputs are not
+needed, and DONE is always high when the module is enabled. A diagram of such an operation module is shown
+in figure \ref{cl_module_diagram}. Sequential logic operations utilize all inputs to perform operations
+that require more than one clock cycle. The only such operation in this ALU is multiplication. A diagram of
+this type of module is shown in \ref{seq_module_diagram}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/cl_diagram.png}
+    \caption{Schematic of a Combinational Operation Module}
+    \label{cl_module_diagram}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/sequential_logic_diagram.png}
+    \caption{Schematic of a Sequential Operation Module}
+    \label{seq_module_diagram}
+\end{figure}
+
+\section{Design Verification}
+
+\section{Hardware Validation}
 
 \end{document}
