@@ -5,7 +5,7 @@ module Subtraction (
     output logic Done, carry
 );
 
-    assign Y = enable ? (A - B);
+    assign Y = enable ? (A - B) : 8'bz;
     assign Done = 1;
     assign carry = 0;
 
