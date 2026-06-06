@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+\PYG{c+cm}{Sources: N/A}
+
+\PYG{c+cm}{Module for running the Subtractor in the ALU}
+\PYG{c+cm}{*/}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Subtraction}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//8\PYGZhy{}bit Operand inputs}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{     }\PYG{c+c1}{//Enable \PYGZhy{} sets output of operator to floating}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y}\PYG{p}{,}\PYG{+w}{   }\PYG{c+c1}{//8\PYGZhy{}bit Output}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done}\PYG{p}{,}\PYG{+w}{      }\PYG{c+c1}{//Done Flag}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{   }\PYG{c+c1}{//Overflow Flag}
+\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//Assigns Y to the output of a subtractor when enable is high}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{Y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{A}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{//Simple Functions like this one have simple done and overflow flags}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{     }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{o}{:}\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{o}{:}\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
+
+\PYG{k}{endmodule}
+\end{Verbatim}
