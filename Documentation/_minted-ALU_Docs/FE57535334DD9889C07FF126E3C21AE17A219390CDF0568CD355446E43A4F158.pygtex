@@ -1,0 +1,32 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Nolan Kessler}
+
+\PYG{c+cm}{Implements a three bit multiplexer with enable}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Multiplexer\PYGZus{}3\PYGZus{}en}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Output of multiplexer is 0 unless enable is high.}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{,}
+\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{enable}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{k}{case}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{in}\PYG{p}{)}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b000}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0001}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b001}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0010}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b010}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0100}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b011}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}1000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b100}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0001\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b101}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0010\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b110}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0100\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b111}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b1000\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{endcase}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{4\PYGZsq{}b0}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{    }\PYG{k}{end}
+\PYG{k}{endmodule}
+\end{Verbatim}

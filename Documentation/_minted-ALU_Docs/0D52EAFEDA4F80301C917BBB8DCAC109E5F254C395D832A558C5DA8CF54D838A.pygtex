@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Nolan Kessler}
+\PYG{c+cm}{Sources: Based on my register implementation from Lab 5}
+
+\PYG{c+cm}{Implements a parameterized width register with enable and active low reset.}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{WIDTH}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Enable \PYGZhy{} copy in to out on rising edge of clk only when high}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{rst\PYGZus{}n}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Active low reset \PYGZhy{} set out to zero on falling edge}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}
+\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{always\PYGZus{}ff}\PYG{+w}{ }\PYG{p}{@(}\PYG{k}{posedge}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{negedge}\PYG{+w}{ }\PYG{n}{rst\PYGZus{}n}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{end}
+
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{end}
+\PYG{+w}{        }\PYG{k}{end}
+
+\PYG{+w}{    }\PYG{k}{end}
+
+\PYG{k}{endmodule}
+\end{Verbatim}

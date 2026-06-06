@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{CounterNbit}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{N}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{)(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{enable\PYGZus{}n}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nl}{N:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{addBy}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nl}{N:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{count}
+\PYG{p}{);}
+
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n+nl}{N:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{count\PYGZus{}next}\PYG{p}{;}
+\PYG{+w}{ }
+\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}\PYG{+w}{ }\PYG{c+c1}{//@(posedge clock || reset\PYGZus{}n) begin}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{n}{count\PYGZus{}next}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{count}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{addBy}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{n}{count\PYGZus{}next}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}
+\PYG{k}{end}
+
+\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(.}\PYG{n}{WIDTH}\PYG{p}{(}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}\PYG{+w}{ }\PYG{n}{RegNBit}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{   }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clock}\PYG{p}{),}
+\PYG{+w}{   }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{reset\PYGZus{}n}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{enable\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{   }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{n}{count\PYGZus{}next}\PYG{p}{),}
+\PYG{+w}{   }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{count}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{endmodule}\PYG{+w}{ }
+
+\end{Verbatim}
