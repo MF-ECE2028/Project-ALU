@@ -22,7 +22,7 @@ module Register_en_rstn #(parameter WIDTH = 1) (
 
         else begin
             if (enable != 0) begin
-                out <= in
+                out <= in;
             end
         end
 
