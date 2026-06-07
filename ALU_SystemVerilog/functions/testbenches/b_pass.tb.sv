@@ -32,6 +32,7 @@ module B_pass_tb;
 		for (int i=0; i<256; i++) begin
 			B = i;
 			#10;
+			// Check Y is correct, done is high, overflow is low
 			if (Y !== B || done !== 1'b1 || overflow !== 1'b0) begin
 				$display("Test Failed for B = %0d", i);
 				$stop;

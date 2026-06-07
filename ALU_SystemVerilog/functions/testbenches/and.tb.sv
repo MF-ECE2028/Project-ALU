@@ -1,6 +1,6 @@
 /*
 Project: 8-Bit ALU
-Authors: John O'Connor
+Author: John O'Connor
 Sources: N/A
 
 Testbench file for the And module (bw_and.sv).
@@ -33,6 +33,7 @@ module And_tb;
 				A = i;
 				B = j;
 				#10;
+				// Check Y is correct, done is high, and overflow is low
 				if (Y!== (A&B) || done !== 1'b1 || overflow !== 1'b0) begin
 					$display("Test Failed");
 					$stop;
