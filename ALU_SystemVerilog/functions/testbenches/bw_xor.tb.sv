@@ -25,6 +25,20 @@ module Xor_tb;
 	);
 	
 	initial begin
+
+		// Test case where enable is lwo
+		enable = 0;
+
+		A = 8'b0;
+		B = 8'b1;
+		#10;
+		// Y, done, and overflow should all be floating
+		if (Y !== 8'bz || done !== 1'bz || overflow !== 1'bz) begin
+			$display("Test Failed enable low case");
+			$stop;
+		end
+
+		// Test cases where enbale is high
 		enable = 1;
 		
 		// Test every possible combination of A and B
