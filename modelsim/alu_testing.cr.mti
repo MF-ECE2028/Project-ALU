@@ -12,12 +12,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	Xor
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module ALU_8
-** Error: (vlog-13069) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv(14): near "input": syntax error, unexpected input, expecting ')'.
-
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Bitwise_AND
 
@@ -73,12 +68,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	Bitwise_OR
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Multiplexer_3_en
-** Error: (vlog-13038) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv(12): near ")": Missing port in ansi port list.
 
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
+Top level modules:
+	Multiplexer_3_en
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module A_pass_tb
 

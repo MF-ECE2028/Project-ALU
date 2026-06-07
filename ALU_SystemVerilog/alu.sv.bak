@@ -6,13 +6,13 @@ Soruces: TODO
 Main file for 8-Bit ALU implementation. Integrates modular functions with selection and execution system.
 */
 
-module alu (
+module ALU_8 (
     input logic en, //Enable - ALU copies current inputs to internal registers and begins execution on rising edge. All outputs are zero unless this input is high.
     input logic clk,
     input logic rst_n, //Active low reset
     input logic [7:0] a, b, //8 bit operand inputs
     input logic [3:0] op, //4 bit opcode input
-    output logic [7:0] y, //8 bit _y
+    output logic [7:0] y, //8 bit result
     output logic overflow, //Overflow flag
     output logic done //done flag, goes high when operation is complete
 );
@@ -64,7 +64,7 @@ module alu (
     A_pass a_pass (
         .A(Ra.out),
         .enable(Rop.out[0]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -72,7 +72,7 @@ module alu (
     B_pass b_pass (
         .B(Rb.out),
         .enable(Rop.out[1]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -81,7 +81,7 @@ module alu (
         .A(Ra.out),
         .B(Rb.out),
         .enable(Rop.out[2]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -90,7 +90,7 @@ module alu (
         .A(Ra.out),
         .B(Rb.out),
         .enable(Rop.out[3]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -99,7 +99,7 @@ module alu (
         .A(Ra.out),
         .B(Rb.out),
         .enable(Rop.out[4]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -108,7 +108,7 @@ module alu (
         .A(Ra.out),
         .B(Rb.out),
         .enable(Rop.out[5]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -117,7 +117,7 @@ module alu (
         .A(Ra.out),
         .B(Rb.out),
         .enable(Rop.out[6]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );
@@ -128,7 +128,7 @@ module alu (
         .clock(clk),
         .reset_n(rst_n),
         .enable(Rop.out[7]),
-        .Y(_y),
+        .Y(result),
         .done(_done),
         .overflow(_overflow)
     );

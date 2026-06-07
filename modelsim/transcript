@@ -304,3 +304,19 @@
 # Compile of register_en_rstn.sv was successful.
 # Compile of multiplexer_3_en.sv was successful.
 # 15 compiles, 0 failed with no errors.
+# Compile of subtraction.sv was successful.
+# Compile of addition.tb.sv was successful.
+# Compile of bw_and.sv was successful.
+# Compile of b_pass.tb.sv was successful.
+# Compile of bw_xor.tb.sv was successful.
+# Compile of a_pass.tb.sv was successful.
+# Compile of and.tb.sv was successful.
+# Compile of addition.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of a_pass.sv was successful.
+# Compile of b_pass.sv was successful.
+# Compile of bw_xor.sv was successful.
+# Compile of bw_or.sv was successful.
+# Compile of register_en_rstn.sv was successful.
+# Compile of multiplexer_3_en.sv was successful.
+# 15 compiles, 0 failed with no errors.
