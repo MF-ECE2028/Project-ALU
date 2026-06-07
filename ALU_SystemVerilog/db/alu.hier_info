@@ -21,16 +21,16 @@ b[7] => b[7].IN1
 op[0] => op[0].IN1
 op[1] => op[1].IN1
 op[2] => op[2].IN1
-y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
-y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
-overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
-done <= done.DB_MAX_OUTPUT_PORT_TYPE
+y[0] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] << y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] << y.DB_MAX_OUTPUT_PORT_TYPE
+overflow << overflow.DB_MAX_OUTPUT_PORT_TYPE
+done << done.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |alu|Register_en_rstn:Rlk
@@ -444,10 +444,10 @@ B[7] => Mux0.IN0
 clock => always0.IN0
 reset_n => overflow.IN1
 reset_n => Y[0].IN1
-reset_n => cout[0].IN0
+reset_n => i[0].IN0
 reset_n => done~reg0.ACLR
 enable => always0.IN1
-enable => cout[0].IN1
+enable => i[0].IN1
 enable => overflow~en.ACLR
 enable => done~en.ACLR
 enable => Y[0]~en.ACLR
@@ -458,7 +458,7 @@ enable => Y[4]~en.ACLR
 enable => Y[5]~en.ACLR
 enable => Y[6]~en.ACLR
 enable => Y[7]~en.ACLR
-enable => cout[0].ENA
+enable => i[0].ENA
 enable => result[15].ENA
 enable => result[14].ENA
 enable => result[13].ENA
@@ -494,14 +494,6 @@ enable => multiplicand[0].ENA
 enable => i[3].ENA
 enable => i[2].ENA
 enable => i[1].ENA
-enable => i[0].ENA
-enable => cout[7].ENA
-enable => cout[6].ENA
-enable => cout[5].ENA
-enable => cout[4].ENA
-enable => cout[3].ENA
-enable => cout[2].ENA
-enable => cout[1].ENA
 Y[0] <= Y[0].DB_MAX_OUTPUT_PORT_TYPE
 Y[1] <= Y[1].DB_MAX_OUTPUT_PORT_TYPE
 Y[2] <= Y[2].DB_MAX_OUTPUT_PORT_TYPE
