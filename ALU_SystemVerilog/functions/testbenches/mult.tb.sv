@@ -69,6 +69,10 @@ task validate();
     *  and the each test takes 9 clock cycles
     *  so the test is limited to a 6-bit maximum
 */
+
+    int A2; //Declare variables for use in later test case
+    int B2;
+
     for(int A = 0; A < 64; A++) begin
         //If enable is off we should see a floating output
         if(enable == 0) begin
@@ -109,9 +113,11 @@ task validate();
     // of the output.
     //
     //Same as the looped cases above
-    int A = 255; int B = 128;
-    A_input = A; B_input = B; 
-    {cout_exp, Y_exp} = A * B;
+    A2 = 255;
+    B2 = 128;
+    A_input = A2; 
+    B_input = B2; 
+    {cout_exp, Y_exp} = A2 * B2;
 
     multiply();
 
