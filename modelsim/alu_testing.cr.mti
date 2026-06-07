@@ -82,13 +82,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	Bitwise_OR
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module Multiplexer_3_en
-
-Top level modules:
-	Multiplexer_3_en
-
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module A_pass_tb

@@ -5,7 +5,7 @@ Author: Nolan Kessler
 Implements a three bit multiplexer with enable
 */
 
-module Multiplexer_3_en (
+module Decoder (
     input logic [2 : 0] in,
     input logic enable, //Output of multiplexer is 0 unless enable is high.
     output logic [7 : 0] out

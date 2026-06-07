@@ -64,7 +64,7 @@ module alu (
 		.out(_op)
     );
     
-    Multiplexer_3_en M_cs (
+    Decoder M_cs (
         .in(_op),
         .enable(_rlk),
         .out(cs)
