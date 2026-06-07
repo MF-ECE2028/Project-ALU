@@ -1,6 +1,15 @@
+/*
+Project: 8-Bit ALU
+Authors: Nolan Kessler, Maxwell Fabian, John O'Connor
+
+Testbench file for the Bitwise XOR (bw_xor.sv).
+*/
+
 module Xor_tb;
+	// Inputs
 	logic [7:0] A, B;
 	logic enable;
+	// Outputs
 	logic [7:0] Y;
 	logic done;
 	logic overflow;
@@ -17,6 +26,7 @@ module Xor_tb;
 	initial begin
 		enable = 1;
 		
+		// Test every possible combination of A and B
 		for(int i=0; i<256; i++) begin
 			for (int j=0; j<256; j++) begin
 				A = i;

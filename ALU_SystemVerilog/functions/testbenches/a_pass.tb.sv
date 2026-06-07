@@ -1,6 +1,15 @@
+/*
+Project: 8-Bit ALU
+Authors: Nolan Kessler, Maxwell Fabian, John O'Connor
+
+Testbench file for the A passthorugh module (A_pass.sv).
+*/
+
 module A_pass_tb;
+	// Inputs
 	logic [7:0] A;
 	logic enable;
+	// Outputs
 	logic [7:0] Y;
 	logic done;
 	logic overflow;
@@ -17,6 +26,8 @@ module A_pass_tb;
 
 	 	enable = 1;
 		
+		// Test all possible values for A
+		// Expected: Y = A for every test
 		for (int i=0; i<256; i++) begin
 			A = i;
 			#10;
