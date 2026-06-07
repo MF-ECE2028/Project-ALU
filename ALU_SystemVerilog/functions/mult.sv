@@ -20,8 +20,8 @@ module Mult_8bit (
 //Registers for helping track the current sequence in the multiplication 
 logic [15:0] result; 
 logic [7:0]  cout;
-logic [7:0]  multiplicand; 
-logic [4:0]  i;
+logic [15:0]  multiplicand; 
+logic [3:0]  i;
 
     //Needs to trigger only when enable is on or when reseting
     always @(posedge (clock && enable) or negedge reset_n or negedge(enable)) begin
@@ -37,6 +37,7 @@ logic [4:0]  i;
                 result          <= 0;
                 multiplicand    <= A;
                 i               <= 0;
+                cout            <= 0;
             end else begin
                 //For loop created using a counter and comparitor
                 //Functionally same as:
@@ -65,10 +66,16 @@ logic [4:0]  i;
                     // input bits and our output is staying at 8 bits
                     // the overflow flag needs to be raised whenever
                     // the result exceeds 8 bits
-                    if(cout > 0) begin overflow <= 1; end
+
+                    //Done set twice here to hopefully combat race conditions
+                    if(cout > 0) begin 
+                        overflow <= 1; 
+                        done     <= 1'b1;
+                    end else begin
                     //Raising the done flag should always be the last
                     // thing it does
-                    done        <= 1'b1;
+                        done        <= 1'b1;
+                    end
                 end
             end
         end

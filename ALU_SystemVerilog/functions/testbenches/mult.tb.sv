@@ -107,7 +107,7 @@ task validate();
             end
         end
     end
-
+    
     //This is a special case test for when the value should be
     // massively large but will appear much smaller due to the limitation
     // of the output.
@@ -120,13 +120,14 @@ task validate();
     {cout_exp, Y_exp} = A2 * B2;
 
     multiply();
+    #5;
 
     if(cout_exp !== cout_test && Y_exp !== Y_test && Done_test !== Done_exp) begin
         $display("Failed at %dA * %dB; Y=%d and Y_exp=%d and cout=%d and cout_exp=%d",
-            A, B, Y_test, Y_exp, cout_test, cout_exp);
+            A2, B2, Y_test, Y_exp, cout_test, cout_exp);
         //$stop;
     end
-
+       
 endtask
 
 initial begin
