@@ -2,6 +2,7 @@
 Project: 8-Bit ALU
 Authors: Nolan Kessler, Maxwell Fabian, John O'Connor
 Soruces: https://chipmunklogic.com/digital-logic-design/logic-vs-wire-in-system-verilog-some-misconceptions/
+         https://chipverify.com/verilog/verilog-strength
 
 Main file for 8-Bit ALU implementation. Integrates modular functions with selection and execution system.
 */
@@ -26,6 +27,9 @@ module alu (
     wire logic _overflow;
     wire logic _done;
     logic reg_en;
+    assign (pull0, pull1) _y = 8'b0;        //Create pulldowns on outputs
+    assign (pull0, pull1) _overflow = 1'b0;
+    assign (pull0, pull1) _done = 1'b0;
 	assign reg_en = en & ~_rlk; //Enable or disable updating input registers
     assign y = _y & {8{en}};
     assign overflow = _overflow & en;
