@@ -21,17 +21,16 @@ b[7] => b[7].IN1
 op[0] => op[0].IN1
 op[1] => op[1].IN1
 op[2] => op[2].IN1
-op[3] => op[3].IN1
-y[0] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[1] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[2] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[3] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[4] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[5] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[6] << y.DB_MAX_OUTPUT_PORT_TYPE
-y[7] << y.DB_MAX_OUTPUT_PORT_TYPE
-overflow << overflow.DB_MAX_OUTPUT_PORT_TYPE
-done << done.DB_MAX_OUTPUT_PORT_TYPE
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= y.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |alu|Register_en_rstn:Rlk
@@ -132,23 +131,18 @@ out[7] <= out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 clk => out[0]~reg0.CLK
 clk => out[1]~reg0.CLK
 clk => out[2]~reg0.CLK
-clk => out[3]~reg0.CLK
 enable => out[0]~reg0.ENA
-enable => out[3]~reg0.ENA
 enable => out[2]~reg0.ENA
 enable => out[1]~reg0.ENA
 rst_n => out[0]~reg0.ACLR
 rst_n => out[1]~reg0.ACLR
 rst_n => out[2]~reg0.ACLR
-rst_n => out[3]~reg0.ACLR
 in[0] => out[0]~reg0.DATAIN
 in[1] => out[1]~reg0.DATAIN
 in[2] => out[2]~reg0.DATAIN
-in[3] => out[3]~reg0.DATAIN
 out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |alu|Multiplexer_3_en:M_cs

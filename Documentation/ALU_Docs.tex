@@ -145,7 +145,29 @@ Each operation module accepts the inputs, and supplies the outputs shown in tabl
 All outputs of the modules are routed through tristate buffers - the outputs of an operation are floating
 unless its enable pin is high.
 
-\begin{table}
+There are two primary types of operation modules utilized in this ALU, combinational logic operations,
+and sequential logic operations. For combinational logic operations, the CLK and RST\_N inputs are not
+needed, and DONE is always high when the module is enabled. A diagram of such an operation module is shown
+in figure \ref{cl_module_diagram}. Sequential logic operations utilize all inputs to perform operations
+that require more than one clock cycle. The only such operation in this ALU is multiplication. A diagram of
+this type of module is shown in \ref{seq_module_diagram}. 
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/cl_diagram.png}
+    \caption{Schematic of a Combinational Operation Module}
+    \label{cl_module_diagram}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/sequential_logic_diagram.png}
+    \caption{Schematic of a Sequential Operation Module}
+    \label{seq_module_diagram}
+\end{figure}
+
+\begin{table}[h!]
     \setlength{\extrarowheight}{4pt}
     \centering
     \begin{tabular}{lll}
@@ -164,28 +186,6 @@ unless its enable pin is high.
     \caption{Operation Module IO Descriptions}
     \label{operation_io_table}
 \end{table}
-
-There are two primary types of operation modules utilized in this ALU, combinational logic operations,
-and sequential logic operations. For combinational logic operations, the CLK and RST\_N inputs are not
-needed, and DONE is always high when the module is enabled. A diagram of such an operation module is shown
-in figure \ref{cl_module_diagram}. Sequential logic operations utilize all inputs to perform operations
-that require more than one clock cycle. The only such operation in this ALU is multiplication. A diagram of
-this type of module is shown in \ref{seq_module_diagram}. 
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{./Diagrams/cl_diagram.png}
-    \caption{Schematic of a Combinational Operation Module}
-    \label{cl_module_diagram}
-\end{figure}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{./Diagrams/sequential_logic_diagram.png}
-    \caption{Schematic of a Sequential Operation Module}
-    \label{seq_module_diagram}
-\end{figure}
 
 The following sections will include a breif description of the implementation of each ALU operation, and a listing of its
 SystemVerilog code.

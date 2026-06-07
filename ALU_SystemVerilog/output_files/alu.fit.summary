@@ -1,4 +1,4 @@
-Fitter Status : Successful - Sun Jun  7 10:29:24 2026
+Fitter Status : Successful - Sun Jun  7 11:56:40 2026
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : alu
 Top-level Entity Name : alu
@@ -9,7 +9,7 @@ Total logic elements : 130 / 49,760 ( < 1 % )
     Total combinational functions : 126 / 49,760 ( < 1 % )
     Dedicated logic registers : 54 / 49,760 ( < 1 % )
 Total registers : 54
-Total pins : 33 / 360 ( 9 % )
+Total pins : 32 / 360 ( 9 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )

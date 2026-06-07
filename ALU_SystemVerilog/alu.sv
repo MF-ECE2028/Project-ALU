@@ -1,7 +1,7 @@
 /*
 Project: 8-Bit ALU
 Authors: Nolan Kessler, Maxwell Fabian, John O'Connor
-Soruces: TODO
+Soruces: https://chipmunklogic.com/digital-logic-design/logic-vs-wire-in-system-verilog-some-misconceptions/
 
 Main file for 8-Bit ALU implementation. Integrates modular functions with selection and execution system.
 */
@@ -11,22 +11,22 @@ module alu (
     input logic clk,
     input logic rst_n, //Active low reset
     input logic [7:0] a, b, //8 bit operand inputs
-    input logic [3:0] op, //4 bit opcode input
+    input logic [2:0] op, //4 bit opcode input
     output logic [7:0] y, //8 bit _y
     output logic overflow, //Overflow flag
     output logic done //done flag, goes high when operation is complete
 );
     
     logic [7:0] cs; //operation select lines
-	 logic _rlk;
-	 logic [7:0] _a;
-	 logic [7:0] _b;
-	 logic [2:0] _op;
-    logic [7:0] _y;
-	 logic reg_en;
-    logic _overflow;
-    logic _done;
-	 assign reg_en = en & _rlk; //Enable or disable updating input registers
+	logic _rlk;
+	logic [7:0] _a;
+	logic [7:0] _b;
+	logic [2:0] _op;
+    wire logic [7:0] _y; //Wire type is needed for tristate bus
+    wire logic _overflow;
+    wire logic _done;
+    logic reg_en;
+	assign reg_en = en & ~_rlk; //Enable or disable updating input registers
     assign y = _y & {8{en}};
     assign overflow = _overflow & en;
     assign done = _done & en;
@@ -36,7 +36,7 @@ module alu (
         .enable(en),
         .rst_n(rst_n),
         .in(en),
-		  .out(_rlk)
+		.out(_rlk)
     );
 
     Register_en_rstn #(8) Ra ( //Operand A register
@@ -44,7 +44,7 @@ module alu (
         .enable(reg_en),
         .rst_n(rst_n),
         .in(a),
-		  .out(_a)
+		.out(_a)
     );
 
     Register_en_rstn #(8) Rb ( //Operand B register
@@ -52,15 +52,15 @@ module alu (
         .enable(reg_en),
         .rst_n(rst_n),
         .in(b),
-		  .out(_b)
+		.out(_b)
     );
 
-    Register_en_rstn #(4) Rop ( //Opcode Register
+    Register_en_rstn #(3) Rop ( //Opcode Register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
         .in(op),
-		  .out(_op)
+		.out(_op)
     );
     
     Multiplexer_3_en M_cs (

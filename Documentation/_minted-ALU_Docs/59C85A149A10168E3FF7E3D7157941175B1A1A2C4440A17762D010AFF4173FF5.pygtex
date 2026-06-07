@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: John O\PYGZsq{}Connor}
+\PYG{c+cm}{Sources: N/A}
+
+\PYG{c+cm}{Module for B passthrough}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{B\PYGZus{}pass}\PYG{p}{(}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow}
+\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{Y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{//Assigns Y when enable is high}
+\PYG{+w}{	}\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// Done is high when enable is high}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// No overflow occurs for passthrough}
+
+
+\PYG{k}{endmodule}
+\end{Verbatim}

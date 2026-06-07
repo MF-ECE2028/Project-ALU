@@ -4,13 +4,13 @@ module ALU_tb;
     logic        clk;
     logic        rst_n;
     logic [7 : 0]  a, b;
-    logic [3 : 0]  op;
+    logic [2 : 0]  op;
     //outputs 
     logic [7:0]  y;
     logic        overflow;
     logic        done;
     
-    ALU_8 dut (
+    alu dut (
         .en(en),
         .clk(clk),
         .rst_n(rst_n),
@@ -34,8 +34,10 @@ module ALU_tb;
     
     // executing task
     task execute();
+        @(negedge clk);
         en = 1;
-        @(posedge clk);
+        #5;
+        @(posedge done);
         #5;
     endtask
 
@@ -120,9 +122,15 @@ module ALU_tb;
         end
         
         // Multiplication (0x7)
-
+        reset();
+        a = 8'h05; b = 8'h03; op = 4'h7;
+        execute();
+        if (y !== 8'h0F || done !== 1'b1 || overflow !== 1'b0) begin
+            $display("FAILED: Multiplication");
+            $stop;
+        end
         
         $display("All Tests Passed!");
-        $finish;
+        $stop;
     end
 endmodule
