@@ -1,4 +1,4 @@
-module ALU_8_tb;
+module ALU_tb;
     //inputs
     logic        en;
     logic        clk;
