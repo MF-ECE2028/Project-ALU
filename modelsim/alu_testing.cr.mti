@@ -1,4 +1,11 @@
-C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
+C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module AdditionTestbench
+
+Top level modules:
+	AdditionTestbench
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Xor
 
@@ -10,12 +17,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 -- Compiling module ALU_8
 ** Error: (vlog-13069) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv(14): near "input": syntax error, unexpected input, expecting ')'.
 
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/and.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/and.sv
+} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module And
+-- Compiling module Bitwise_AND
 
 Top level modules:
-	And
+	Bitwise_AND
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
@@ -23,6 +30,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 
 Top level modules:
 	B_pass_tb
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module Addition
+
+Top level modules:
+	Addition
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
@@ -38,22 +52,31 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	A_pass
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Register_en_rstn
-** Error: (vlog-13069) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv(26): near "end": syntax error, unexpected end, expecting ';'.
 
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv
+Top level modules:
+	Register_en_rstn
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module B_pass
 
 Top level modules:
 	B_pass
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module bitwise
-** Error: (vlog-13069) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv(8): near ";": syntax error, unexpected ';'.
+-- Compiling module Bitwise_OR
+
+Top level modules:
+	Bitwise_OR
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module Multiplexer_3_en
+** Error: (vlog-13038) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv(12): near ")": Missing port in ansi port list.
 
 } {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
@@ -62,17 +85,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	A_pass_tb
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_4_en.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_4_en.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module Multiplexer_4_en
-** Error: (vlog-13038) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_4_en.sv(12): near ")": Missing port in ansi port list.
-
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv {0 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Subtraction
-** Error: (vlog-13069) C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv(8): near ";": syntax error, unexpected ';'.
 
-} {4.0 5.0} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
+Top level modules:
+	Subtraction
+
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module And_tb
 

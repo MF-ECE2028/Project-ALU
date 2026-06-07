@@ -10,11 +10,11 @@ module ALU_8 (
     input logic en, //Enable - ALU copies current inputs to internal registers and begins execution on rising edge. All outputs are zero unless this input is high.
     input logic clk,
     input logic rst_n, //Active low reset
-    input logic [7:0] a, b //8 bit operand inputs
+    input logic [7:0] a, b, //8 bit operand inputs
     input logic [3:0] op, //4 bit opcode input
     output logic [7:0] y, //8 bit result
     output logic overflow, //Overflow flag
-    output logic done, //done flag, goes high when operation is complete
+    output logic done //done flag, goes high when operation is complete
 );
     
     logic [15:0] cs; //chip select lines
@@ -22,32 +22,32 @@ module ALU_8 (
     logic [7:0] _y;
     logic _overflow;
     logic _done;
-    y = _y & 8{enable}
-    overflow = _overflow & enable
-    done = _done & enable
+    assign y = _y & {8{en}};
+    assign overflow = _overflow & en;
+    assign done = _done & en;
 
-    Register_en_rstn Rlk #(1) ( //Lock register - prevents output of Ra and Rb and Rop from changing after rising edge of en
+    Register_en_rstn #(1) Rlk ( //Lock register - prevents output of Ra and Rb and Rop from changing after rising edge of en
         .clk(~clk),
         .enable(en),
         .rst_n(rst_n),
         .in(en)
     );
 
-    Register_en_rstn Ra #(8) ( //Operand A register
+    Register_en_rstn #(8) Ra ( //Operand A register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
         .in(a)
     );
 
-    Register_en_rstn Rb #(8) ( //Operand B register
+    Register_en_rstn #(8) Rb ( //Operand B register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
         .in(b)
     );
 
-    Register_en_rstn Rop #(4) ( //Opcode Register
+    Register_en_rstn #(4) Rop ( //Opcode Register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
@@ -69,7 +69,7 @@ module ALU_8 (
         .overflow(_overflow)
     );
 
-    B_pass a_pass (
+    B_pass b_pass (
         .B(Rb.out),
         .enable(Rop.out[1]),
         .Y(result),
@@ -131,7 +131,7 @@ module ALU_8 (
         .Y(result),
         .done(_done),
         .overflow(_overflow)
-    )
+    );
 
 
 endmodule

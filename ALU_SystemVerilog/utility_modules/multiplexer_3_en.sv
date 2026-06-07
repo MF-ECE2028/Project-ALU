@@ -8,7 +8,7 @@ Implements a three bit multiplexer with enable
 module Multiplexer_3_en (
     input logic [2 : 0] in,
     input logic enable, //Output of multiplexer is 0 unless enable is high.
-    output logic [7 : 0] out,
+    output logic [7 : 0] out
 );
     always_comb begin
         if (enable) begin
@@ -24,7 +24,7 @@ module Multiplexer_3_en (
             endcase
         end
         else begin
-            out = 4'b0
+            out = 4'b0;
         end
     end
 endmodule
