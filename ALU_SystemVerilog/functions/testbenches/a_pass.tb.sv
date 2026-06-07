@@ -1,6 +1,7 @@
 /*
 Project: 8-Bit ALU
-Authors: Nolan Kessler, Maxwell Fabian, John O'Connor
+Author: John O'Connor
+Sources: N/A
 
 Testbench file for the A passthorugh module (A_pass.sv).
 */
