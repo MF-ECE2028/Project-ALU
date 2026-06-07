@@ -61,7 +61,7 @@ logic [3:0]  i;
                 // the outputs, and the done flag can be raised so the ALU
                 // knows the operation has concluded.
                 end else begin
-                    {cout, Y}   <= result;
+                    {cout, Y}   = result;
                     //Since the output of a multiplier is 2x number of
                     // input bits and our output is staying at 8 bits
                     // the overflow flag needs to be raised whenever
@@ -70,12 +70,10 @@ logic [3:0]  i;
                     //Done set twice here to hopefully combat race conditions
                     if(cout > 0) begin 
                         overflow <= 1; 
-                        done     <= 1'b1;
-                    end else begin
+                    end
                     //Raising the done flag should always be the last
                     // thing it does
-                        done        <= 1'b1;
-                    end
+                    done        <= 1'b1;
                 end
             end
         end
