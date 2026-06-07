@@ -14,14 +14,14 @@
 \PYG{+w}{    }\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{enable}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{            }\PYG{k}{case}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{in}\PYG{p}{)}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b000}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0001}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b001}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0010}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b010}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}0100}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b011}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0000\PYGZus{}1000}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b100}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0001\PYGZus{}0000}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b101}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0010\PYGZus{}0000}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b110}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b0100\PYGZus{}0000}\PYG{p}{;}
-\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b111}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{16\PYGZsq{}b1000\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b000}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0000\PYGZus{}0001}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b001}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0000\PYGZus{}0010}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b010}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0000\PYGZus{}0100}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b011}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0000\PYGZus{}1000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b100}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0001\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b101}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0010\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b110}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0100\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{                }\PYG{l+m+mb}{3\PYGZsq{}b111}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b1000\PYGZus{}0000}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{endcase}
 \PYG{+w}{        }\PYG{k}{end}
 \PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}

@@ -28,9 +28,9 @@ module alu (
     wire logic _done;
     logic reg_en;
     assign reg_en = en & ~_rlk; //Enable or disable updating input registers
-    assign y = _y & {8{en}};
-    assign overflow = _overflow & en;
-    assign done = _done & en;
+    assign y = _y & {8{en & reg_en}};
+    assign overflow = _overflow & en & reg_en;
+    assign done = _done & en & reg_en;
 
     Register_en_rstn #(1) Rlk ( //Lock register - prevents output of Ra and Rb and Rop from changing after rising edge of en
         .clk(~clk),

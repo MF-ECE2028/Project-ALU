@@ -5,4 +5,4 @@ Warning (10273): Verilog HDL warning at bw_and.sv(17): extended using "x" or "z"
 Warning (10273): Verilog HDL warning at addition.sv(16): extended using "x" or "z" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv Line: 16
 Warning (10273): Verilog HDL warning at bw_or.sv(17): extended using "x" or "z" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv Line: 17
 Warning (10273): Verilog HDL warning at subtraction.sv(17): extended using "x" or "z" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv Line: 17
-Warning (10273): Verilog HDL warning at mult.sv(26): extended using "x" or "z" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 26
+Warning (10273): Verilog HDL warning at mult.sv(30): extended using "x" or "z" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 30

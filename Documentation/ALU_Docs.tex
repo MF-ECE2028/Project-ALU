@@ -135,6 +135,8 @@ can be read from Y, and OVER. A timing diagram of a normal ALU operation is show
     \label{alu_timing}
 \end{figure}
 
+\pagebreak
+
 \section{Design and Implementation}
 This ALU is designed to utilize modular operations, to allow the design to allow for easy testing during the design process,
 and potential rapid addition of new functions in the future. These modular operations are then linked together with
@@ -191,43 +193,48 @@ The following sections will include a breif description of the implementation of
 SystemVerilog code.
 
 \subsubsection{A Pass}
-Description here
+A Passthrough passes the 8-bit operand A to the output Y without modification. In the case enable is low, all outputs float to Z.
 \subsubsection*{Listing: a\_pass.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/a_pass.sv"}
 
 
 \subsubsection{B Pass}
-Description here
+B Passthrough passes the 8-bit operand B to the output Y without modification. In the case enable is low, all outputs float to Z.
 \subsubsection*{Listing: b\_pass.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/b_pass.sv"}
 
 
 \subsubsection{Bitwise AND}
-Description here
+Bitwise AND performs the logical AND operation on each corresponding bit of the operands A and B, setting the result of this to Y.
+A bit in Y is 1 if and only if the corresponding bits and A and B are booth 1. When enable is low, all outputs float.
 \subsubsection*{Listing: bw\_and.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/bw_and.sv"}
 
 
 \subsubsection{Bitwise OR}
-Description here
+Bitwise OR performs the logical OR operation on each corresponding bit of the operands A and B, setting the result of this to Y. 
+A bit in Y is 1 if either or both corresponding bits in A and B are 1. When enable is low, all outputs float.
 \subsubsection*{Listing: bw\_or.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/bw_or.sv"}
 
 
 \subsubsection{Bitwise XOR}
-Description here
+Bitwise XOR performs the logical XOR operation on each corresponding bit of the operands A and B, setting the result of this to Y.
+A bit in Y is 1 if either the of the corresponding bits in A or B is 1 but both. When enable is low, all outputs float.
 \subsubsection*{Listing: bw\_xor.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/bw_xor.sv"}
 
 
 \subsubsection{Addition}
-Description here
+Addition performs unsigned addition on two 8-bit operands A and B, setting the result of this to Y. In the case where the result
+of A + B exceeds 255, overflow will be set to 1, reprsenting the most significant bit. When enable is low, all outputs float.
 \subsubsection*{Listing: addition.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/addition.sv"}
 
 
 \subsubsection{Subtraction}
-Description here
+Subtraction performs unsigned subtraction on two 8-bit operands A and B, setting the result of this to Y. This implementation uses 
+the two's compliment of B and computes subtraction by adding A to the two's compliment of B. When enable is low, all outputs float.
 \subsubsection*{Listing: subtraction.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/subtraction.sv"}
 
@@ -244,17 +251,20 @@ asynchronously resetabble register with enable, a 3 bit multiplexer with enable,
 details and SystemVerilog listings for these modules are provided in the subsequent sections.
 
 \subsubsection{3 Bit Multiplexer}
-Description here
+The 3-bit multiplexer takes a 3-bit opcode input and converts it to an 8-bit, one-hot signal used to enable a given operation module. 
+When enable is low, all outputs are set to 0.
 \subsubsection*{Listing: multiplexer\_3\_en.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv"}
 
 \subsubsection{Variable Width Register}
-Description Here
+The variable width register is a configurable register, with a default width of 1, used to store the value of the in signal. If enable is high, 
+the input "in" is copied to the output on the rising clock edge. Then, when enable is low, the register holds the value of out. If reset goes 
+low, the output is immediately set to 0.
 \subsubsection*{Listing: register\_en\_rstn.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/register_en_rstn.sv"}
 
 \subsubsection{Counter}
-Description here
+The counter is an N width counting module that increments by the input addBy. On the rising clock edge, the counter increments itself 
 \subsubsection*{Listing: counter.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/counter.sv"}
 
