@@ -1,3 +1,11 @@
+/*
+Project: 8-Bit ALU
+Author: John O'Connor
+Sources: N/A
+
+Module for A passthrough
+*/
+
 module A_pass(
 	input logic [7:0] A,
 	input logic enable,
@@ -7,9 +15,9 @@ module A_pass(
 	
 );
 
-	assign Y = enable ? A : 8'bz;
-	assign done = enable ? 1'b1 : 1'bz;
-    assign overflow = enable ? 1'b0 : 1'bz;
+	assign Y = enable ? A : 8'bz; //Assigns Y when enable is high
+	assign done = enable ? 1'b1 : 1'bz;  // Done is high when enable is high
+	assign overflow = enable ? 1'b0 : 1'bz;  // No overflow occurs for passthrough
 	
 
 
