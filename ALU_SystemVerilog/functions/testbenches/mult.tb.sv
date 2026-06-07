@@ -107,27 +107,27 @@ task validate();
             end
         end
     end
-    
-    //This is a special case test for when the value should be
-    // massively large but will appear much smaller due to the limitation
-    // of the output.
-    //
-    //Same as the looped cases above
-    A2 = 255;
-    B2 = 128;
-    A_input = A2; 
-    B_input = B2; 
-    {cout_exp, Y_exp} = A2 * B2;
+    if(enable == 1) begin
+        //This is a special case test for when the value should be
+        // massively large but will appear much smaller due to the limitation
+        // of the output.
+        //
+        //Same as the looped cases above
+        A2 = 255;
+        B2 = 128;
+        A_input = A2; 
+        B_input = B2; 
+        {cout_exp, Y_exp} = A2 * B2;
 
-    multiply();
-    #5;
+        multiply();
+        #5;
 
-    if(cout_exp !== cout_test && Y_exp !== Y_test && Done_test !== Done_exp) begin
-        $display("Failed at %dA * %dB; Y=%d and Y_exp=%d and cout=%d and cout_exp=%d",
-            A2, B2, Y_test, Y_exp, cout_test, cout_exp);
-        //$stop;
-    end
-       
+        if(cout_exp !== cout_test && Y_exp !== Y_test && Done_test !== Done_exp) begin
+            $display("Failed at %dA * %dB; Y=%d and Y_exp=%d and cout=%d and cout_exp=%d",
+                A2, B2, Y_test, Y_exp, cout_test, cout_exp);
+            //$stop;
+        end
+    end   
 endtask
 
 initial begin
