@@ -51,7 +51,12 @@
 
 
 \maketitle
-%Title page here
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics*[scale=0.45]{./Diagrams/full_alu_schematic.png}
+\end{figure*}
+
 \pagebreak
 
 \section{8 Bit ALU Functional Description}
@@ -124,6 +129,8 @@ is low. When DONE goes high the ALU is in the "done" state. The operation is fin
 can be read from Y, and OVER. A timing diagram of a normal ALU operation is shown in figure \ref{alu_timing}.
 
 \begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/timing_diagram.png}
     \caption{ALU Operation Timing Diagram}
     \label{alu_timing}
 \end{figure}

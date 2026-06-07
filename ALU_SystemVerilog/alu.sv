@@ -7,7 +7,7 @@ Main file for 8-Bit ALU implementation. Integrates modular functions with select
 */
 
 module alu (
-    input logic en, //Enable - ALU copies current inputs to internal registers and begins execution on rising edge. All outputs are zero unless this input is high.
+    input logic en, //Enable - ALU copies current inputs to internal registers and begins execution when high. All outputs are zero unless this input is high.
     input logic clk,
     input logic rst_n, //Active low reset
     input logic [7:0] a, b, //8 bit operand inputs
@@ -17,11 +17,16 @@ module alu (
     output logic done //done flag, goes high when operation is complete
 );
     
-    logic [15:0] cs; //chip select lines
-    logic reg_en = en & ~Rlk.out; //Enable or disable updating input registers
+    logic [7:0] cs; //operation select lines
+	 logic _rlk;
+	 logic [7:0] _a;
+	 logic [7:0] _b;
+	 logic [2:0] _op;
     logic [7:0] _y;
+	 logic reg_en;
     logic _overflow;
     logic _done;
+	 assign reg_en = en & _rlk; //Enable or disable updating input registers
     assign y = _y & {8{en}};
     assign overflow = _overflow & en;
     assign done = _done & en;
@@ -30,104 +35,108 @@ module alu (
         .clk(~clk),
         .enable(en),
         .rst_n(rst_n),
-        .in(en)
+        .in(en),
+		  .out(_rlk)
     );
 
     Register_en_rstn #(8) Ra ( //Operand A register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
-        .in(a)
+        .in(a),
+		  .out(_a)
     );
 
     Register_en_rstn #(8) Rb ( //Operand B register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
-        .in(b)
+        .in(b),
+		  .out(_b)
     );
 
     Register_en_rstn #(4) Rop ( //Opcode Register
         .clk(clk),
         .enable(reg_en),
         .rst_n(rst_n),
-        .in(op)
+        .in(op),
+		  .out(_op)
     );
     
     Multiplexer_3_en M_cs (
-        .in(op),
-        .enable(Rlk.out),
+        .in(_op),
+        .enable(_rlk),
         .out(cs)
     );
 
     //Operation Instances
     A_pass a_pass (
-        .A(Ra.out),
-        .enable(Rop.out[0]),
+        .A(_a),
+        .enable(cs[0]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     B_pass b_pass (
-        .B(Rb.out),
-        .enable(Rop.out[1]),
+        .B(_b),
+        .enable(cs[1]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Bitwise_AND bw_and (
-        .A(Ra.out),
-        .B(Rb.out),
-        .enable(Rop.out[2]),
+        .A(_a),
+        .B(_b),
+        .enable(cs[2]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Bitwise_OR bw_or (
-        .A(Ra.out),
-        .B(Rb.out),
-        .enable(Rop.out[3]),
+        .A(_a),
+        .B(_b),
+        .enable(cs[3]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Bitwise_XOR bw_xor (
-        .A(Ra.out),
-        .B(Rb.out),
-        .enable(Rop.out[4]),
+        .A(_a),
+        .B(_b),
+        .enable(cs[4]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Addition addition (
-        .A(Ra.out),
-        .B(Rb.out),
-        .enable(Rop.out[5]),
+        .A(_a),
+        .B(_b),
+        .enable(cs[5]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Subtraction subtraction (
-        .A(Ra.out),
-        .B(Rb.out),
-        .enable(Rop.out[6]),
+        .A(_a),
+        .B(_b),
+        .enable(cs[6]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)
     );
 
     Mult_8bit multiplication (
-        .A(Ra.out),
-        .B(Rb.out),
+        .A(_a),
+        .B(_b),
         .clock(clk),
         .reset_n(rst_n),
-        .enable(Rop.out[7]),
+        .enable(cs[7]),
         .Y(_y),
         .done(_done),
         .overflow(_overflow)

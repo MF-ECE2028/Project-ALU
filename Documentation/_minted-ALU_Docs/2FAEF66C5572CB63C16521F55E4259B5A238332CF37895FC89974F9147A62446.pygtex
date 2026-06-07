@@ -1,0 +1,81 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+\PYG{c+cm}{Sources:}
+\PYG{c+cm}{    *https://en.wikipedia.org/wiki/Binary\PYGZus{}multiplier\PYGZsh{}Single\PYGZhy{}cycle\PYGZus{}multiplier}
+\PYG{c+cm}{    *https://stackoverflow.com/questions/63655634/8\PYGZhy{}bit\PYGZhy{}sequential\PYGZhy{}multiplier\PYGZhy{}using\PYGZhy{}add\PYGZhy{}and\PYGZhy{}shift}
+\PYG{c+cm}{*/}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Mult\PYGZus{}8bit}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{c+c1}{//8\PYGZhy{}bit Operand inputs }
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{,}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{p}{,}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{c+c1}{//Enable \PYGZhy{} sets output of operator to floating}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{// 8\PYGZhy{}bit Output}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Done Flag }
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{c+c1}{//Overflow Flag}
+\PYG{p}{);}
+
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{result}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{multiplicand}\PYG{p}{;}\PYG{+w}{ }
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{4}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+
+
+\PYG{+w}{    }\PYG{k}{always}\PYG{+w}{ }\PYG{p}{@(}\PYG{k}{posedge}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clock}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{k}{negedge}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{k}{negedge}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{))}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{enable}\PYG{p}{)}\PYG{k}{begin}
+\PYG{+w}{            }\PYG{n}{Y}\PYG{+w}{        }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{done}\PYG{+w}{     }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{reset\PYGZus{}n}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                }\PYG{n}{done}\PYG{+w}{            }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{result}\PYG{+w}{          }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{multiplicand}\PYG{+w}{    }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{i}\PYG{+w}{               }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{                }\PYG{c+c1}{//trig\PYGZus{}iterator   \PYGZlt{}= 0;}
+\PYG{+w}{                }\PYG{c+c1}{//trig\PYGZus{}addstore   \PYGZlt{}= 0;}
+\PYG{+w}{            }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+
+\PYG{+w}{                }\PYG{k}{if}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                    }\PYG{n}{multiplicand}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{multiplicand}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+
+\PYG{+w}{                    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{B}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                        }\PYG{c+c1}{//trig\PYGZus{}addstore \PYGZlt{}= 1\PYGZsq{}b1;}
+\PYG{+w}{                        }\PYG{n}{result}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{result}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{multiplicand}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{k}{end}
+\PYG{+w}{                }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{    }
+\PYG{+w}{                }\PYG{c+c1}{//trig\PYGZus{}iterator \PYGZlt{}= 1\PYGZsq{}b1;}
+
+\PYG{+w}{                }\PYG{k}{end}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                    }\PYG{p}{\PYGZob{}}\PYG{n}{overflow}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y}\PYG{p}{\PYGZcb{}}\PYG{+w}{   }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{result}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{done}\PYG{+w}{            }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{;}
+\PYG{+w}{                }\PYG{k}{end}
+
+\PYG{+w}{                }\PYG{c+c1}{//trig\PYGZus{}addstore \PYGZlt{}= 0;}
+\PYG{+w}{                }\PYG{c+c1}{//trig\PYGZus{}iterator \PYGZlt{}= 0;}
+\PYG{+w}{            }\PYG{k}{end}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{    }\PYG{k}{end}
+
+\PYG{c+cm}{/*}
+\PYG{c+cm}{CounterNbit \PYGZsh{}(.N(7)) Iterator (}
+\PYG{c+cm}{    .clock(clock),}
+\PYG{c+cm}{    .reset\PYGZus{}n(reset\PYGZus{}n), .enable\PYGZus{}n(trig\PYGZus{}iterator),}
+\PYG{c+cm}{    .addBy(1),}
+\PYG{c+cm}{    .count(i)}
+\PYG{c+cm}{);}
+
+\PYG{c+cm}{CounterNbit \PYGZsh{}(.N(8)) AddStore (}
+\PYG{c+cm}{    .clock(clock),}
+\PYG{c+cm}{    .reset\PYGZus{}n(reset\PYGZus{}n), .enable\PYGZus{}n(trig\PYGZus{}addstore),}
+\PYG{c+cm}{    .addBy(multiplicand),}
+\PYG{c+cm}{    .count(result)}
+
+\PYG{c+cm}{);}
+\PYG{c+cm}{*/}
+\PYG{k}{endmodule}
+
+
+\end{Verbatim}

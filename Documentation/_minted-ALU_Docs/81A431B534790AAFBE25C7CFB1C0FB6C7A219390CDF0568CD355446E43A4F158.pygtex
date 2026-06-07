@@ -9,7 +9,7 @@
 \PYG{k}{module}\PYG{+w}{ }\PYG{n}{Multiplexer\PYGZus{}3\PYGZus{}en}\PYG{+w}{ }\PYG{p}{(}
 \PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}
 \PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Output of multiplexer is 0 unless enable is high.}
-\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}
 \PYG{p}{);}
 \PYG{+w}{    }\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{enable}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
@@ -25,7 +25,7 @@
 \PYG{+w}{            }\PYG{k}{endcase}
 \PYG{+w}{        }\PYG{k}{end}
 \PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{begin}
-\PYG{+w}{            }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{4\PYGZsq{}b0}
+\PYG{+w}{            }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{4\PYGZsq{}b0}\PYG{p}{;}
 \PYG{+w}{        }\PYG{k}{end}
 \PYG{+w}{    }\PYG{k}{end}
 \PYG{k}{endmodule}

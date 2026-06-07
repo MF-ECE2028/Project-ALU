@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  5 JUN 2026 20:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 10:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -678,55 +678,75 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
  (C:\Users\nr308\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<./Diagrams/full_alu_schematic.png, id=4, 1111.90407pt x 911.65594pt>
+File: ./Diagrams/full_alu_schematic.png Graphic file (type png)
+<use ./Diagrams/full_alu_schematic.png>
+Package pdftex.def Info: ./Diagrams/full_alu_schematic.png  used on input line 57.
+(pdftex.def)             Requested size: 500.3522pt x 410.24138pt.
+ [1
 
-{C:/Users/nr308/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (12.9304pt too wide) in paragraph at lines 72--84
+{C:/Users/nr308/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Diagrams/full_alu_schematic.png>]
+Overfull \hbox (12.9304pt too wide) in paragraph at lines 77--89
  [][] 
  []
 
-<./Diagrams/alu_black_box_diagram.png, id=11, 405.515pt x 370.38374pt>
+<./Diagrams/alu_black_box_diagram.png, id=16, 405.515pt x 370.38374pt>
 File: ./Diagrams/alu_black_box_diagram.png Graphic file (type png)
 <use ./Diagrams/alu_black_box_diagram.png>
-Package pdftex.def Info: ./Diagrams/alu_black_box_diagram.png  used on input line 90.
+Package pdftex.def Info: ./Diagrams/alu_black_box_diagram.png  used on input line 95.
 (pdftex.def)             Requested size: 202.75699pt x 185.1914pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./Diagrams/alu_black_box_diagram.png>] [3]
-<./Diagrams/cl_diagram.png, id=23, 767.86874pt x 371.3875pt>
+[2 <./Diagrams/alu_black_box_diagram.png>]
+<./Diagrams/timing_diagram.png, id=24, 657.45625pt x 464.73625pt>
+File: ./Diagrams/timing_diagram.png Graphic file (type png)
+<use ./Diagrams/timing_diagram.png>
+Package pdftex.def Info: ./Diagrams/timing_diagram.png  used on input line 133.
+(pdftex.def)             Requested size: 328.72733pt x 232.36755pt.
+ [3]
+<./Diagrams/cl_diagram.png, id=28, 767.86874pt x 371.3875pt>
 File: ./Diagrams/cl_diagram.png Graphic file (type png)
 <use ./Diagrams/cl_diagram.png>
-Package pdftex.def Info: ./Diagrams/cl_diagram.png  used on input line 170.
+Package pdftex.def Info: ./Diagrams/cl_diagram.png  used on input line 177.
 (pdftex.def)             Requested size: 383.93343pt x 185.69328pt.
-<./Diagrams/sequential_logic_diagram.png, id=24, 767.86874pt x 371.3875pt>
+<./Diagrams/sequential_logic_diagram.png, id=29, 767.86874pt x 371.3875pt>
 File: ./Diagrams/sequential_logic_diagram.png Graphic file (type png)
 <use ./Diagrams/sequential_logic_diagram.png>
-Package pdftex.def Info: ./Diagrams/sequential_logic_diagram.png  used on input line 178.
+Package pdftex.def Info: ./Diagrams/sequential_logic_diagram.png  used on input line 185.
 (pdftex.def)             Requested size: 383.93343pt x 185.69328pt.
- (_minted-ALU_Docs/monokai.pygstyle) (_minted-ALU_Docs/7C90493FBF78B1990C9D11A3E0EE1A55897A57DCF1003A728A88EE3DA210A17F.pygtex) [4] [5 <./Diagrams/cl_diagram.png> <./Diagrams/sequential_logic_diagram.png>] (_minted-ALU_Docs/CA50419FE852FC428C18208272110F055B1A1A2C4440A17762D010AFF4173FF5.pygtex) (_minted-ALU_Docs/A771D263A8EA1EFFF2FD0ADEC0BF6F0CFD0635E6003783AADF3EDB9D0CC3659C.pygtex) [6] (_minted-ALU_Docs/5E449D7999FF8CE30B762B76F80200CA9B1EFDBFF77E9B83D5311582B6DC0A6E.pygtex) (_minted-ALU_Docs/572C70828FF4F3F0356A5E7332303688567FFF6C0C8B7FD529B9AADC02CFE662.pygtex) [7] (_minted-ALU_Docs/27D35C1EBB9C4FE9E94A306EFDEF9484677E753CAD826C19648297D4794ACE7E.pygtex) (_minted-ALU_Docs/5DE77B18C2C4C6932082CE05DAD5ADA902B1CC10B62EDA7966B89847264BA0BC.pygtex) [8] (_minted-ALU_Docs/4F45DA9619989F33E2672D44FFC67FA1A238332CF37895FC89974F9147A62446.pygtex
+ (_minted-ALU_Docs/monokai.pygstyle) (_minted-ALU_Docs/7C90493FBF78B1990C9D11A3E0EE1A55897A57DCF1003A728A88EE3DA210A17F.pygtex) [4 <./Diagrams/timing_diagram.png>] [5 <./Diagrams/cl_diagram.png>] (_minted-ALU_Docs/CA50419FE852FC428C18208272110F055B1A1A2C4440A17762D010AFF4173FF5.pygtex) [6 <./Diagrams/sequential_logic_diagram.png>] (_minted-ALU_Docs/A771D263A8EA1EFFF2FD0ADEC0BF6F0CFD0635E6003783AADF3EDB9D0CC3659C.pygtex) (_minted-ALU_Docs/5E449D7999FF8CE30B762B76F80200CA9B1EFDBFF77E9B83D5311582B6DC0A6E.pygtex) [7] (_minted-ALU_Docs/28DC6CA836ECD0343CBDD0F747178D8C567FFF6C0C8B7FD529B9AADC02CFE662.pygtex) (_minted-ALU_Docs/27D35C1EBB9C4FE9E94A306EFDEF9484677E753CAD826C19648297D4794ACE7E.pygtex) [8] (_minted-ALU_Docs/5DE77B18C2C4C6932082CE05DAD5ADA902B1CC10B62EDA7966B89847264BA0BC.pygtex) (_minted-ALU_Docs/2FAEF66C5572CB63C16521F55E4259B5A238332CF37895FC89974F9147A62446.pygtex
 Overfull \hbox (35.76138pt too wide) in paragraph at lines 7--7
 \OT1/cmtt/m/n/10 *https://stackoverflow.com/questions/63655634/8[]bit[]sequential[]multiplier[]using[]add[]and[]shift[]|  
  []
 
-) [9] [10] (_minted-ALU_Docs/FE57535334DD9889C07FF126E3C21AE17A219390CDF0568CD355446E43A4F158.pygtex) (_minted-ALU_Docs/0D52EAFEDA4F80301C917BBB8DCAC109E5F254C395D832A558C5DA8CF54D838A.pygtex) [11] (_minted-ALU_Docs/661F6FA418D8A3AC77F525886EC71722714F47643813E7E98B04C418E5327FF9.pygtex) [12] [13] (ALU_Docs.aux)
+) [9]
+Underfull \vbox (badness 10000) detected at line 238
+ []
+
+
+Overfull \vbox (2.84102pt too high) detected at line 238
+ []
+
+[10] (_minted-ALU_Docs/81A431B534790AAFBE25C7CFB1C0FB6C7A219390CDF0568CD355446E43A4F158.pygtex) [11] (_minted-ALU_Docs/0D52EAFEDA4F80301C917BBB8DCAC109E5F254C395D832A558C5DA8CF54D838A.pygtex) [12] (_minted-ALU_Docs/661F6FA418D8A3AC77F525886EC71722714F47643813E7E98B04C418E5327FF9.pygtex) [13] (ALU_Docs.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31399 strings out of 475248
- 774660 string characters out of 5757813
- 1942785 words of memory out of 5000000
- 52372 multiletter control sequences out of 15000+600000
+ 31415 strings out of 475248
+ 775248 string characters out of 5757813
+ 1943785 words of memory out of 5000000
+ 52388 multiletter control sequences out of 15000+600000
  568160 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,11n,93p,781b,694s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ALU_Docs.pdf (13 pages, 194548 bytes).
+Output written on ALU_Docs.pdf (13 pages, 249619 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 44 words of extra memory for PDF output out of 10000 (max. 10000000)
 
