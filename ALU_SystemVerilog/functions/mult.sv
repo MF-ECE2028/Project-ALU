@@ -70,6 +70,8 @@ logic [3:0]  i;
                 //Done set twice here to hopefully combat race conditions
                 if(cout > 0) begin 
                     overflow <= 1; 
+                end else begin
+                    overflow <= 0;
                 end
                 //Raising the done flag should always be the last
                 // thing it does
