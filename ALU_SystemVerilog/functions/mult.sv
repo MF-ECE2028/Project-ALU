@@ -31,7 +31,6 @@ logic [3:0]  i;
             result          <= 0;
             multiplicand    <= A;
             i               <= 0;
-            cout            <= 0;
         end
         //Sets the outputs to floating when the enable is off
         if(~enable)begin
