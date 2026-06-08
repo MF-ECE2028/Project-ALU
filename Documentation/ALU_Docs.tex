@@ -70,7 +70,7 @@ operations which may take more than one clock cycle, the CLK input must be conne
 to a clock signal. The ALU provides one 8 bit result output (Y) an overflow flag (OVER)
 and a done flag (DONE). A table of the ALU's supported operations is given in table 
 \ref{operations_table}. A diagram of the inputs and outputs is shown in figure \ref{alu_io_diagram}.
-A descriton of the function of each bus/pin is given in table \ref{alu_io_table}.
+A description of the function of each bus/pin is given in table \ref{alu_io_table}.
 
 
 \begin{table}[h]
@@ -146,7 +146,7 @@ integrated together with structures to allow for the selection of operations, fo
 
 \subsection{Operation Modules}
 Each operation module accepts the inputs, and supplies the outputs shown in table \ref{operation_io_table}.
-All outputs of the modules are routed through tristate buffers - the outputs of an operation are floating
+All outputs of the modules are routed through tri-state buffers - the outputs of an operation are floating
 unless its enable pin is high.
 
 There are two primary types of operation modules utilized in this ALU, combinational logic operations,
@@ -191,7 +191,7 @@ this type of module is shown in \ref{seq_module_diagram}.
     \label{operation_io_table}
 \end{table}
 
-The following sections will include a breif description of the implementation of each ALU operation, and a listing of its
+The following sections will include a brief description of the implementation of each ALU operation, and a listing of its
 SystemVerilog code.
 
 \subsubsection{A Pass}
@@ -229,7 +229,7 @@ A bit in Y is 1 if either the of the corresponding bits in A or B is 1 but both.
 
 \subsubsection{Addition}
 Addition performs unsigned addition on two 8-bit operands A and B, setting the result of this to Y. In the case where the result
-of A + B exceeds 255, overflow will be set to 1, reprsenting the most significant bit. When enable is low, all outputs float.
+of A + B exceeds 255, overflow will be set to 1, representing the most significant bit. When enable is low, all outputs float.
 \subsubsection*{Listing: addition.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/addition.sv"}
 
@@ -262,7 +262,7 @@ This can also be modeled as a state machine with 3 states, an initial state, mul
 
 \subsection{ALU Utility Modules}
 Three SystemVerilog modules were developed to be used within ALU operations or the ALU itself. These include a variable width
-asynchronously resetabble register with enable, a 3 bit multiplexer with enable, and a variable width counter. The Implementation
+asynchronously resettable register with enable, a 3 bit multiplexer with enable, and a variable width counter. The Implementation
 details and SystemVerilog listings for these modules are provided in the subsequent sections.
 
 \subsubsection{Opcode Decoder}
@@ -352,7 +352,7 @@ at a time, resetting between tests.
 \subsubsection*{Listing: alu.tb.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/alu.tb.sv"}
 
-\subsection{Simuation Testing}
+\subsection{Simulation Testing}
 Simulation can be done using ModelSim. To accompany this, we can run a do file which runs all test benches.
 \subsubsection*{Listing: ALUSim.do}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALUSim.do"}
@@ -360,8 +360,8 @@ Simulation can be done using ModelSim. To accompany this, we can run a do file w
 \subsubsecton*{Do File Output}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"do_file_output.txt"}
 
-\subsubsection*{ALU Testbench Waveform}
-We can analyze the ALU test bench's wavform using the waveform
+\subsubsection*{ALU Test Bench Waveform}
+We can analyze the ALU test bench's waveform using the waveform
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{./Diagrams/alu_waveform.png}
@@ -376,7 +376,7 @@ while we input operand B.
 
 NOLAN ADD MORE INFO HERE
 
-To display Y on the seven segment display, Y goies to a seven segment decoder with two outputs: Display 0 
+To display Y on the seven segment display, Y goes to a seven segment decoder with two outputs: Display 0 
 and Display 1.
 
 \subsection*{Hardware Implementation Schematic}
@@ -387,16 +387,16 @@ and Display 1.
     \label{ALU Hardware Implementation Schematic}
 \end{figure}
 
-\subsection*{Hardware Implementation State Machiene}
+\subsection*{Hardware Implementation State Machine}
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{./Diagrams/demo_state_machiene.png}
-    \caption{ALU Hardware Implementation State Machiene}
-    \label{ALU Hardware Implementation State Machiene}
+    \caption{ALU Hardware Implementation State Machine}
+    \label{ALU Hardware Implementation State Machine}
 \end{figure}
 
 \pagebreak
-\section{Reflection on Desgin Process}
+\section{Reflection on Design Process}
 Implementing the project overall when well. Implementing each individual combinational modules
 and getting them working in the larger ALU module was quick and relatively simple. However
 we ran into some complications when attempting to implement a more complicated sequential
