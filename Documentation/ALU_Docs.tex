@@ -284,41 +284,64 @@ enabling the decoder, which will select the requested function. At this point th
 
 
 \section{Design Verification}
-Design verification is done using SystemVerilog test benches. Each operation module, utility module, and the ALU itself has their own respective test bench.
+Design verification is done using SystemVerilog test benches. Each operation module has it own test bench to test expected values compared to simulated.
+The ALU itself its own test bench which ensures the ALU design and utility modules function as expected.
 
-\subsection{Combination Logic Operation Test Benches}
+\subsection{Operation Test Benches}
 Each operation module has a test bench. All test benches with the exception of the multiplication test bench test all possible combinations of operands as well as testing the case where the enable signal is low.
 
 \subsubsection{A Pass}
-\subsection*{Listing: a\_pass.sv}
+\subsection*{Listing: a\_pass.tb.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
-
 
 
 \subsubsection{B Pass}
-\subsection*{Listing: b\_pass.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}
-{"../ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv"}
+\subsection*{Listing: b\_pass.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv"}
 
 
-\subsubsection{A Pass}
-\subsection*{Listing: a\_pass.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+\subsubsection{Bitwise AND}
+\subsection*{Listing: and.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/and.tb.sv"}
 
 
-\subsubsection{A Pass}
-\subsection*{Listing: a\_pass.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+\subsubsection{Bitwise OR}
+\subsection*{Listing: bw\_or.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/bw_or.tb.sv"}
 
 
+\subsubsection{Bitwise XOR}
+\subsection*{Listing: bw\_xor.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv"}
 
 
-\subsection{Sequential Logic Operation Test Benches}
-\subsection{Utility Test Benches}
+\subsubsection{Addition}
+\subsection*{Listing: addition.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/addition.tb.sv"}
+
+
+\subsubsection{Subtraction}
+\subsection*{Listing: subtraction.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/subtraction.tb.sv"}
+
+\subsubsection{Multiplication}
+\subsection*{Listing: mult.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/mult.tb.sv"}
+
 
 \subsection{ALU Test Bench}
+The ALU test bench tests the ALU design as well as the functionality of the utility modules. It iterates through each operation by testing one opcode
+at a time, resetting between tests.
+\subsection*{Listing: alu.tb.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/alu.tb.sv"}
 
-\subsection{Do File and Testing}
+\subsection{Simuation Testing}
+Simulation can be done using ModelSim. To accompany this, we can run a do file which runs all test benches.
+\subsection*{Listing: ALUSim.do}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/ALUSim.do"}
+\subsection*{ALU Testbench Waveform}
+We can analyze the ALU test bench's wavform using the waveform
+
 
 \section{Hardware Validation}
 
