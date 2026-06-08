@@ -1,3 +1,12 @@
+/*
+Project: 8-Bit ALU
+Author: Max Fabian
+Sources:
+    *https://en.wikipedia.org/wiki/Binary_multiplier#Single-cycle_multiplier
+    *https://stackoverflow.com/questions/63655634/8-bit-sequential-multiplier-using-add-and-shift
+
+Sequential Multiplier Test Bench. Tests one special case, and all possible outputs in multiplying 2 6-bit busses
+*/
 module Mult_8bitTestbench();
 
 //Module Inputs
