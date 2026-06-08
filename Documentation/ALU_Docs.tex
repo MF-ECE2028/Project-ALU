@@ -240,17 +240,17 @@ the two's compliment of B and computes subtraction by adding A to the two's comp
 
 
 \subsubsection{Multiplication}
-Multiplication performs a binary sequential multiplication by running for 9 clock cycles for 8 cycles the value for A has a logical left shift applied and is added to the result register if the equivalent bit in B is high. This functions similarly to writing out long multiplication by hand. The schematic is shown in Figure \ref(fig:MultSchematic). 
+Multiplication performs a binary sequential multiplication by running for 9 clock cycles for 8 cycles the value for A has a logical left shift applied and is added to the result register if the equivalent bit in B is high. This functions similarly to writing out long multiplication by hand. The schematic is shown in Figure \ref{fig:MultSchematic}. 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[scale=0.5]{./Diagrams/mult_diagram.png}
+		\includegraphics[scale=0.3]{./Diagrams/mult_diagram.png}
 		\caption{Schematic of the Multiplication Module}
 		\label{fig:MultSchematic}
 	\end{figure}
-This can also be modeled as a state machine with 3 states, an initial state, multiplication state, and an finished state. Where the initial state sets the registers to their reset state, sending to the multiplication state. The multiplication state shifts the multiplicand and adds it to the result when conditions are met, and re-enters the multiplication state until it has completed this state 8 times, exiting to the final state. The final state sets the done flag high and sets the output and overflow accordingly. This can be visualized in Figure \ref(fig:MultStateMach).
+This can also be modeled as a state machine with 3 states, an initial state, multiplication state, and an finished state. Where the initial state sets the registers to their reset state, sending to the multiplication state. The multiplication state shifts the multiplicand and adds it to the result when conditions are met, and re-enters the multiplication state until it has completed this state 8 times, exiting to the final state. The final state sets the done flag high and sets the output and overflow accordingly. This can be visualized in Figure \ref{fig:MultStateMach}.
 	\begin{figure}[!h]
 		\centering
-		\includegraphics[scale=0.5]{./Diagrams/mult_state.png}
+		\includegraphics[scale=0.7]{./Diagrams/mult_state.png}
 		\caption{State Machine Diagram for the Multiplication Module}
 		\label{fig:MultStateMach}
 	\end{figure} 
