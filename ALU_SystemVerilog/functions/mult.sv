@@ -8,20 +8,22 @@ Sources:
 Sequential Multiplier, functions similarly to doing long multiplication by hand
 */
 module Mult_8bit (
-    input logic [7:0] A, B,//8-bit Operand inputs 
-    input logic clock, 
-    input logic reset_n, 
-    input logic enable,//Enable - sets output of operator to floating
-    output logic [7:0] Y, // 8-bit Output
-    output logic done, //Done Flag 
-    output logic overflow //Overflow Flag
+    input logic [7:0] A, B, //8-bit Operand inputs 
+    input logic clock,      //clock to allow for sequential logic
+    input logic reset_n,    //Resets internal registers to base state
+    input logic enable,     //Enable - sets output of operator to floating
+    output logic [7:0] Y,   // 8-bit Output
+    output logic done,      //Done Flag 
+    output logic overflow   //Overflow Flag
 );
 
 //Registers for helping track the current sequence in the multiplication 
 logic [15:0] result; 
-logic [7:0]  cout;
-logic [15:0]  multiplicand; 
+logic [15:0] multiplicand; 
 logic [3:0]  i;
+
+//Wire for the highest 8 bits of result, to help deconstruct overflow
+logic [7:0]  cout;
 
     //Needs to trigger only when enable is on or when reseting
     always @(posedge (clock && enable) or negedge reset_n or negedge(enable)) begin
@@ -30,6 +32,9 @@ logic [3:0]  i;
             result          <= 0;
             multiplicand    <= A;
             i               <= 0;
+
+            //Functions as equivalent to enable to them to function reasonably
+            // asynchronus
             Y        <= 8'bz;
             done     <= 1'bz;
             overflow <= 1'bz;
@@ -68,12 +73,12 @@ logic [3:0]  i;
                 // the overflow flag needs to be raised whenever
                 // the result exceeds 8 bits
 
-                //Done set twice here to hopefully combat race conditions
                 if(cout > 0) begin 
                     overflow <= 1; 
                 end else begin
                     overflow <= 0;
                 end
+
                 //Raising the done flag should always be the last
                 // thing it does
                 done        <= 1'b1;
