@@ -1,3 +1,9 @@
+/*
+Project: 8-Bit ALU
+Author: Max Fabian
+
+Addition Testbench, tests all possible outputs of adding two 8-bit busses
+*/
 module AdditionTestbench();
 
 //Module Inputs
