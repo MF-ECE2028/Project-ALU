@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 23:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 23:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -965,9 +965,6 @@ L3 programming layer <2023-08-29>
 
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `ALU_Docs.out' has not changed.
 (rerunfilecheck)             Checksum: 0C5E47A2AA3E039269E2BA08B36F9C2C;4605.
