@@ -10,25 +10,25 @@ switches[4] => switches[4].IN2
 switches[5] => switches[5].IN2
 switches[6] => switches[6].IN2
 switches[7] => switches[7].IN2
-step_leds[0] <= reg_a_bus[8].DB_MAX_OUTPUT_PORT_TYPE
-step_leds[1] <= reg_b_bus[8].DB_MAX_OUTPUT_PORT_TYPE
-step_leds[2] <= reg_op_bus[8].DB_MAX_OUTPUT_PORT_TYPE
-done_led <= alu:ALU.done
-overflow_led <= alu:ALU.overflow
-seven_seg0[0] <= SevenSegmentDecode:disp0.segments
-seven_seg0[1] <= SevenSegmentDecode:disp0.segments
-seven_seg0[2] <= SevenSegmentDecode:disp0.segments
-seven_seg0[3] <= SevenSegmentDecode:disp0.segments
-seven_seg0[4] <= SevenSegmentDecode:disp0.segments
-seven_seg0[5] <= SevenSegmentDecode:disp0.segments
-seven_seg0[6] <= SevenSegmentDecode:disp0.segments
-seven_seg1[0] <= SevenSegmentDecode:disp1.segments
-seven_seg1[1] <= SevenSegmentDecode:disp1.segments
-seven_seg1[2] <= SevenSegmentDecode:disp1.segments
-seven_seg1[3] <= SevenSegmentDecode:disp1.segments
-seven_seg1[4] <= SevenSegmentDecode:disp1.segments
-seven_seg1[5] <= SevenSegmentDecode:disp1.segments
-seven_seg1[6] <= SevenSegmentDecode:disp1.segments
+step_leds[0] << reg_a_bus[8].DB_MAX_OUTPUT_PORT_TYPE
+step_leds[1] << reg_b_bus[8].DB_MAX_OUTPUT_PORT_TYPE
+step_leds[2] << reg_op_bus[8].DB_MAX_OUTPUT_PORT_TYPE
+done_led << alu:ALU.done
+overflow_led << alu:ALU.overflow
+seven_seg0[0] << SevenSegmentDecode:disp0.segments
+seven_seg0[1] << SevenSegmentDecode:disp0.segments
+seven_seg0[2] << SevenSegmentDecode:disp0.segments
+seven_seg0[3] << SevenSegmentDecode:disp0.segments
+seven_seg0[4] << SevenSegmentDecode:disp0.segments
+seven_seg0[5] << SevenSegmentDecode:disp0.segments
+seven_seg0[6] << SevenSegmentDecode:disp0.segments
+seven_seg1[0] << SevenSegmentDecode:disp1.segments
+seven_seg1[1] << SevenSegmentDecode:disp1.segments
+seven_seg1[2] << SevenSegmentDecode:disp1.segments
+seven_seg1[3] << SevenSegmentDecode:disp1.segments
+seven_seg1[4] << SevenSegmentDecode:disp1.segments
+seven_seg1[5] << SevenSegmentDecode:disp1.segments
+seven_seg1[6] << SevenSegmentDecode:disp1.segments
 
 
 |alu_test|CounterNbit:state_counter

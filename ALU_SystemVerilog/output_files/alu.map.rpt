@@ -1,5 +1,5 @@
 Analysis & Synthesis report for alu
-Sun Jun  7 20:01:57 2026
+Sun Jun  7 20:14:27 2026
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -62,7 +62,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun  7 20:01:57 2026          ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun  7 20:14:27 2026          ;
 ; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                      ; alu                                            ;
 ; Top-level Entity Name              ; alu_test                                       ;
@@ -595,16 +595,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Jun  7 20:01:51 2026
+    Info: Processing started: Sun Jun  7 20:14:21 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu -c alu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/sevensegmentdecode.sv
     Info (12023): Found entity 1: SevenSegmentDecode File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv Line: 34
 Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/bus_multiplexer_1.sv
-    Info (12023): Found entity 1: Bus_Multiplexer_1 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv Line: 1
+    Info (12023): Found entity 1: Bus_Multiplexer_1 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/bus_demultiplexer_2.sv
-    Info (12023): Found entity 1: Bus_Demultiplexer_2 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 1
+    Info (12023): Found entity 1: Bus_Demultiplexer_2 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/alu_test.sv
     Info (12023): Found entity 1: alu_test File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file utility_modules/decoder.sv
@@ -631,7 +631,7 @@ Warning (10261): Verilog HDL Event Control warning at mult.sv(29): Event Control
 Info (12021): Found 1 design units, including 1 entities, in source file functions/mult.sv
     Info (12023): Found entity 1: Mult_8bit File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file functions/testbenches/mult.tb.sv
-    Info (12023): Found entity 1: Mult_8bitTestbench File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv Line: 1
+    Info (12023): Found entity 1: Mult_8bitTestbench File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
     Info (12023): Found entity 1: alu File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 10
 Info (12127): Elaborating entity "alu_test" for the top level hierarchy
@@ -640,10 +640,10 @@ Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "CounterNbit:s
 Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:reg_a" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 57
 Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:reg_start" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 81
 Info (12128): Elaborating entity "Bus_Demultiplexer_2" for hierarchy "Bus_Demultiplexer_2:reg_selector" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 89
-Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(10): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 10
-Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(11): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 11
-Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(12): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 12
-Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(13): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 13
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(17): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 17
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(18): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 18
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(19): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 19
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(20): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 20
 Info (12128): Elaborating entity "Bus_Multiplexer_1" for hierarchy "Bus_Multiplexer_1:disp_source_selector" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 96
 Info (12128): Elaborating entity "SevenSegmentDecode" for hierarchy "SevenSegmentDecode:disp0" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 101
 Info (12128): Elaborating entity "alu" for hierarchy "alu:ALU" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 118
@@ -679,9 +679,9 @@ Info (21057): Implemented 44 device resources after synthesis - the final resour
     Info (21061): Implemented 14 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
     Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Sun Jun  7 20:01:57 2026
+    Info: Processing ended: Sun Jun  7 20:14:27 2026
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+

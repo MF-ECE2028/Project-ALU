@@ -29,7 +29,6 @@ module alu_test(
     logic [7:0] alu_op_wide;
     logic [2:0] alu_op;
     logic [7:0] alu_y;
-    logic [3:0] display_digit_1;
     logic [3:0] digit0;
     logic [3:0] digit1;
     
@@ -44,7 +43,7 @@ module alu_test(
         .clock(key),
         .reset_n(rst_n),
         .enable_n(last_step),
-        .addBy(1),
+        .addBy(1'b1),
         .count(state)
     );
 
@@ -60,7 +59,7 @@ module alu_test(
         .clk(clk),
         .enable(reg_b_bus[8]),
         .rst_n(rst_n),
-        .in(reg_a_bus[7:0]),
+        .in(reg_b_bus[7:0]),
         .out(alu_b)
     );
 
@@ -68,7 +67,7 @@ module alu_test(
         .clk(clk),
         .enable(reg_op_bus[8]),
         .rst_n(rst_n),
-        .in(reg_a_bus[7:0]),
+        .in(reg_op_bus[7:0]),
         .out(alu_op_wide)
     );
 

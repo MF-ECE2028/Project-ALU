@@ -1,4 +1,13 @@
 \begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+\PYG{c+cm}{Sources:}
+\PYG{c+cm}{    *https://en.wikipedia.org/wiki/Binary\PYGZus{}multiplier\PYGZsh{}Single\PYGZhy{}cycle\PYGZus{}multiplier}
+\PYG{c+cm}{    *https://stackoverflow.com/questions/63655634/8\PYGZhy{}bit\PYGZhy{}sequential\PYGZhy{}multiplier\PYGZhy{}using\PYGZhy{}add\PYGZhy{}and\PYGZhy{}shift}
+
+\PYG{c+cm}{Sequential Multiplier Test Bench. Tests one special case, and all possible outputs in multiplying 2 6\PYGZhy{}bit busses}
+\PYG{c+cm}{*/}
 \PYG{k}{module}\PYG{+w}{ }\PYG{n}{Mult\PYGZus{}8bitTestbench}\PYG{p}{();}
 
 \PYG{c+c1}{//Module Inputs}

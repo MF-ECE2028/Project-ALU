@@ -11,7 +11,7 @@ cModel Technology
 dD:/intelFPGA_pro/21.1
 vA_pass
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1780876909
+Z1 !s110 1780889590
 !i10b 1
 !s100 cGG3RKg>WTezT>`=jUZAd2
 ISmbRdYmC<`47z]`H4<R>f2
@@ -20,14 +20,14 @@ Z2 dC:/Users/nr308/source/ECE_204/Project-ALU/modelsim
 Z3 w1780858327
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/A_pass.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/A_pass.sv
-!i122 698
+!i122 784
 L0 9 16
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 Z5 OV;L;2021.1;73
 r1
 !s85 0
 31
-Z6 !s108 1780876909.000000
+Z6 !s108 1780889590.000000
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/A_pass.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/A_pass.sv|
 !i113 1
@@ -45,7 +45,7 @@ R2
 Z9 w1780860365
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv
-!i122 694
+!i122 780
 L0 9 49
 R4
 R5
@@ -70,7 +70,7 @@ R2
 Z10 w1780711004
 Z11 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv
 Z12 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv
-!i122 696
+!i122 782
 L0 8 14
 R4
 R5
@@ -110,23 +110,23 @@ R7
 R8
 vAdditionTestbench
 R0
-Z17 !s110 1780876908
+R1
 !i10b 1
-!s100 :KzX:L5O98[]mTZH[m1Xe2
-Ild0bSUc]A;Qcd2VA9Pia^3
+!s100 M^9@T5UQFfam>6SRj]R3o3
+I7AE@oYBhTgWfMOzGJz0SU3
 S1
 R2
-w1780861443
+Z17 w1780887780
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv
-!i122 690
-L0 1 74
+!i122 776
+L0 7 56
 R4
 R5
 r1
 !s85 0
 31
-Z18 !s108 1780876908.000000
+R6
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv|
 !i113 1
@@ -142,9 +142,9 @@ ImCA`S7:j3i9QOQ6IOOGH82
 S1
 R2
 w1780874069
-Z19 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
-Z20 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
-!i122 697
+Z18 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
+Z19 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
+!i122 783
 L0 10 138
 R4
 R5
@@ -152,8 +152,8 @@ r1
 !s85 0
 31
 R6
-Z21 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv|
-Z22 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv|
+Z20 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv|
+Z21 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv|
 !i113 1
 R7
 R8
@@ -166,8 +166,8 @@ IdNmY0lL?Zd<gZInS6Ym]c3
 S1
 R2
 w1780823034
+R18
 R19
-R20
 !i122 251
 L0 9 129
 R4
@@ -176,15 +176,15 @@ r1
 !s85 0
 31
 !s108 1780823040.000000
+R20
 R21
-R22
 !i113 1
 R7
 R8
 n@a@l@u_8
 vALU_tb
 R0
-R1
+Z22 !s110 1780889591
 !i10b 1
 !s100 g5UKk93c`L]GoPj5cX^oi2
 ID8_m2LXgVD>34JHUKYOS?0
@@ -193,20 +193,44 @@ R2
 w1780859877
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.tb.sv
-!i122 703
+!i122 789
 L0 1 136
 R4
 R5
 r1
 !s85 0
 31
-R6
+Z23 !s108 1780889591.000000
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.tb.sv|
 !i113 1
 R7
 R8
 n@a@l@u_tb
+valu_test
+R0
+R22
+!i10b 1
+!s100 =zOD:C`bRR28`Tn_z0B]K2
+IfzI7;?0fPf3Lc2H_1gjnU1
+S1
+R2
+w1780889574
+8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv
+FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv
+!i122 793
+L0 8 114
+R4
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv|
+!i113 1
+R7
+R8
 vAnd
 R0
 R15
@@ -236,14 +260,14 @@ vAnd_tb
 R0
 R1
 !i10b 1
-!s100 :;?h><ZmD3XSik_8RUSSf2
-I>JXmDnF0QeEEn2oZ0LVbZ1
+!s100 ;V;N<RzYbbdB[;D^02l`J1
+IhcZZA;8D62V52Gj2e`@8J1
 S1
 R2
-R9
+Z24 w1780882305
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
-!i122 695
+!i122 781
 L0 9 52
 R4
 R5
@@ -268,8 +292,8 @@ R2
 R3
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/B_pass.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/B_pass.sv
-!i122 699
-Z23 L0 9 14
+!i122 785
+Z25 L0 9 14
 R4
 R5
 r1
@@ -284,7 +308,7 @@ R8
 n@b_pass
 vB_pass_tb
 R0
-R17
+R1
 !i10b 1
 !s100 `SAX1YZ2MC2aKIJRRDjEn3
 I4@g3_?DoLQk1cI^PMSHN41
@@ -293,14 +317,14 @@ R2
 R9
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv
-!i122 692
+!i122 778
 L0 9 50
 R4
 R5
 r1
 !s85 0
 31
-R18
+R6
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv|
 !i113 1
@@ -309,7 +333,7 @@ R8
 n@b_pass_tb
 vBitwise_AND
 R0
-R17
+R1
 !i10b 1
 !s100 SKR5i<ihG@BG96Z<H7D4D1
 IQ4oAk]7a3ZOai^_l1[jbz3
@@ -318,14 +342,14 @@ R2
 R10
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv
-!i122 691
-Z24 L0 8 16
+!i122 777
+Z26 L0 8 16
 R4
 R5
 r1
 !s85 0
 31
-R18
+R6
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv|
 !i113 1
@@ -334,7 +358,7 @@ R8
 n@bitwise_@a@n@d
 vBitwise_OR
 R0
-R1
+R22
 !i10b 1
 !s100 R:E2j]eiLfFnG@TLoaBkC3
 I@b_Yo8aWWg2iDOihcK<eX2
@@ -343,14 +367,14 @@ R2
 R10
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv
-!i122 701
-R24
+!i122 787
+R26
 R4
 R5
 r1
 !s85 0
 31
-R6
+R23
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv|
 !i113 1
@@ -366,25 +390,100 @@ I<<k4]2b0nI?>CRmdD4XCP2
 S1
 R2
 R3
-Z25 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
-Z26 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
-!i122 700
-R23
+Z27 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
+Z28 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
+!i122 786
+R25
 R4
 R5
 r1
 !s85 0
 31
 R6
-Z27 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv|
-Z28 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv|
+Z29 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv|
+Z30 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv|
 !i113 1
 R7
 R8
 n@bitwise_@x@o@r
+vBus_Demultiplexer_2
+R0
+R22
+!i10b 1
+!s100 MLhWWZkILKF5lf2NAnlzT2
+I7fdaFe5>oF27@G1lm]]gU2
+S1
+R2
+R17
+8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv
+FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv
+!i122 794
+L0 7 16
+R4
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv|
+!i113 1
+R7
+R8
+n@bus_@demultiplexer_2
+vBus_Multiplexer_1
+R0
+R22
+!i10b 1
+!s100 =MQZCC9dTF9<_^PXTPYaQ3
+I2ogP>_lTd:7FZQXFkk@b_0
+S1
+R2
+R17
+8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv
+FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv
+!i122 795
+L0 7 10
+R4
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv|
+!i113 1
+R7
+R8
+n@bus_@multiplexer_1
+vCounterNbit
+R0
+R22
+!i10b 1
+!s100 NVk`@5<H_d2;VhFVgWXS^2
+I1<EXVU[lQ;Rg9eh3;jQF91
+S1
+R2
+Z31 w1780708662
+8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv
+FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv
+!i122 797
+L0 1 25
+R4
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv|
+!i113 1
+R7
+R8
+n@counter@nbit
 vDecoder
 R0
-R1
+R22
 !i10b 1
 !s100 :4gXX=T`I1RSeFzY21f5h1
 Ice4aBO`=d]A10OUgQlL@j2
@@ -393,14 +492,14 @@ R2
 w1780874113
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv
-!i122 706
-Z29 L0 8 23
+!i122 792
+Z32 L0 8 23
 R4
 R5
 r1
 !s85 0
 31
-R6
+R23
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv|
 !i113 1
@@ -409,23 +508,23 @@ R8
 n@decoder
 vMult_8bit
 R0
-R1
+R22
 !i10b 1
-!s100 f:iDDOnZmWEUA;n8VQn>m2
-IERJQDz^YQ2z_X^[HPA8X`2
+!s100 OmVc0J0U=aYz35N:YI`Um1
+IbGiBFbSZXYfIXU1>BfH512
 S1
 R2
-w1780876414
+w1780885346
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv
-!i122 704
-L0 10 75
+!i122 790
+L0 10 80
 R4
 R5
 r1
 !s85 0
 31
-R6
+R23
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv|
 !i113 1
@@ -434,23 +533,23 @@ R8
 n@mult_8bit
 vMult_8bitTestbench
 R0
-!s110 1780877092
+R22
 !i10b 1
-!s100 ;VencOho>g?SST3R>`iGW0
-IKb?`LaV@cMJh=6F^PZR`<1
+!s100 D7dWN:mnkdMO>Agja8n3m2
+I864IlObhcRnUOdNPdOfc;3
 S1
 R2
-w1780877086
+R17
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv
-!i122 707
-L0 1 153
+!i122 791
+L0 10 151
 R4
 R5
 r1
 !s85 0
 31
-!s108 1780877092.000000
+R23
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv|
 !i113 1
@@ -469,7 +568,7 @@ w1780864885
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv
 !i122 648
-R29
+R32
 R4
 R5
 r1
@@ -484,32 +583,57 @@ R8
 n@multiplexer_3_en
 vRegister_en_rstn
 R0
-R1
+R22
 !i10b 1
 !s100 j1CHZk0FoK];^U;0F:z>D0
 IX=ioeSL:jZW?`M:A62a5:2
 S1
 R2
-w1780708662
+R31
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv
-!i122 702
+!i122 788
 L0 9 23
 R4
 R5
 r1
 !s85 0
 31
-R6
+R23
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv|
 !i113 1
 R7
 R8
 n@register_en_rstn
+vSevenSegmentDecode
+R0
+R22
+!i10b 1
+!s100 0kTHh64VdD^^28oOeO6AP1
+IRZ7`7Qd=X31Xc@a;IeR9D2
+S1
+R2
+w1780886216
+8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv
+FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv
+!i122 796
+L0 34 50
+R4
+R5
+r1
+!s85 0
+31
+R23
+!s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv|
+!i113 1
+R7
+R8
+n@seven@segment@decode
 vSubtraction
 R0
-R17
+R1
 !i10b 1
 !s100 nWjfLZmn=BU_A_@O]B_D]2
 I?S2X4JLeP;7G?XEhFgRC<3
@@ -518,14 +642,14 @@ R2
 R10
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv
-!i122 689
-R24
+!i122 775
+R26
 R4
 R5
 r1
 !s85 0
 31
-R18
+R6
 !s107 C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv|
 !i113 1
@@ -541,8 +665,8 @@ INeFQ6`_@SW[=[P`MkU?GL1
 S1
 R2
 w1780693137
-R25
-R26
+R27
+R28
 !i122 269
 L0 1 14
 R4
@@ -551,8 +675,8 @@ r1
 !s85 0
 31
 !s108 1780823752.000000
-R27
-R28
+R29
+R30
 !i113 1
 R7
 R8
@@ -561,14 +685,14 @@ vXor_tb
 R0
 R1
 !i10b 1
-!s100 CZJl@ThNTS?z>dD^4A6b93
-IS^a_81kEgVQbDfXL9R7Lg1
+!s100 c7>>EzA1zaF=WX3<GJh9I0
+I3UJPVeLEoCI?=1JV4O?l11
 S1
 R2
-R9
+R24
 8C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv
 FC:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv
-!i122 693
+!i122 779
 L0 9 53
 R4
 R5

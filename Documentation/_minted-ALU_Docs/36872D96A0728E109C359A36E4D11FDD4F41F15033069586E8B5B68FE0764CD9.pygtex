@@ -1,5 +1,11 @@
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{module}\PYG{+w}{ }\PYG{n}{AdditionTestbench}\PYG{p}{();}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+
+\PYG{c+cm}{Subtraction Testbench, tests all possible outputs of subtracting two 8\PYGZhy{}bit busses}
+\PYG{c+cm}{*/}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{SubtractionTestbench}\PYG{p}{();}
 
 \PYG{c+c1}{//Module Inputs}
 \PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A\PYGZus{}input}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{p}{;}
@@ -11,9 +17,9 @@
 
 \PYG{c+c1}{//Expected Outputs}
 \PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{;}
-\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{;}
 
-\PYG{n}{Addition}\PYG{+w}{ }\PYG{n}{dut}\PYG{p}{(}
+\PYG{c+c1}{//Module Call}
+\PYG{n}{Subtraction}\PYG{+w}{ }\PYG{n}{dut}\PYG{p}{(}
 \PYG{+w}{    }\PYG{p}{.}\PYG{n}{A}\PYG{p}{(}\PYG{n}{A\PYGZus{}input}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{B}\PYG{p}{(}\PYG{n}{B\PYGZus{}input}\PYG{p}{),}
 \PYG{+w}{    }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{),}
 \PYG{+w}{    }\PYG{p}{.}\PYG{n}{Y}\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{p}{),}
@@ -40,12 +46,12 @@
 \PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{256}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{256}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{            }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
-\PYG{+w}{            }\PYG{p}{\PYGZob{}}\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
 \PYG{+w}{            }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
-\PYG{+w}{            }\PYG{c+c1}{// Check Y is correct, done is high, and overflow is correct}
-\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
-\PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed at \PYGZpc{}dA + \PYGZpc{}dB; Y=\PYGZpc{}d and Y\PYGZus{}exp=\PYGZpc{}d and overflow=\PYGZpc{}d and overflow\PYGZus{}exp=\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}
-\PYG{+w}{                    }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{overflow}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{);}
+\PYG{+w}{            }\PYG{c+c1}{// Check Y is correct, done is high, overflow is always 0 for subtraction}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed at \PYGZpc{}dA \PYGZhy{} \PYGZpc{}dB; Y=\PYGZpc{}d and Y\PYGZus{}exp=\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{);}
 \PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{end}
 \PYG{+w}{        }\PYG{k}{end}
