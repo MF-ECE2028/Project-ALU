@@ -1,5 +1,5 @@
 Analysis & Synthesis report for alu
-Sun Jun  7 16:54:16 2026
+Sun Jun  7 20:01:57 2026
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -16,15 +16,26 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   8. Registers Removed During Synthesis
   9. Removed Registers Triggering Further Register Optimizations
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Register_en_rstn:Rlk
- 13. Parameter Settings for User Entity Instance: Register_en_rstn:Ra
- 14. Parameter Settings for User Entity Instance: Register_en_rstn:Rb
- 15. Parameter Settings for User Entity Instance: Register_en_rstn:Rop
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
- 19. Analysis & Synthesis Suppressed Messages
+ 11. Parameter Settings for User Entity Instance: CounterNbit:state_counter
+ 12. Parameter Settings for User Entity Instance: CounterNbit:state_counter|Register_en_rstn:RegNBit
+ 13. Parameter Settings for User Entity Instance: Register_en_rstn:reg_a
+ 14. Parameter Settings for User Entity Instance: Register_en_rstn:reg_b
+ 15. Parameter Settings for User Entity Instance: Register_en_rstn:reg_op
+ 16. Parameter Settings for User Entity Instance: Register_en_rstn:reg_start
+ 17. Parameter Settings for User Entity Instance: Bus_Demultiplexer_2:reg_selector
+ 18. Parameter Settings for User Entity Instance: Bus_Multiplexer_1:disp_source_selector
+ 19. Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rlk
+ 20. Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Ra
+ 21. Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rb
+ 22. Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rop
+ 23. Port Connectivity Checks: "Bus_Demultiplexer_2:reg_selector"
+ 24. Port Connectivity Checks: "Register_en_rstn:reg_start"
+ 25. Port Connectivity Checks: "Register_en_rstn:reg_op"
+ 26. Port Connectivity Checks: "CounterNbit:state_counter"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
+ 30. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,16 +62,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun  7 16:54:16 2026          ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun  7 20:01:57 2026          ;
 ; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                      ; alu                                            ;
-; Top-level Entity Name              ; alu                                            ;
+; Top-level Entity Name              ; alu_test                                       ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 163                                            ;
-;     Total combinational functions  ; 128                                            ;
-;     Dedicated logic registers      ; 66                                             ;
-; Total registers                    ; 66                                             ;
-; Total pins                         ; 32                                             ;
+; Total logic elements               ; 14                                             ;
+;     Total combinational functions  ; 14                                             ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 30                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -76,7 +87,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; alu                ; alu                ;
+; Top-level entity name                                            ; alu_test           ; alu                ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -165,111 +176,211 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 16          ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
-+-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path    ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                    ; Library ;
-+-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
-; utility_modules/decoder.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv          ;         ;
-; functions/bw_xor.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv                 ;         ;
-; functions/b_pass.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv                 ;         ;
-; functions/a_pass.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/a_pass.sv                 ;         ;
-; utility_modules/register_en_rstn.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv ;         ;
-; functions/bw_and.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv                 ;         ;
-; functions/addition.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv               ;         ;
-; functions/bw_or.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv                  ;         ;
-; functions/subtraction.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv            ;         ;
-; functions/mult.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv                   ;         ;
-; alu.sv                              ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv                              ;         ;
-+-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path           ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                           ; Library ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
+; hardware_validation/SevenSegmentDecode.sv  ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv  ;         ;
+; hardware_validation/bus_multiplexer_1.sv   ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv   ;         ;
+; hardware_validation/bus_demultiplexer_2.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv ;         ;
+; hardware_validation/alu_test.sv            ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv            ;         ;
+; utility_modules/decoder.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv                 ;         ;
+; functions/bw_xor.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv                        ;         ;
+; functions/b_pass.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/b_pass.sv                        ;         ;
+; functions/a_pass.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/a_pass.sv                        ;         ;
+; utility_modules/counter.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv                 ;         ;
+; utility_modules/register_en_rstn.sv        ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/register_en_rstn.sv        ;         ;
+; functions/bw_and.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_and.sv                        ;         ;
+; functions/addition.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv                      ;         ;
+; functions/bw_or.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv                         ;         ;
+; functions/subtraction.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv                   ;         ;
+; functions/mult.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv                          ;         ;
+; alu.sv                                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv                                     ;         ;
++--------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 163         ;
-;                                             ;             ;
-; Total combinational functions               ; 128         ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 58          ;
-;     -- 3 input functions                    ; 49          ;
-;     -- <=2 input functions                  ; 21          ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 98          ;
-;     -- arithmetic mode                      ; 30          ;
-;                                             ;             ;
-; Total registers                             ; 66          ;
-;     -- Dedicated logic registers            ; 66          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 32          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; rst_n~input ;
-; Maximum fan-out                             ; 73          ;
-; Total fan-out                               ; 710         ;
-; Average fan-out                             ; 2.75        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 14                ;
+;                                             ;                   ;
+; Total combinational functions               ; 14                ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 14                ;
+;     -- 3 input functions                    ; 0                 ;
+;     -- <=2 input functions                  ; 0                 ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 14                ;
+;     -- arithmetic mode                      ; 0                 ;
+;                                             ;                   ;
+; Total registers                             ; 0                 ;
+;     -- Dedicated logic registers            ; 0                 ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 30                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; switches[0]~input ;
+; Maximum fan-out                             ; 7                 ;
+; Total fan-out                               ; 100               ;
+; Average fan-out                             ; 1.35              ;
++---------------------------------------------+-------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
-+-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
-; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name           ; Entity Name      ; Library Name ;
-+-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
-; |alu                          ; 128 (50)            ; 66 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 32   ; 0            ; 0          ; |alu                          ; alu              ; work         ;
-;    |Addition:addition|        ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Addition:addition        ; Addition         ; work         ;
-;    |Bitwise_XOR:bw_xor|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Bitwise_XOR:bw_xor       ; Bitwise_XOR      ; work         ;
-;    |Mult_8bit:multiplication| ; 57 (57)             ; 46 (46)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Mult_8bit:multiplication ; Mult_8bit        ; work         ;
-;    |Register_en_rstn:Ra|      ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Register_en_rstn:Ra      ; Register_en_rstn ; work         ;
-;    |Register_en_rstn:Rb|      ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Register_en_rstn:Rb      ; Register_en_rstn ; work         ;
-;    |Register_en_rstn:Rlk|     ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Register_en_rstn:Rlk     ; Register_en_rstn ; work         ;
-;    |Register_en_rstn:Rop|     ; 0 (0)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Register_en_rstn:Rop     ; Register_en_rstn ; work         ;
-;    |Subtraction:subtraction|  ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu|Subtraction:subtraction  ; Subtraction      ; work         ;
-+-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                         ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                ; Entity Name        ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
+; |alu_test                     ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 30   ; 0            ; 0          ; |alu_test                          ; alu_test           ; work         ;
+;    |SevenSegmentDecode:disp0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu_test|SevenSegmentDecode:disp0 ; SevenSegmentDecode ; work         ;
+;    |SevenSegmentDecode:disp1| ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |alu_test|SevenSegmentDecode:disp1 ; SevenSegmentDecode ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                        ;
-+----------------------------------------+--------------------------------------------------+
-; Register name                          ; Reason for Removal                               ;
-+----------------------------------------+--------------------------------------------------+
-; Mult_8bit:multiplication|done~reg0     ; Stuck at VCC due to stuck port data_in           ;
-; Mult_8bit:multiplication|done~en       ; Lost fanout                                      ;
-; Mult_8bit:multiplication|Y[7]~en       ; Merged with Mult_8bit:multiplication|Y[6]~en     ;
-; Mult_8bit:multiplication|Y[6]~en       ; Merged with Mult_8bit:multiplication|Y[5]~en     ;
-; Mult_8bit:multiplication|Y[5]~en       ; Merged with Mult_8bit:multiplication|Y[4]~en     ;
-; Mult_8bit:multiplication|Y[4]~en       ; Merged with Mult_8bit:multiplication|Y[3]~en     ;
-; Mult_8bit:multiplication|Y[3]~en       ; Merged with Mult_8bit:multiplication|Y[2]~en     ;
-; Mult_8bit:multiplication|Y[2]~en       ; Merged with Mult_8bit:multiplication|Y[1]~en     ;
-; Mult_8bit:multiplication|Y[1]~en       ; Merged with Mult_8bit:multiplication|Y[0]~en     ;
-; Mult_8bit:multiplication|Y[0]~en       ; Merged with Mult_8bit:multiplication|overflow~en ;
-; Total Number of Removed Registers = 10 ;                                                  ;
-+----------------------------------------+--------------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                         ;
++--------------------------------------------------------------+---------------------------------------------+
+; Register name                                                ; Reason for Removal                          ;
++--------------------------------------------------------------+---------------------------------------------+
+; alu:ALU|Mult_8bit:multiplication|done~reg0                   ; Stuck at VCC due to stuck port data_in      ;
+; alu:ALU|Mult_8bit:multiplication|Y[7]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[7]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[6]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[6]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[5]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[5]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[4]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[4]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[3]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[3]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[2]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[2]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[1]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[1]~en                     ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[0]~reg0                   ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|Y[0]~en                     ; Lost fanout                                 ;
+; Register_en_rstn:reg_start|out[0]                            ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_op|out[0..2]                            ; Stuck at GND due to stuck port clock_enable ;
+; CounterNbit:state_counter|Register_en_rstn:RegNBit|out[0..2] ; Stuck at GND due to stuck port clock_enable ;
+; alu:ALU|Mult_8bit:multiplication|overflow~reg0               ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|overflow~en                 ; Lost fanout                                 ;
+; alu:ALU|Mult_8bit:multiplication|done~en                     ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rop|out[0..2]                       ; Stuck at GND due to stuck port clock_enable ;
+; alu:ALU|Register_en_rstn:Rb|out[0]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[0]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[7]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[7]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[6]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[6]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[5]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[5]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[4]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[4]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[3]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[3]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[2]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[2]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rb|out[1]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_b|out[1]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[0]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[0]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[7]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[7]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[6]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[6]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[5]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[5]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[4]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[4]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[3]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[3]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[2]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[2]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Ra|out[1]                           ; Stuck at GND due to stuck port clock_enable ;
+; Register_en_rstn:reg_a|out[1]                                ; Lost fanout                                 ;
+; alu:ALU|Register_en_rstn:Rlk|out[0]                          ; Stuck at GND due to stuck port clock_enable ;
+; alu:ALU|Mult_8bit:multiplication|i[0]                        ; Stuck at GND due to stuck port clock        ;
+; alu:ALU|Mult_8bit:multiplication|result[0..15]               ; Stuck at GND due to stuck port clock        ;
+; alu:ALU|Mult_8bit:multiplication|multiplicand[0..15]         ; Stuck at GND due to stuck port clock        ;
+; alu:ALU|Mult_8bit:multiplication|i[1..3]                     ; Stuck at GND due to stuck port clock        ;
+; Total Number of Removed Registers = 99                       ;                                             ;
++--------------------------------------------------------------+---------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                             ;
-+------------------------------------+---------------------------+----------------------------------------+
-; Register name                      ; Reason for Removal        ; Registers Removed due to This Register ;
-+------------------------------------+---------------------------+----------------------------------------+
-; Mult_8bit:multiplication|done~reg0 ; Stuck at VCC              ; Mult_8bit:multiplication|done~en       ;
-;                                    ; due to stuck port data_in ;                                        ;
-+------------------------------------+---------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++--------------------------------------------+--------------------------------+-------------------------------------------------------------------------------+
+; Register name                              ; Reason for Removal             ; Registers Removed due to This Register                                        ;
++--------------------------------------------+--------------------------------+-------------------------------------------------------------------------------+
+; Register_en_rstn:reg_start|out[0]          ; Stuck at GND                   ; alu:ALU|Register_en_rstn:Rop|out[0], alu:ALU|Register_en_rstn:Rop|out[2],     ;
+;                                            ; due to stuck port clock_enable ; alu:ALU|Register_en_rstn:Rop|out[1], alu:ALU|Register_en_rstn:Rb|out[0],      ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[0], alu:ALU|Register_en_rstn:Rb|out[7],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[7], alu:ALU|Register_en_rstn:Rb|out[6],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[6], alu:ALU|Register_en_rstn:Rb|out[5],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[5], alu:ALU|Register_en_rstn:Rb|out[4],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[4], alu:ALU|Register_en_rstn:Rb|out[3],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[3], alu:ALU|Register_en_rstn:Rb|out[2],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[2], alu:ALU|Register_en_rstn:Rb|out[1],            ;
+;                                            ;                                ; Register_en_rstn:reg_b|out[1], alu:ALU|Register_en_rstn:Ra|out[0],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[0], alu:ALU|Register_en_rstn:Ra|out[7],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[7], alu:ALU|Register_en_rstn:Ra|out[6],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[6], alu:ALU|Register_en_rstn:Ra|out[5],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[5], alu:ALU|Register_en_rstn:Ra|out[4],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[4], alu:ALU|Register_en_rstn:Ra|out[3],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[3], alu:ALU|Register_en_rstn:Ra|out[2],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[2], alu:ALU|Register_en_rstn:Ra|out[1],            ;
+;                                            ;                                ; Register_en_rstn:reg_a|out[1], alu:ALU|Mult_8bit:multiplication|i[0],         ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[15],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[14],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[13],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[12],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[11],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[10],                                  ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[9],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[8],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[7],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[6],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[5],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[4],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[3],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[2],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[1],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|result[0],                                   ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[15],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[14],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[13],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[12],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[11],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[10],                            ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[9],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[8],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[7],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[6],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[5],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[4],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[3],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[2],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[1],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|multiplicand[0],                             ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|i[3], alu:ALU|Mult_8bit:multiplication|i[2], ;
+;                                            ;                                ; alu:ALU|Mult_8bit:multiplication|i[1]                                         ;
+; alu:ALU|Mult_8bit:multiplication|done~reg0 ; Stuck at VCC                   ; alu:ALU|Mult_8bit:multiplication|done~en                                      ;
+;                                            ; due to stuck port data_in      ;                                                                               ;
++--------------------------------------------+--------------------------------+-------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -277,63 +388,179 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 66    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 57    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 62    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 30:1               ; 7 bits    ; 140 LEs       ; 35 LEs               ; 105 LEs                ; No         ; |alu|_y[1]                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_en_rstn:Rlk ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CounterNbit:state_counter ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 2     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_en_rstn:Ra ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; WIDTH          ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CounterNbit:state_counter|Register_en_rstn:RegNBit ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; WIDTH          ; 3     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_en_rstn:Rb ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; WIDTH          ; 8     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_en_rstn:reg_a ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_en_rstn:Rop ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; WIDTH          ; 3     ; Signed Integer                           ;
-+----------------+-------+------------------------------------------+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_en_rstn:reg_b ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_en_rstn:reg_op ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Register_en_rstn:reg_start ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Bus_Demultiplexer_2:reg_selector ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; BUS_WIDTH      ; 9     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Bus_Multiplexer_1:disp_source_selector ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; BUS_WIDTH      ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rlk ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Ra ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rb ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:ALU|Register_en_rstn:Rop ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 3     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Bus_Demultiplexer_2:reg_selector"                                                                                                                 ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                                                     ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; in[8]      ; Input  ; Info     ; Stuck at VCC                                                                                                                                ;
+; sel        ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "sel[1..1]" will be connected to GND. ;
+; out1[7..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
+; out2[7..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
+; out3       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                    ;
++------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Register_en_rstn:reg_start"                                                                                                                                                        ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; in[0] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Register_en_rstn:reg_op"                                                                 ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; out[7..3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CounterNbit:state_counter"                                                                                                                                                                ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; enable_n    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; addBy       ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (3 bits) it drives.  The 29 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; addBy[2..1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; addBy[0]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; count       ; Output ; Warning  ; Output or bidir port (3 bits) is wider than the port expression (1 bits) it drives; bit(s) "count[2..1]" have no fanouts                                                           ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -341,23 +568,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 32                          ;
-; cycloneiii_ff         ; 66                          ;
-;     CLR               ; 4                           ;
-;     ENA               ; 9                           ;
-;     ENA CLR           ; 53                          ;
-; cycloneiii_lcell_comb ; 128                         ;
-;     arith             ; 30                          ;
-;         3 data inputs ; 30                          ;
-;     normal            ; 98                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 19                          ;
-;         4 data inputs ; 58                          ;
+; boundary_port         ; 30                          ;
+; cycloneiii_lcell_comb ; 18                          ;
+;     normal            ; 18                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         4 data inputs ; 14                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.60                        ;
-; Average LUT depth     ; 2.88                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.38                        ;
 +-----------------------+-----------------------------+
 
 
@@ -376,10 +595,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Jun  7 16:54:10 2026
+    Info: Processing started: Sun Jun  7 20:01:51 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu -c alu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/sevensegmentdecode.sv
+    Info (12023): Found entity 1: SevenSegmentDecode File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/bus_multiplexer_1.sv
+    Info (12023): Found entity 1: Bus_Multiplexer_1 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/bus_demultiplexer_2.sv
+    Info (12023): Found entity 1: Bus_Demultiplexer_2 File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hardware_validation/alu_test.sv
+    Info (12023): Found entity 1: alu_test File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file utility_modules/decoder.sv
     Info (12023): Found entity 1: Decoder File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file functions/bw_xor.sv
@@ -400,61 +627,61 @@ Info (12021): Found 1 design units, including 1 entities, in source file functio
     Info (12023): Found entity 1: Bitwise_OR File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file functions/subtraction.sv
     Info (12023): Found entity 1: Subtraction File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv Line: 8
-Warning (10261): Verilog HDL Event Control warning at mult.sv(27): Event Control contains a complex event expression File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 27
+Warning (10261): Verilog HDL Event Control warning at mult.sv(29): Event Control contains a complex event expression File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 29
 Info (12021): Found 1 design units, including 1 entities, in source file functions/mult.sv
     Info (12023): Found entity 1: Mult_8bit File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file functions/testbenches/mult.tb.sv
     Info (12023): Found entity 1: Mult_8bitTestbench File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
     Info (12023): Found entity 1: alu File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 10
-Info (12127): Elaborating entity "alu" for the top level hierarchy
-Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:Rlk" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 41
-Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:Ra" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 49
-Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:Rop" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 65
-Info (12128): Elaborating entity "Decoder" for hierarchy "Decoder:M_cs" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 71
-Info (12128): Elaborating entity "A_pass" for hierarchy "A_pass:a_pass" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 80
-Info (12128): Elaborating entity "B_pass" for hierarchy "B_pass:b_pass" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 88
-Info (12128): Elaborating entity "Bitwise_AND" for hierarchy "Bitwise_AND:bw_and" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 97
-Info (12128): Elaborating entity "Bitwise_OR" for hierarchy "Bitwise_OR:bw_or" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 106
-Info (12128): Elaborating entity "Bitwise_XOR" for hierarchy "Bitwise_XOR:bw_xor" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 115
-Info (12128): Elaborating entity "Addition" for hierarchy "Addition:addition" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 124
-Info (12128): Elaborating entity "Subtraction" for hierarchy "Subtraction:subtraction" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 133
-Info (12128): Elaborating entity "Mult_8bit" for hierarchy "Mult_8bit:multiplication" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 144
-Warning (10230): Verilog HDL assignment warning at mult.sv(59): truncated value with size 32 to match size of target (4) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 59
-Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13048): Converted tri-state node "_y[7]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[6]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[5]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[4]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[3]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[2]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[1]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_y[0]" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 16
-    Warning (13048): Converted tri-state node "_overflow" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 17
-    Warning (13048): Converted tri-state node "_done" into a selector File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 19
-Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[0]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[0]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[0]~1" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[1]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[1]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[1]~5" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[2]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[2]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[2]~9" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[3]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[3]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[3]~13" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[4]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[4]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[4]~17" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[5]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[5]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[5]~21" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[6]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[6]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[6]~25" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
-    Warning (13310): Register "Mult_8bit:multiplication|multiplicand[7]" is converted into an equivalent circuit using register "Mult_8bit:multiplication|multiplicand[7]~_emulated" and latch "Mult_8bit:multiplication|multiplicand[7]~29" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 47
+Info (12127): Elaborating entity "alu_test" for the top level hierarchy
+Info (12128): Elaborating entity "CounterNbit" for hierarchy "CounterNbit:state_counter" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 49
+Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "CounterNbit:state_counter|Register_en_rstn:RegNBit" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv Line: 23
+Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:reg_a" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 57
+Info (12128): Elaborating entity "Register_en_rstn" for hierarchy "Register_en_rstn:reg_start" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 81
+Info (12128): Elaborating entity "Bus_Demultiplexer_2" for hierarchy "Bus_Demultiplexer_2:reg_selector" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 89
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(10): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 10
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(11): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 11
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(12): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 12
+Warning (10230): Verilog HDL assignment warning at bus_demultiplexer_2.sv(13): truncated value with size 32 to match size of target (9) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv Line: 13
+Info (12128): Elaborating entity "Bus_Multiplexer_1" for hierarchy "Bus_Multiplexer_1:disp_source_selector" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 96
+Info (12128): Elaborating entity "SevenSegmentDecode" for hierarchy "SevenSegmentDecode:disp0" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 101
+Info (12128): Elaborating entity "alu" for hierarchy "alu:ALU" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 118
+Info (12128): Elaborating entity "Decoder" for hierarchy "alu:ALU|Decoder:M_cs" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 71
+Info (12128): Elaborating entity "A_pass" for hierarchy "alu:ALU|A_pass:a_pass" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 80
+Info (12128): Elaborating entity "B_pass" for hierarchy "alu:ALU|B_pass:b_pass" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 88
+Info (12128): Elaborating entity "Bitwise_AND" for hierarchy "alu:ALU|Bitwise_AND:bw_and" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 97
+Info (12128): Elaborating entity "Bitwise_OR" for hierarchy "alu:ALU|Bitwise_OR:bw_or" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 106
+Info (12128): Elaborating entity "Bitwise_XOR" for hierarchy "alu:ALU|Bitwise_XOR:bw_xor" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 115
+Info (12128): Elaborating entity "Addition" for hierarchy "alu:ALU|Addition:addition" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 124
+Info (12128): Elaborating entity "Subtraction" for hierarchy "alu:ALU|Subtraction:subtraction" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 133
+Info (12128): Elaborating entity "Mult_8bit" for hierarchy "alu:ALU|Mult_8bit:multiplication" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv Line: 144
+Warning (10230): Verilog HDL assignment warning at mult.sv(64): truncated value with size 32 to match size of target (4) File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv Line: 64
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "step_leds[0]" is stuck at VCC File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 13
+    Warning (13410): Pin "step_leds[1]" is stuck at GND File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 13
+    Warning (13410): Pin "step_leds[2]" is stuck at GND File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 13
+    Warning (13410): Pin "done_led" is stuck at GND File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 14
+    Warning (13410): Pin "overflow_led" is stuck at GND File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 15
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17049): 35 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/output_files/alu.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 197 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 22 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 165 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4902 megabytes
-    Info: Processing ended: Sun Jun  7 16:54:16 2026
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key_n" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 9
+    Warning (15610): No output dependent on input pin "rst_n" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 10
+    Warning (15610): No output dependent on input pin "clk" File: C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv Line: 11
+Info (21057): Implemented 44 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 19 output pins
+    Info (21061): Implemented 14 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Sun Jun  7 20:01:57 2026
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Total CPU time (on all processors): 00:00:14
 
 
 +------------------------------------------+

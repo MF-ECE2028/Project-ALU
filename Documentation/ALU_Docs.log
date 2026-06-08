@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 18:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 19:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -749,7 +749,7 @@ Package pdftex.def Info: ./Diagrams/mult_state.png  used on input line 253.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./Diagrams/mult_diagram.png>] (_minted-ALU_Docs/F617E9047614A00E80285725AA9FF7F6A238332CF37895FC89974F9147A62446.pygtex
+[10 <./Diagrams/mult_diagram.png>] (_minted-ALU_Docs/530C2D802D33D1D08D40AF101401B701A238332CF37895FC89974F9147A62446.pygtex
 Overfull \hbox (35.76138pt too wide) in paragraph at lines 7--7
 \OT1/cmtt/m/n/10 *https://stackoverflow.com/questions/63655634/8[]bit[]sequential[]multiplier[]using[]add[]and[]shift[]|  
  []
@@ -776,7 +776,7 @@ Underfull \vbox (badness 10000) detected at line 325
 Overfull \vbox (2.84102pt too high) detected at line 325
  []
 
-[21] (_minted-ALU_Docs/A64CC7D5E01306EB4E77BA762A3727491AB9312C064CB4B5834E0DDD90BD2E4F.pygtex) [22] (_minted-ALU_Docs/F5939EA0498C4266418EB2A68FE6EB1C0E9DABF9BEC474482727249D82E6207E.pygtex) [23] (_minted-ALU_Docs/27A956C4161E6A6267E3B9DB5AD768FE4F41F15033069586E8B5B68FE0764CD9.pygtex) [24] (_minted-ALU_Docs/2E5D7A7D84DE23353EEF6AB98C02470645A468EC819235404724BF30D42824F8.pygtex) [25]
+[21] (_minted-ALU_Docs/A64CC7D5E01306EB4E77BA762A3727491AB9312C064CB4B5834E0DDD90BD2E4F.pygtex) [22] (_minted-ALU_Docs/F5939EA0498C4266418EB2A68FE6EB1C0E9DABF9BEC474482727249D82E6207E.pygtex) [23] (_minted-ALU_Docs/27A956C4161E6A6267E3B9DB5AD768FE4F41F15033069586E8B5B68FE0764CD9.pygtex) [24] (_minted-ALU_Docs/80B1F6CC04370A78804B8CC849CF1FD145A468EC819235404724BF30D42824F8.pygtex) [25]
 Underfull \vbox (badness 10000) detected at line 344
  []
 
@@ -823,7 +823,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  94i,11n,93p,944b,694s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ALU_Docs.pdf (32 pages, 394343 bytes).
+Output written on ALU_Docs.pdf (32 pages, 394188 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

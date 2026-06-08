@@ -30,6 +30,7 @@
 \PYG{c+cm}{* Reset Task:}
 \PYG{c+cm}{    * Runs the reset pin at active low}
 \PYG{c+cm}{    * Should reset all registers to 0 and set done flag to 0}
+\PYG{c+cm}{    * And sets outputs to floating}
 \PYG{c+cm}{*/}
 \PYG{+w}{    }\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
@@ -43,11 +44,8 @@
 \PYG{c+cm}{    * The test case needs to be predictable for proper comparison}
 \PYG{c+cm}{    *}
 \PYG{c+cm}{    * Therefore the multiply function runs the clock until the Done flag is}
-\PYG{c+cm}{    *  raised. Upon which it should reset}
-\PYG{c+cm}{    *}
-\PYG{c+cm}{    * Since the registers are ran to the output as the done flag is raised}
-\PYG{c+cm}{    *  the output should still be readable inspite of the reset, since}
-\PYG{c+cm}{    *  the reset has no active effect on the output.}
+\PYG{c+cm}{    *  raised. Allowing thee multiplier enough time to complete the}
+\PYG{c+cm}{    *  multiplication.}
 \PYG{c+cm}{*/}\PYG{+w}{ }
 \PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Done\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{n}{clock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{;}

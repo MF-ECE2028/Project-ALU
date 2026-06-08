@@ -4,131 +4,91 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "y[0]",
+					"name" : "seven_seg0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "y[1]",
+					"name" : "seven_seg0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "y[2]",
+					"name" : "seven_seg0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "y[3]",
+					"name" : "seven_seg0[3]",
 					"strict" : false
 				},
 				{
-					"name" : "y[4]",
+					"name" : "seven_seg0[4]",
 					"strict" : false
 				},
 				{
-					"name" : "y[5]",
+					"name" : "seven_seg0[5]",
 					"strict" : false
 				},
 				{
-					"name" : "y[6]",
+					"name" : "seven_seg0[6]",
 					"strict" : false
 				},
 				{
-					"name" : "y[7]",
+					"name" : "seven_seg1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "overflow",
+					"name" : "seven_seg1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "done",
+					"name" : "seven_seg1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "en",
+					"name" : "seven_seg1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "seven_seg1[4]",
 					"strict" : false
 				},
 				{
-					"name" : "rst_n",
+					"name" : "seven_seg1[5]",
 					"strict" : false
 				},
 				{
-					"name" : "op[1]",
+					"name" : "seven_seg1[6]",
 					"strict" : false
 				},
 				{
-					"name" : "b[0]",
+					"name" : "switches[0]",
 					"strict" : false
 				},
 				{
-					"name" : "op[0]",
+					"name" : "switches[1]",
 					"strict" : false
 				},
 				{
-					"name" : "a[0]",
+					"name" : "switches[2]",
 					"strict" : false
 				},
 				{
-					"name" : "op[2]",
+					"name" : "switches[3]",
 					"strict" : false
 				},
 				{
-					"name" : "a[1]",
+					"name" : "switches[4]",
 					"strict" : false
 				},
 				{
-					"name" : "b[1]",
+					"name" : "switches[5]",
 					"strict" : false
 				},
 				{
-					"name" : "a[2]",
+					"name" : "switches[6]",
 					"strict" : false
 				},
 				{
-					"name" : "b[2]",
-					"strict" : false
-				},
-				{
-					"name" : "a[3]",
-					"strict" : false
-				},
-				{
-					"name" : "b[3]",
-					"strict" : false
-				},
-				{
-					"name" : "a[4]",
-					"strict" : false
-				},
-				{
-					"name" : "b[4]",
-					"strict" : false
-				},
-				{
-					"name" : "a[5]",
-					"strict" : false
-				},
-				{
-					"name" : "b[5]",
-					"strict" : false
-				},
-				{
-					"name" : "a[6]",
-					"strict" : false
-				},
-				{
-					"name" : "b[6]",
-					"strict" : false
-				},
-				{
-					"name" : "a[7]",
-					"strict" : false
-				},
-				{
-					"name" : "b[7]",
+					"name" : "switches[7]",
 					"strict" : false
 				}
 			]
