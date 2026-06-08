@@ -29,6 +29,7 @@ task reset();
 * Reset Task:
     * Runs the reset pin at active low
     * Should reset all registers to 0 and set done flag to 0
+    * And sets outputs to floating
 */
     reset_n = 1'b0;
     #10;
@@ -42,11 +43,8 @@ task multiply();
     * The test case needs to be predictable for proper comparison
     *
     * Therefore the multiply function runs the clock until the Done flag is
-    *  raised. Upon which it should reset
-    *
-    * Since the registers are ran to the output as the done flag is raised
-    *  the output should still be readable inspite of the reset, since
-    *  the reset has no active effect on the output.
+    *  raised. Allowing thee multiplier enough time to complete the
+    *  multiplication.
 */ 
     while (Done_test !== 1'b1) begin
         clock = 1'b1;
