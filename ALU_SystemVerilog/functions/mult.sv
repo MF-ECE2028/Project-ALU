@@ -27,13 +27,15 @@ logic [3:0]  i;
     always @(posedge (clock && enable) or negedge reset_n or negedge(enable)) begin
         //Resets all the registers and the done flag to initial states
         if(~reset_n) begin
-            done            <= 1'b0;
             result          <= 0;
             multiplicand    <= A;
             i               <= 0;
+            Y        <= 8'bz;
+            done     <= 1'bz;
+            overflow <= 1'bz;
         end
         //Sets the outputs to floating when the enable is off
-        if(~enable)begin
+        else if(~enable)begin
             Y        <= 8'bz;
             done     <= 1'bz;
             overflow <= 1'bz;

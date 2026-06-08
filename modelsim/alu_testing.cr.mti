@@ -19,6 +19,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	Mult_8bit
 
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module alu
+
+Top level modules:
+	alu
+
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module B_pass_tb
@@ -75,6 +82,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	Register_en_rstn
 
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/decoder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module Decoder
+
+Top level modules:
+	Decoder
+
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_or.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Bitwise_OR
@@ -88,13 +102,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 
 Top level modules:
 	A_pass_tb
-
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module Mult_8bitTestbench
-
-Top level modules:
-	Mult_8bitTestbench
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021

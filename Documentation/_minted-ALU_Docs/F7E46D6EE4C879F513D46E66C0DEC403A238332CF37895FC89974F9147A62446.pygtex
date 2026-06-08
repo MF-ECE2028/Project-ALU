@@ -32,7 +32,6 @@
 \PYG{+w}{            }\PYG{n}{result}\PYG{+w}{          }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{multiplicand}\PYG{+w}{    }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{i}\PYG{+w}{               }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
-\PYG{+w}{            }\PYG{n}{cout}\PYG{+w}{            }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{        }\PYG{k}{end}
 \PYG{+w}{        }\PYG{c+c1}{//Sets the outputs to floating when the enable is off}
 \PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{enable}\PYG{p}{)}\PYG{k}{begin}

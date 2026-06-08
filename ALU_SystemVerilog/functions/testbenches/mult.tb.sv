@@ -54,7 +54,6 @@ task multiply();
         clock = 1'b0;
         #1;
     end
-    reset();
 endtask
 
 task validate();
@@ -105,6 +104,7 @@ task validate();
                 //Does not stop at fail to identify the pattern of failure
                 // from test results
             end
+            reset();
         end
     end
     if(enable == 1) begin
@@ -127,6 +127,7 @@ task validate();
                 A2, B2, Y_test, Y_exp, cout_test, cout_exp);
             //$stop;
         end
+        reset();
     end   
 endtask
 
@@ -141,7 +142,7 @@ initial begin
     validate();     //Should display the not yet enabled message
 
     enable = 1'b1;  //Now test enable at 1
-    
+
     reset();        //Reset for same reason as before
     validate();     //Should pass with no error
 

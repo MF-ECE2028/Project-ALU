@@ -250,23 +250,37 @@ Three SystemVerilog modules were developed to be used within ALU operations or t
 asynchronously resetabble register with enable, a 3 bit multiplexer with enable, and a variable width counter. The Implementation
 details and SystemVerilog listings for these modules are provided in the subsequent sections.
 
-\subsubsection{3 Bit Multiplexer}
-The 3-bit multiplexer takes a 3-bit opcode input and converts it to an 8-bit, one-hot signal used to enable a given operation module. 
+\subsubsection{Opcode Decoder}
+The decoder takes a 3-bit opcode input and converts it to an 8-bit, one-hot signal used to enable a given operation module. 
 When enable is low, all outputs are set to 0.
 \subsubsection*{Listing: multiplexer\_3\_en.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/multiplexer_3_en.sv"}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/decoder.sv"}
 
 \subsubsection{Variable Width Register}
 The variable width register is a configurable register, with a default width of 1, used to store the value of the in signal. If enable is high, 
 the input "in" is copied to the output on the rising clock edge. Then, when enable is low, the register holds the value of out. If reset goes 
 low, the output is immediately set to 0.
-\subsubsection*{Listing: register\_en\_rstn.sv}
+\subsubsection*{Listing: decoder.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/register_en_rstn.sv"}
 
 \subsubsection{Counter}
 The counter is an N width counting module that increments by the input addBy. On the rising clock edge, the counter increments itself 
 \subsubsection*{Listing: counter.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/counter.sv"}
+
+\subsection{ALU Implementation}
+A schematic diagram of the full ALU is shown in figure \ref{full_alu_schematic}. Four registers are used to ensure that the inputs to the ALU remain
+consistent throughout the entire operation. $R_a$, $R_b$, and $R_op$ will store the inputs to the ALU on the first rising clock edge that occurs while
+EN is high. The output of the locking register $R_lk$ becomes high on the next clock falling edge, disabling further updates to A, B, and OP, and
+enabling the decoder, which will select the requested function. At this point the value of EN can be changed without impacting the ALU operation.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/full_alu_schematic.drawio.png}
+    \caption{Schematic of Full ALU}
+    \label{full_alu_schematic}
+\end{figure}
+
 
 \section{Design Verification}
 

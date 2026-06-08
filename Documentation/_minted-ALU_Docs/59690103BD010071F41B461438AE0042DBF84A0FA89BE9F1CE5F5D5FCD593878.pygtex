@@ -6,7 +6,7 @@
 \PYG{c+cm}{Implements a three bit multiplexer with enable}
 \PYG{c+cm}{*/}
 
-\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Multiplexer\PYGZus{}3\PYGZus{}en}\PYG{+w}{ }\PYG{p}{(}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Decoder}\PYG{+w}{ }\PYG{p}{(}
 \PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}
 \PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//Output of multiplexer is 0 unless enable is high.}
 \PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}
