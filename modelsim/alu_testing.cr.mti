@@ -5,19 +5,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	AdditionTestbench
 
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/alu_test.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
+-- Compiling module alu_test
+
+Top level modules:
+	alu_test
+
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Bitwise_XOR
 
 Top level modules:
 	Bitwise_XOR
-
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/mult.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module Mult_8bit
-
-Top level modules:
-	Mult_8bit
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/alu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
@@ -112,10 +112,10 @@ Top level modules:
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/utility_modules/counter.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module CounterNbit
+-- Compiling module Counter
 
 Top level modules:
-	CounterNbit
+	Counter
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021

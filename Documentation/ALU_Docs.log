@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 20:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 22:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -758,7 +758,7 @@ Overfull \hbox (35.76138pt too wide) in paragraph at lines 7--7
 Overfull \vbox (1.3255pt too high) detected at line 260
  []
 
-[11 <./Diagrams/mult_state.png>] [12] (_minted-ALU_Docs/59690103BD010071F41B461438AE0042DBF84A0FA89BE9F1CE5F5D5FCD593878.pygtex) [13] (_minted-ALU_Docs/0D52EAFEDA4F80301C917BBB8DCAC109E5F254C395D832A558C5DA8CF54D838A.pygtex) (_minted-ALU_Docs/661F6FA418D8A3AC77F525886EC71722714F47643813E7E98B04C418E5327FF9.pygtex) [14]
+[11 <./Diagrams/mult_state.png>] [12] (_minted-ALU_Docs/59690103BD010071F41B461438AE0042DBF84A0FA89BE9F1CE5F5D5FCD593878.pygtex) [13] (_minted-ALU_Docs/0D52EAFEDA4F80301C917BBB8DCAC109E5F254C395D832A558C5DA8CF54D838A.pygtex) (_minted-ALU_Docs/BD72312BE66B10350E1EC26D038D01A7714F47643813E7E98B04C418E5327FF9.pygtex) [14]
 <./Diagrams/full_alu_schematic.drawio.png, id=76, 756.8275pt x 804.00375pt>
 File: ./Diagrams/full_alu_schematic.drawio.png Graphic file (type png)
 <use ./Diagrams/full_alu_schematic.drawio.png>
@@ -805,21 +805,11 @@ Underfull \vbox (badness 10000) detected at line 353
 Overfull \vbox (2.84102pt too high) detected at line 353
  []
 
-[30] (_minted-ALU_Docs/D35E02BF55D3BBC79EAB487E987EB52C4CE317EC09D8308102C1D72346D67431.pygtex) [31]
-c:/Users/nr308/source/ECE_204/Project-ALU/Documentation/ALU_Docs.tex:360: Undefined control sequence.
-l.360 \subsubsecton
-                   *{Do File Output}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-(_minted-ALU_Docs/0845BCE8A12D53AFB2C6210BF91A2D5274C6AEA85E4669648C0ECF01DABDF473.pygtex)
-Underfull \vbox (badness 3568) detected at line 361
- []
-
-[32]
+[30] (_minted-ALU_Docs/D35E02BF55D3BBC79EAB487E987EB52C4CE317EC09D8308102C1D72346D67431.pygtex) [31] (do_file_output.txt
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 47.
+ (C:\Users\nr308\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [32])
 <./Diagrams/alu_waveform.png, id=136, 1160.83687pt x 332.74312pt>
 File: ./Diagrams/alu_waveform.png Graphic file (type png)
 <use ./Diagrams/alu_waveform.png>
@@ -837,17 +827,17 @@ L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31524 strings out of 475248
- 783726 string characters out of 5757813
- 1961785 words of memory out of 5000000
- 52464 multiletter control sequences out of 15000+600000
- 568160 words of font info for 76 fonts, out of 8000000 for 9000
+ 31801 strings out of 475248
+ 785819 string characters out of 5757813
+ 2218785 words of memory out of 5000000
+ 52736 multiletter control sequences out of 15000+600000
+ 568626 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,11n,93p,944b,694s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ALU_Docs.pdf (34 pages, 425005 bytes).
+ 94i,11n,93p,944b,1624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\nr308\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ALU_Docs.pdf (34 pages, 426553 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 195 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  64 words of extra memory for PDF output out of 10000 (max. 10000000)
 

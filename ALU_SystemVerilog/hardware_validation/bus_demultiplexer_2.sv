@@ -4,7 +4,7 @@ Author: Max Fabian
 
 Bus 1:4 Reverse Multiplexer, Takes one N-bit Bus and selector passes said bus to specific output
 */
-module Bus_Demultiplexer_2 #(parameter BUS_WIDTH) ( //Parameter to choose bus Width with N number of bits
+module Bus_Demultiplexer_2 #(parameter BUS_WIDTH = 4) ( //Parameter to choose bus Width with N number of bits
     input logic [BUS_WIDTH - 1 : 0] in,    //N-bit bus input
     input logic [1:0] sel,                 //2-bit selector   
     output logic [BUS_WIDTH - 1 : 0] out0, //N-bit bus output

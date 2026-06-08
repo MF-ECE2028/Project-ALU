@@ -1,26 +1,36 @@
-module CounterNbit #(parameter N = 3)(
-    input logic clock,
-    input logic reset_n, enable_n,
-    input logic [N:0] addBy,
-    output logic [N:0] count
+/*
+Project: 8 Bit ALU
+Author: Nolan Kessler
+Sources: Based on my counter implementation from lab 5
+
+A configurable counter
+*/
+
+module Counter
+#(
+parameter IN_WIDTH = 4,
+parameter OUT_WIDTH = 4
+)
+(
+	input logic clock,
+	input logic reset_n,
+	input logic enable,
+	input logic [IN_WIDTH-1:0] addBy,
+	output logic [OUT_WIDTH-1:0] count
 );
 
-logic [N:0] count_next;
- 
-always_comb begin //@(posedge clock || reset_n) begin
-    if (reset_n == 1'b0) begin
-        count_next <= count + addBy;
-    end else begin
-        count_next <= 0;
-    end
-end
+	logic [OUT_WIDTH-1:0] count_next;
 
-Register_en_rstn #(.WIDTH(N+1)) RegNBit (
-   .clk(clock),
-   .rst_n(reset_n), .enable(enable_n),
-   .in(count_next),
-   .out(count)
-);
+	always_comb begin
+		count_next = count + (addBy & {IN_WIDTH{enable}});
+	end
 
-endmodule 
+	Register_en_rstn #(OUT_WIDTH) register(
+		.clk(clock),
+		.rst_n(reset_n),
+		.in(count_next),
+		.out(count),
+        .enable(1'b1)
+	);
 
+endmodule

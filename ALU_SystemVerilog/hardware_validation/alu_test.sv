@@ -18,7 +18,7 @@ module alu_test(
 );
 
     logic key;
-    logic state;
+    logic [1:0] state;
     logic last_step;
     logic running;
     logic [8:0] reg_a_bus;
@@ -39,10 +39,10 @@ module alu_test(
     assign step_leds[1] = reg_b_bus[8];
     assign step_leds[2] = reg_op_bus[8];
 
-    CounterNbit #(2) state_counter (
+    Counter #(1, 2) state_counter (
         .clock(key),
         .reset_n(rst_n),
-        .enable_n(last_step),
+        .enable(~last_step),
         .addBy(1'b1),
         .count(state)
     );
@@ -75,7 +75,7 @@ module alu_test(
         .clk(~clk),
         .enable(last_step),
         .rst_n(rst_n),
-        .in(1),
+        .in(1'b1),
         .out(running)
     );
 

@@ -31,34 +31,26 @@ seven_seg1[5] << SevenSegmentDecode:disp1.segments
 seven_seg1[6] << SevenSegmentDecode:disp1.segments
 
 
-|alu_test|CounterNbit:state_counter
+|alu_test|Counter:state_counter
 clock => clock.IN1
 reset_n => reset_n.IN1
-enable_n => enable_n.IN1
-addBy[0] => Add0.IN3
-addBy[1] => Add0.IN2
-addBy[2] => Add0.IN1
-count[0] <= Register_en_rstn:RegNBit.out
-count[1] <= Register_en_rstn:RegNBit.out
-count[2] <= Register_en_rstn:RegNBit.out
+enable => count_next.IN0
+addBy[0] => count_next.IN1
+count[0] <= Register_en_rstn:register.out
+count[1] <= Register_en_rstn:register.out
 
 
-|alu_test|CounterNbit:state_counter|Register_en_rstn:RegNBit
+|alu_test|Counter:state_counter|Register_en_rstn:register
 clk => out[0]~reg0.CLK
 clk => out[1]~reg0.CLK
-clk => out[2]~reg0.CLK
 enable => out[0]~reg0.ENA
-enable => out[2]~reg0.ENA
 enable => out[1]~reg0.ENA
 rst_n => out[0]~reg0.ACLR
 rst_n => out[1]~reg0.ACLR
-rst_n => out[2]~reg0.ACLR
 in[0] => out[0]~reg0.DATAIN
 in[1] => out[1]~reg0.DATAIN
-in[2] => out[2]~reg0.DATAIN
 out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |alu_test|Register_en_rstn:reg_a
@@ -799,13 +791,21 @@ overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |alu_test|alu:ALU|Mult_8bit:multiplication
+A[0] => multiplicand.DATAA
 A[0] => multiplicand[0].ADATA
+A[1] => multiplicand.DATAA
 A[1] => multiplicand[1].ADATA
+A[2] => multiplicand.DATAA
 A[2] => multiplicand[2].ADATA
+A[3] => multiplicand.DATAA
 A[3] => multiplicand[3].ADATA
+A[4] => multiplicand.DATAA
 A[4] => multiplicand[4].ADATA
+A[5] => multiplicand.DATAA
 A[5] => multiplicand[5].ADATA
+A[6] => multiplicand.DATAA
 A[6] => multiplicand[6].ADATA
+A[7] => multiplicand.DATAA
 A[7] => multiplicand[7].ADATA
 B[0] => Mux0.IN7
 B[1] => Mux0.IN6

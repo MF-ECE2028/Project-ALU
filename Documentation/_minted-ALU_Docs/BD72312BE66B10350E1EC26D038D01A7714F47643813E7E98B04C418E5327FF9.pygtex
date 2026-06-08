@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8 Bit ALU}
+\PYG{c+cm}{Author: Nolan Kessler}
+\PYG{c+cm}{Sources: Based on my counter implementation from lab 5}
+
+\PYG{c+cm}{A configurable counter}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Counter}
+\PYG{p}{\PYGZsh{}(}
+\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{IN\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{,}
+\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{OUT\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{4}
+\PYG{p}{)}
+\PYG{p}{(}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{IN\PYGZus{}WIDTH}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{addBy}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{OUT\PYGZus{}WIDTH}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{count}
+\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{OUT\PYGZus{}WIDTH}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{count\PYGZus{}next}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{		}\PYG{n}{count\PYGZus{}next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{count}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{addBy}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n}{IN\PYGZus{}WIDTH}\PYG{p}{\PYGZob{}}\PYG{n}{enable}\PYG{p}{\PYGZcb{}\PYGZcb{});}
+\PYG{+w}{	}\PYG{k}{end}
+
+\PYG{+w}{	}\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{n}{OUT\PYGZus{}WIDTH}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{register}\PYG{p}{(}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clock}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{reset\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{n}{count\PYGZus{}next}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{count}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{);}
+
+\PYG{k}{endmodule}
+\end{Verbatim}
