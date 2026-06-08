@@ -195,7 +195,7 @@ SystemVerilog code.
 \subsubsection{A Pass}
 A Passthrough passes the 8-bit operand A to the output Y without modification. In the case enable is low, all outputs float to Z.
 \subsubsection*{Listing: a\_pass.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/a_pass.sv"}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{".ALU_SystemVerilog/functions/a_pass.sv"}
 
 
 \subsubsection{B Pass}
@@ -269,7 +269,7 @@ The counter is an N width counting module that increments by the input addBy. On
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/counter.sv"}
 
 \section{Design Verification}
-
+The verification of module designs is done using test benches. Each operation module has its own accompanying testbench module that tests the modules behavior to operands A and B, the enable signal, the reset signal, and the clock signal. The ALU has a test bench that tests the ALU's behavior connecting the sub-modules.
 \section{Hardware Validation}
 
 \end{document}
