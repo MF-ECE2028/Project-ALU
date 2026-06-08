@@ -240,7 +240,20 @@ the two's compliment of B and computes subtraction by adding A to the two's comp
 
 
 \subsubsection{Multiplication}
-Description here
+Multiplication performs a binary sequential multiplication by running for 9 clock cycles for 8 cycles the value for A has a logical left shift applied and is added to the result register if the equivalent bit in B is high. This functions similarly to writing out long multiplication by hand. The schematic is shown in Figure \ref(fig:MultSchematic). 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.5]{./Diagrams/mult_diagram.png}
+		\caption{Schematic of the Multiplication Module}
+		\label{fig:MultSchematic}
+	\end{figure}
+This can also be modeled as a state machine with 3 states, an initial state, multiplication state, and an finished state. Where the initial state sets the registers to their reset state, sending to the multiplication state. The multiplication state shifts the multiplicand and adds it to the result when conditions are met, and re-enters the multiplication state until it has completed this state 8 times, exiting to the final state. The final state sets the done flag high and sets the output and overflow accordingly. This can be visualized in Figure \ref(fig:MultStateMach).
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=0.5]{./Diagrams/mult_state.png}
+		\caption{State Machine Diagram for the Multiplication Module}
+		\label{fig:MultStateMach}
+	\end{figure} 
 \subsubsection*{Listing: mult.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/mult.sv"}
 
@@ -282,6 +295,8 @@ enabling the decoder, which will select the requested function. At this point th
     \label{full_alu_schematic}
 \end{figure}
 
+\section{Project Reflection}
+Implementing the project overall when well. Implementing each individual combinational modules and getting them working in the larger ALU module was quick and relatively simple. However we ran into some complications when attempting to implement a more complicated sequential module. This was the multiplication module. Since it required multiple clock cycles to perform, the module needed to have proper timing and a comparator to track the current clock cycle the system is on and run the system accordingly. We ran into a few issues with the done and overflow registers being out of sync causing the module to fail to properly output the overflow flag. These smaller difficulties were more time consuming than difficult as they were small errors that required looking over the HDL script and RTL Viewer to identify where the timing issues would occur.   
 
 \section{Design Verification}
 Design verification is done using SystemVerilog test benches. Each operation module has it own test bench to test expected values compared to simulated.
