@@ -1,3 +1,9 @@
+/*
+Project: 8-Bit ALU
+Author: Max Fabian
+
+Bitwise AND Testbench, tests all possible outputs of running bitwise AND across two 8-bit busses
+*/
 module Bitwise_ANDTestbench();
 
 //Module Inputs

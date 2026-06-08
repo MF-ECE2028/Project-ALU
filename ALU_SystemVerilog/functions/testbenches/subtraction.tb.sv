@@ -1,3 +1,9 @@
+/*
+Project: 8-Bit ALU
+Author: Max Fabian
+
+Subtraction Testbench, tests all possible outputs of subtracting two 8-bit busses
+*/
 module SubtractionTestbench();
 
 //Module Inputs
