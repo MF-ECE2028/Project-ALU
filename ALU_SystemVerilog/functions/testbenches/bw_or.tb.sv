@@ -1,79 +1,59 @@
-module Bitwise_ORTestbench();
-
-//Module Inputs
-logic [7:0] A_input, B_input;
-logic enable;
-
-//Module Outputs
-logic [7:0] Y_test;
-logic cout_test, Done_test;
-
-//Expected Outputs
-logic [7:0] Y_exp;
-logic cout_exp, Done_exp;
-
-//Module Call
-Bitwise_OR dut(
-    .A(A_input), .B(B_input),
-    .enable(enable),
-    .Y(Y_test),
-    .carry(cout_test), .Done(Done_test)
-);
-
-
-task validate();
 /*
-* Validate Task:
-    * Iterates through all values of A and B and compares the calculated
-    *  values of bitwise OR to the implimented bitwise OR module
+Project: 8-Bit ALU
+Author: Max Fabian
+Sources: N/A
+
+Testbench file for the OR module (bw_or.sv).
 */
-    for(int A = 0; A < 256; A++) begin
-        //If enable is off we should see floating output
-        if(enable == 0) begin
-            $display("Function not yet enabled %dY_test",
-                Y_test);
-            break;
+
+module Or_tb();
+
+    //Module Inputs
+    logic [7:0] A_input, B_input;
+    logic enable;
+
+    //Module Outputs
+    logic [7:0] Y_test;
+    logic done, overflow;
+
+    //Module Call
+    Bitwise_OR dut(
+        .A(A_input), .B(B_input),
+        .enable(enable),
+        .Y(Y_test),
+        .overflow(overflow), .done(done)
+    );
+
+    initial begin
+
+        // Test case where enable is low
+        enable = 0;
+        A_input = 8'b0;
+        B_input = 8'b1;
+        #10;
+        // Y, done, and overflow should all be floating
+        if (Y_test !== 8'bz || done !== 1'bz || overflow !== 1'bz) begin
+            $display("Test Failed enable low case");
+            $stop;
         end
-        for(int B = 0; B < 256; B++) begin
-            //Assigns the module bus inputs to current values
-            A_input = A; B_input = B;
-            //Calculates expected values and outputs them to expected
-            Y_exp = A | B;
 
-            #5; //Pause to let module run
+        // Test cases where enable is high
+        enable = 1;
 
-            //Checks every output against expected and displays where it fails 
-            // if it does
-            if(cout_exp !== cout_test && Y_exp !== Y_test && Done_test !== Done_exp) begin
-                $display("Failed at %dA | %dB; Y=%d and Y_exp=%d",
-                    A, B, Y_test, Y_exp);
-                //Does not stop at fail to identify the pattern of failure
-                // from test results
+        // Test all possible values for A and B
+        for(int A = 0; A < 256; A++) begin
+            for(int B = 0; B < 256; B++) begin
+                A_input = A; B_input = B;
+                #10;
+                // Check Y is correct, done is high, and overflow is low
+                if (Y_test !== (A_input | B_input) || done !== 1'b1 || overflow !== 1'b0) begin
+                    $display("Failed at %dA | %dB; Y=%d", A, B, Y_test);
+                    $stop;
+                end
             end
         end
+
+        $display("All Tests Passed");
     end
-endtask
-
-initial begin
-    //Initialize Variables
-    enable  = 1'b0; //First test enable at 0
-    A_input = 0;
-    B_input = 0;
-    Done_exp= 1;    //Expected Done flag will always be 1
-    cout_exp= 0;    //Overflow should always be 0 for bitwise operations
-
-    validate();     //Should display the not yet enabled message
-
-    enable = 1'b1;  //Now test enable at 1
-
-    validate();     // Should pass with no error
-
-    #100;           //Take a short breather
-    $stop;
-end
 
 endmodule
-
-    
-
-
