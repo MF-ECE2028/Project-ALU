@@ -283,7 +283,42 @@ enabling the decoder, which will select the requested function. At this point th
 
 
 \section{Design Verification}
-The verification of module designs is done using test benches. Each operation module has its own accompanying testbench module that tests the modules behavior to operands A and B, the enable signal, the reset signal, and the clock signal. The ALU has a test bench that tests the ALU's behavior connecting the sub-modules.
+Design verification is done using SystemVerilog test benches. Each operation module, utility module, and the ALU itself has their own respective test bench.
+
+\subsection{Combination Logic Operation Test Benches}
+Each operation module has a test bench. All test benches with the exception of the multiplication test bench test all possible combinations of operands as well as testing the case where the enable signal is low.
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+
+\subsubsection{B Pass}
+\subsection*{Listing: b\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}
+{"../ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv"}
+
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+
+
+\subsection{Sequential Logic Operation Test Benches}
+\subsection{Utility Test Benches}
+
+\subsection{ALU Test Bench}
+
+\subsection{Do File and Testing}
+
 \section{Hardware Validation}
 
 \end{document}
