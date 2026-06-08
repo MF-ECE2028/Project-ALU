@@ -370,6 +370,30 @@ We can analyze the ALU test bench's wavform using the waveform
 \end{figure}
 
 \section{Hardware Validation}
+Hardware validation requires a couple additional modules for the ALU to work effectively on the FPGA.
+To achieve two 8-bit inputs, we need to be able to input operand A, then have a register hold that value
+while we input operand B. 
+
+NOLAN ADD MORE INFO HERE
+
+To display Y on the seven segment display, Y goies to a seven segment decoder with two outputs: Display 0 
+and Display 1.
+
+\subsection*{Hardware Implementation Schematic}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/alu_demo_schematic.png}
+    \caption{ALU Hardware Implementation Schematic}
+    \label{ALU Hardware Implementation Schematic}
+\end{figure}
+
+\subsection*{Hardware Implementation State Machiene}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{./Diagrams/demo_state_machiene.png}
+    \caption{ALU Hardware Implementation State Machiene}
+    \label{ALU Hardware Implementation State Machiene}
+\end{figure}
 
 \pagebreak
 \section{Reflection on Desgin Process}
