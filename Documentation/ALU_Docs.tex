@@ -306,9 +306,6 @@ enabling the decoder, which will select the requested function. At this point th
     \label{full_alu_schematic}
 \end{figure}
 
-\pagebreak\section{Project Reflection}
-Implementing the project overall when well. Implementing each individual combinational modules and getting them working in the larger ALU module was quick and relatively simple. However we ran into some complications when attempting to implement a more complicated sequential module. This was the multiplication module. Since it required multiple clock cycles to perform, the module needed to have proper timing and a comparator to track the current clock cycle the system is on and run the system accordingly. We ran into a few issues with the done and overflow registers being out of sync causing the module to fail to properly output the overflow flag. These smaller difficulties were more time consuming than difficult as they were small errors that required looking over the HDL script and RTL Viewer to identify where the timing issues would occur.   
-
 \section{Design Verification}
 Design verification is done using SystemVerilog test benches. Each operation module has it own test bench to test expected values compared to simulated.
 The ALU itself its own test bench which ensures the ALU design and utility modules function as expected.
@@ -386,21 +383,21 @@ four state FSM, where the state is used to control a four-bit bus demultiplexer.
 state is finished, the ALU is enabled and the state counter is disabled on the next clock falling edge. The
 display output is switched from the switch input (Num) to the alu output Y, using a one bit bus multiplexer.
 The FSM will remain in this state until the system is reset. A schematic and state transition diagram are
-shown in figures \ref(ALU Hardware Implementation Schematic) and \ref{ALU Hardware Implementation State Machiene} respectively.
+shown in figures \ref{alu_hardware_schematic} and \ref{alu_fsm} respectively.
 Listings of the SystemVerilog implementations of this system and its components are included in the next section.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.35]{./Diagrams/alu_demo_schematic.png}
     \caption{ALU Hardware Implementation Schematic}
-    \label{ALU Hardware Implementation Schematic}
+    \label{alu_hardware_schematic}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{./Diagrams/demo_state_machiene.png}
     \caption{ALU Hardware Implementation State Machine}
-    \label{ALU Hardware Implementation State Machine}
+    \label{alu_fsm}
 \end{figure}
 
 \subsection{Hardware Implementation HDL Listings}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 23:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.12.6)  7 JUN 2026 23:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -873,114 +873,180 @@ Package pdftex.def Info: ./Diagrams/full_alu_schematic.drawio.png  used on input
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16] [17 <./Diagrams/full_alu_schematic.drawio.png>] (_minted-ALU_Docs/EB9C0FA60395935EE19B6A14D0A6C1F5D27930A37CEAF53571C0AEF7B1CCFA7C.pygtex) [18] (_minted-ALU_Docs/EF47DDFB0E3A43354CA8F81F22CED542E52E1540C5A391A38F4F71B49481CB35.pygtex) [19] (_minted-ALU_Docs/9F1098C7DC63B9B3AD9F4E3ADA8A127D204152DFE377BC0D2BDE69032086B40D.pygtex) [20] (_minted-ALU_Docs/68C5921F3276A5FB5F6A4C9E0ED1A3661A6AEB45F6BF18B90322DCFB098BF232.pygtex) [21]
-Underfull \vbox (badness 10000) detected at line 336
+[16] (_minted-ALU_Docs/EB9C0FA60395935EE19B6A14D0A6C1F5D27930A37CEAF53571C0AEF7B1CCFA7C.pygtex)
+Overfull \vbox (2.64697pt too high) detected at line 318
+ []
+
+[17 <./Diagrams/full_alu_schematic.drawio.png>] [18] (_minted-ALU_Docs/EF47DDFB0E3A43354CA8F81F22CED542E52E1540C5A391A38F4F71B49481CB35.pygtex) [19] (_minted-ALU_Docs/9F1098C7DC63B9B3AD9F4E3ADA8A127D204152DFE377BC0D2BDE69032086B40D.pygtex) [20] (_minted-ALU_Docs/68C5921F3276A5FB5F6A4C9E0ED1A3661A6AEB45F6BF18B90322DCFB098BF232.pygtex) [21] (_minted-ALU_Docs/A64CC7D5E01306EB4E77BA762A3727491AB9312C064CB4B5834E0DDD90BD2E4F.pygtex) [22] (_minted-ALU_Docs/D5F8C4543E859D1DBF3C554255B8EBE70E9DABF9BEC474482727249D82E6207E.pygtex) [23]
+Underfull \vbox (badness 10000) detected at line 343
  []
 
 
-Overfull \vbox (2.84102pt too high) detected at line 336
+Overfull \vbox (2.84102pt too high) detected at line 343
  []
 
-[22] (_minted-ALU_Docs/A64CC7D5E01306EB4E77BA762A3727491AB9312C064CB4B5834E0DDD90BD2E4F.pygtex) [23] (_minted-ALU_Docs/D5F8C4543E859D1DBF3C554255B8EBE70E9DABF9BEC474482727249D82E6207E.pygtex) [24] (_minted-ALU_Docs/36872D96A0728E109C359A36E4D11FDD4F41F15033069586E8B5B68FE0764CD9.pygtex) [25] (_minted-ALU_Docs/C87A6C50E9CB5F1FBEB129FE2D6F2A9C45A468EC819235404724BF30D42824F8.pygtex
+[24] (_minted-ALU_Docs/36872D96A0728E109C359A36E4D11FDD4F41F15033069586E8B5B68FE0764CD9.pygtex) [25] (_minted-ALU_Docs/C87A6C50E9CB5F1FBEB129FE2D6F2A9C45A468EC819235404724BF30D42824F8.pygtex
 Overfull \hbox (35.76138pt too wide) in paragraph at lines 7--7
 \OT1/cmtt/m/n/10 *https://stackoverflow.com/questions/63655634/8[]bit[]sequential[]multiplier[]using[]add[]and[]shift[]|  
  []
 
 ) [26]
-Underfull \vbox (badness 10000) detected at line 355
+Underfull \vbox (badness 10000) detected at line 352
  []
 
 
-Overfull \vbox (2.84102pt too high) detected at line 355
+Overfull \vbox (2.84102pt too high) detected at line 352
  []
 
 [27]
-Underfull \vbox (badness 10000) detected at line 355
+Underfull \vbox (badness 10000) detected at line 352
  []
 
 
-Overfull \vbox (2.84102pt too high) detected at line 355
+Overfull \vbox (2.84102pt too high) detected at line 352
  []
 
-[28] [29] (_minted-ALU_Docs/E37FEB87ED7EDDED8039744FCB1E06A986CC32B6F33FA844296681A177F98E83.pygtex) [30]
-Underfull \vbox (badness 10000) detected at line 362
+[28] (_minted-ALU_Docs/E37FEB87ED7EDDED8039744FCB1E06A986CC32B6F33FA844296681A177F98E83.pygtex) [29]
+Underfull \vbox (badness 10000) detected at line 359
  []
 
 
-Overfull \vbox (2.84102pt too high) detected at line 362
+Overfull \vbox (2.84102pt too high) detected at line 359
  []
 
-[31] (_minted-ALU_Docs/D35E02BF55D3BBC79EAB487E987EB52C4CE317EC09D8308102C1D72346D67431.pygtex) [32]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 370.
- (do_file_output.txt
+[30]
+Underfull \vbox (badness 10000) detected at line 359
+ []
+
+
+Overfull \vbox (2.84102pt too high) detected at line 359
+ []
+
+[31] (_minted-ALU_Docs/D35E02BF55D3BBC79EAB487E987EB52C4CE317EC09D8308102C1D72346D67431.pygtex)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 367.
+ (do_file_output.txt [32]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 47.
  (C:\Users\nr308\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [33])
-<./Diagrams/alu_waveform.png, id=431, 1160.83687pt x 332.74312pt>
+)) [33]
+<./Diagrams/alu_waveform.png, id=466, 1160.83687pt x 332.74312pt>
 File: ./Diagrams/alu_waveform.png Graphic file (type png)
 <use ./Diagrams/alu_waveform.png>
-Package pdftex.def Info: ./Diagrams/alu_waveform.png  used on input line 376.
+Package pdftex.def Info: ./Diagrams/alu_waveform.png  used on input line 373.
 (pdftex.def)             Requested size: 580.417pt x 166.37114pt.
 
-Overfull \hbox (79.93301pt too wide) in paragraph at lines 376--377
+Overfull \hbox (79.93301pt too wide) in paragraph at lines 373--374
  [][] 
  []
 
-
-LaTeX Warning: Reference `(' on page 34 undefined on input line 389.
-
-
-LaTeX Warning: Reference `ALU Hardware Implementation State Machiene' on page 34 undefined on input line 389.
-
-[34 <./Diagrams/alu_waveform.png>]
-<./Diagrams/alu_demo_schematic.png, id=464, 1518.67375pt x 1015.795pt>
+<./Diagrams/alu_demo_schematic.png, id=469, 1518.67375pt x 1015.795pt>
 File: ./Diagrams/alu_demo_schematic.png Graphic file (type png)
 <use ./Diagrams/alu_demo_schematic.png>
-Package pdftex.def Info: ./Diagrams/alu_demo_schematic.png  used on input line 394.
+Package pdftex.def Info: ./Diagrams/alu_demo_schematic.png  used on input line 391.
 (pdftex.def)             Requested size: 531.54378pt x 355.53357pt.
 
-Overfull \hbox (31.05978pt too wide) in paragraph at lines 394--395
+Overfull \hbox (31.05978pt too wide) in paragraph at lines 391--392
  [][] 
  []
 
-<./Diagrams/demo_state_machiene.png, id=465, 728.7225pt x 221.82875pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Diagrams/demo_state_machiene.png, id=470, 728.7225pt x 221.82875pt>
 File: ./Diagrams/demo_state_machiene.png Graphic file (type png)
 <use ./Diagrams/demo_state_machiene.png>
-Package pdftex.def Info: ./Diagrams/demo_state_machiene.png  used on input line 401.
+Package pdftex.def Info: ./Diagrams/demo_state_machiene.png  used on input line 398.
 (pdftex.def)             Requested size: 364.36035pt x 110.9141pt.
-[35 <./Diagrams/alu_demo_schematic.png> <./Diagrams/demo_state_machiene.png>] (_minted-ALU_Docs/FF85E3DFE7DC23CA543D97E1CA8E1DF15C9E09CB7A6CE9BF35BC604563C37097.pygtex) [36]
-Underfull \vbox (badness 10000) detected at line 409
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(_minted-ALU_Docs/FF85E3DFE7DC23CA543D97E1CA8E1DF15C9E09CB7A6CE9BF35BC604563C37097.pygtex) [34 <./Diagrams/alu_waveform.png>]
+Underfull \vbox (badness 10000) detected at line 406
  []
 
 
-Overfull \vbox (2.84102pt too high) detected at line 409
+Underfull \vbox (badness 10000) detected at line 406
  []
 
-[37] (_minted-ALU_Docs/3DA1654890BBF001A49F0AD558A1884A3B1C4A0F897F916721DA548B16837F84.pygtex) (_minted-ALU_Docs/F9085CEA51F07C7257FB2E265E32D7A1B72B8C3352867FBF64012DF41CC6DF74.pygtex) [38] (_minted-ALU_Docs/B708E393A46129B08F679057E455C2553C7C558859A3685E7BF41A561D5B70FC.pygtex) [39] [40] [41] (ALU_Docs.aux)
+[35 <./Diagrams/alu_demo_schematic.png> <./Diagrams/demo_state_machiene.png>]
+Underfull \vbox (badness 10000) detected at line 406
+ []
+
+
+Overfull \vbox (2.84102pt too high) detected at line 406
+ []
+
+[36] (_minted-ALU_Docs/3DA1654890BBF001A49F0AD558A1884A3B1C4A0F897F916721DA548B16837F84.pygtex) [37] (_minted-ALU_Docs/F9085CEA51F07C7257FB2E265E32D7A1B72B8C3352867FBF64012DF41CC6DF74.pygtex) (_minted-ALU_Docs/B708E393A46129B08F679057E455C2553C7C558859A3685E7BF41A561D5B70FC.pygtex) [38]
+Underfull \vbox (badness 10000) detected at line 415
+ []
+
+
+Overfull \vbox (2.84102pt too high) detected at line 415
+ []
+
+[39] [40] [41] (ALU_Docs.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Warning: File `ALU_Docs.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: File `ALU_Docs.out' has not changed.
-(rerunfilecheck)             Checksum: 0C5E47A2AA3E039269E2BA08B36F9C2C;4605.
+Package rerunfilecheck Info: Checksums for `ALU_Docs.out':
+(rerunfilecheck)             Before: 0C5E47A2AA3E039269E2BA08B36F9C2C;4605
+(rerunfilecheck)             After:  A715E29C86B49C6949A8A2A9460A23BA;4468.
  ) 
 Here is how much of TeX's memory you used:
- 38179 strings out of 475248
- 886868 string characters out of 5757813
- 2221785 words of memory out of 5000000
- 58836 multiletter control sequences out of 15000+600000
+ 38188 strings out of 475248
+ 886966 string characters out of 5757813
+ 2272785 words of memory out of 5000000
+ 58834 multiletter control sequences out of 15000+600000
  568626 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,11n,93p,944b,1976s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,11n,93p,781b,1976s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{section.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.5.1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.8} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.7} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsubsection.4.1.1} has been referenced but does not exist, replaced by a fixed one
+
  <C:\Users\nr308\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1000.pk><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/nr308/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ALU_Docs.pdf (41 pages, 531397 bytes).
+Output written on ALU_Docs.pdf (41 pages, 531649 bytes).
 PDF statistics:
- 596 PDF objects out of 1000 (max. 8388607)
- 188 named destinations out of 1000 (max. 500000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 199 named destinations out of 1000 (max. 500000)
  338 words of extra memory for PDF output out of 10000 (max. 10000000)
 
