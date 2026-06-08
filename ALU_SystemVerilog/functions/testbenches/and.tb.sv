@@ -15,7 +15,7 @@ module And_tb;
 	logic done;
 	logic overflow;
 	
-	And dut(
+	Bitwise_AND dut(
 		.A(A),
 		.B(B),
 		.enable(enable),
