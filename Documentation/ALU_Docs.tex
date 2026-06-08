@@ -195,7 +195,7 @@ SystemVerilog code.
 \subsubsection{A Pass}
 A Passthrough passes the 8-bit operand A to the output Y without modification. In the case enable is low, all outputs float to Z.
 \subsubsection*{Listing: a\_pass.sv}
-\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{".ALU_SystemVerilog/functions/a_pass.sv"}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/a_pass.sv"}
 
 
 \subsubsection{B Pass}
@@ -264,7 +264,8 @@ low, the output is immediately set to 0.
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/register_en_rstn.sv"}
 
 \subsubsection{Counter}
-The counter is an N width counting module that increments by the input addBy. On the rising clock edge, the counter increments itself 
+The counter is an N width counting module with a default width of 4 bits. On the rising clock edge, the counter increments itself by the
+value of addBy. If reset is high, the counter resets the count to 0.
 \subsubsection*{Listing: counter.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/utility_modules/counter.sv"}
 
@@ -283,7 +284,42 @@ enabling the decoder, which will select the requested function. At this point th
 
 
 \section{Design Verification}
-The verification of module designs is done using test benches. Each operation module has its own accompanying testbench module that tests the modules behavior to operands A and B, the enable signal, the reset signal, and the clock signal. The ALU has a test bench that tests the ALU's behavior connecting the sub-modules.
+Design verification is done using SystemVerilog test benches. Each operation module, utility module, and the ALU itself has their own respective test bench.
+
+\subsection{Combination Logic Operation Test Benches}
+Each operation module has a test bench. All test benches with the exception of the multiplication test bench test all possible combinations of operands as well as testing the case where the enable signal is low.
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+
+\subsubsection{B Pass}
+\subsection*{Listing: b\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}
+{"../ALU_SystemVerilog/functions/testbenches/b_pass.tb.sv"}
+
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+\subsubsection{A Pass}
+\subsection*{Listing: a\_pass.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/testbenches/a_pass.tb.sv"}
+
+
+
+
+\subsection{Sequential Logic Operation Test Benches}
+\subsection{Utility Test Benches}
+
+\subsection{ALU Test Bench}
+
+\subsection{Do File and Testing}
+
 \section{Hardware Validation}
 
 \end{document}
