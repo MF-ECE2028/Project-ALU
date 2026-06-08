@@ -28,13 +28,15 @@
 \PYG{+w}{    }\PYG{k}{always}\PYG{+w}{ }\PYG{p}{@(}\PYG{k}{posedge}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{clock}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{k}{negedge}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{k}{or}\PYG{+w}{ }\PYG{k}{negedge}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{))}\PYG{+w}{ }\PYG{k}{begin}
 \PYG{+w}{        }\PYG{c+c1}{//Resets all the registers and the done flag to initial states}
 \PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{reset\PYGZus{}n}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
-\PYG{+w}{            }\PYG{n}{done}\PYG{+w}{            }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{result}\PYG{+w}{          }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{multiplicand}\PYG{+w}{    }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{i}\PYG{+w}{               }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{Y}\PYG{+w}{        }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{done}\PYG{+w}{     }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
 \PYG{+w}{        }\PYG{k}{end}
 \PYG{+w}{        }\PYG{c+c1}{//Sets the outputs to floating when the enable is off}
-\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{enable}\PYG{p}{)}\PYG{k}{begin}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{enable}\PYG{p}{)}\PYG{k}{begin}
 \PYG{+w}{            }\PYG{n}{Y}\PYG{+w}{        }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{done}\PYG{+w}{     }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{;}
