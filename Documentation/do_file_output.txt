@@ -1,0 +1,70 @@
+# End time: 18:45:52 on Jun 07,2026, Elapsed time: 0:23:45
+# Errors: 6, Warnings: 2
+# vsim -quiet A_pass_tb -do "run -all" 
+# Start time: 18:45:52 on Jun 07,2026
+# run -all
+# All Tests Passed
+# Errors: 3, Warnings: 1
+# vsim -quiet B_pass_tb -do "run -all" 
+# Start time: 18:45:55 on Jun 07,2026
+# run -all
+# All Tests Passed
+# End time: 18:45:59 on Jun 07,2026, Elapsed time: 0:00:04
+# Errors: 3, Warnings: 1
+# vsim -quiet And_tb -do "run -all" 
+# Start time: 18:45:59 on Jun 07,2026
+# run -all
+# All Tests Passed
+# End time: 18:46:02 on Jun 07,2026, Elapsed time: 0:00:03
+# Errors: 3, Warnings: 1
+# vsim -quiet Or_tb -do "run -all" 
+# Start time: 18:46:02 on Jun 07,2026
+# run -all
+# All Tests Passed
+# End time: 18:46:06 on Jun 07,2026, Elapsed time: 0:00:04
+# Errors: 3, Warnings: 1
+# vsim -quiet Xor_tb -do "run -all" 
+# Start time: 18:46:06 on Jun 07,2026
+# run -all
+# All Tests Passed
+# End time: 18:46:10 on Jun 07,2026, Elapsed time: 0:00:04
+# Errors: 3, Warnings: 1
+# vsim -quiet AdditionTestbench -do "run -all" 
+# Start time: 18:46:10 on Jun 07,2026
+# run -all
+# All Tests Passed
+# Errors: 3, Warnings: 1
+# vsim -quiet SubtractionTestbench -do "run -all" 
+# Start time: 18:46:14 on Jun 07,2026
+# run -all
+# All Tests Passed
+# End time: 18:46:17 on Jun 07,2026, Elapsed time: 0:00:03
+# Errors: 3, Warnings: 1
+# vsim -quiet Mult_8bitTestbench -do "run -all" 
+# Start time: 18:46:17 on Jun 07,2026
+# run -all
+# Function not yet enabled   zY_test zcout_test
+# ** Note: $stop    : C:/Users/jacko/ece204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv(150)
+#    Time: 135321 ps  Iteration: 0  Instance: /Mult_8bitTestbench
+# Break in Module Mult_8bitTestbench at C:/Users/jacko/ece204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv line 150
+# End time: 18:46:21 on Jun 07,2026, Elapsed time: 0:00:04
+# Errors: 3, Warnings: 1
+# vsim ALU_tb 
+# Start time: 18:46:21 on Jun 07,2026
+# Loading sv_std.std
+# Loading work.ALU_tb
+# Loading work.alu
+# Loading work.Register_en_rstn
+# Loading work.Decoder
+# Loading work.A_pass
+# Loading work.B_pass
+# Loading work.Bitwise_AND
+# Loading work.Bitwise_OR
+# Loading work.Bitwise_XOR
+# Loading work.Addition
+# Loading work.Subtraction
+# Loading work.Mult_8bit
+# All Tests Passed!
+# ** Note: $stop    : C:/Users/jacko/ece204/Project-ALU/ALU_SystemVerilog/alu.tb.sv(134)
+#    Time: 360 ps  Iteration: 0  Instance: /ALU_tb
+# Break in Module ALU_tb at C:/Users/jacko/ece204/Project-ALU/ALU_SystemVerilog/alu.tb.sv line 134
