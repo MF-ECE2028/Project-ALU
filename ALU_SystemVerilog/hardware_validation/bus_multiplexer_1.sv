@@ -5,4 +5,6 @@ module Bus_Multiplexer_1 #(parameter BUS_WIDTH) (
     output logic [BUS_WIDTH - 1 : 0] out
 );
 
+    assign out = sel ? in1 : in0;
+
 endmodule

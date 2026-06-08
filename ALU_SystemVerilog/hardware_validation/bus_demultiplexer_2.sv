@@ -7,4 +7,9 @@ module Bus_Demultiplexer_2 #(parameter BUS_WIDTH) (
     output logic [BUS_WIDTH - 1 : 0] out3
 );
 
+    assign out0 = sel[1] ? 0: (sel[0] ? 0 : in);
+    assign out1 = sel[1] ? 0: (sel[0] ? in : 0);
+    assign out2 = sel[1] ? (sel[0] ? 0 : in) :0;
+    assign out3 = sel[1] ? (sel[0] ? in : 0) :0;
+
 endmodule
