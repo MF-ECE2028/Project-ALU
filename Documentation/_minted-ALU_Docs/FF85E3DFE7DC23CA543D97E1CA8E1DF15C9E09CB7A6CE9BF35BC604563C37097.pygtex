@@ -1,0 +1,123 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Nolan Kessler}
+
+\PYG{c+cm}{Implements interactive testing of ALU on hardware}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}test}\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{key\PYGZus{}n}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{rst\PYGZus{}n}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{clk}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{switches}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{step\PYGZus{}leds}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done\PYGZus{}led}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}led}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{6}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{seven\PYGZus{}seg0}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{6}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{seven\PYGZus{}seg1}
+\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{state}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{last\PYGZus{}step}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{running}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}a\PYGZus{}bus}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}b\PYGZus{}bus}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}op\PYGZus{}bus}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}a}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}b}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}op\PYGZus{}wide}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}op}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}y}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{digit0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{digit1}\PYG{p}{;}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{key}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZti{}}\PYG{n}{key\PYGZus{}n}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Inverted version of button for use with active high modules}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{last\PYGZus{}step}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{state}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Comparator to track when state machine is on last step, and ALU is running}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}op}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{alu\PYGZus{}op\PYGZus{}wide}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{step\PYGZus{}leds}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}a\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{//Leds to indicate which step system is on}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{step\PYGZus{}leds}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}b\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{];}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{step\PYGZus{}leds}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}op\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{];}
+
+\PYG{+w}{    }\PYG{n}{Counter}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{state\PYGZus{}counter}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clock}\PYG{p}{(}\PYG{n}{key}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{reset\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{last\PYGZus{}step}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{addBy}\PYG{p}{(}\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{count}\PYG{p}{(}\PYG{n}{state}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}a}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{reg\PYGZus{}a\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{n}{reg\PYGZus{}a\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{alu\PYGZus{}a}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}b}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{reg\PYGZus{}b\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{n}{reg\PYGZus{}b\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{alu\PYGZus{}b}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}op}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{reg\PYGZus{}op\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{8}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{n}{reg\PYGZus{}op\PYGZus{}bus}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{alu\PYGZus{}op\PYGZus{}wide}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Register\PYGZus{}en\PYGZus{}rstn}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}start}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{clk}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{last\PYGZus{}step}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(}\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(}\PYG{n}{running}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Bus\PYGZus{}Demultiplexer\PYGZus{}2}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{9}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{reg\PYGZus{}selector}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in}\PYG{p}{(\PYGZob{}}\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{switches}\PYG{p}{\PYGZcb{}),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{sel}\PYG{p}{(}\PYG{n}{state}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out0}\PYG{p}{(}\PYG{n}{reg\PYGZus{}a\PYGZus{}bus}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out1}\PYG{p}{(}\PYG{n}{reg\PYGZus{}b\PYGZus{}bus}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out2}\PYG{p}{(}\PYG{n}{reg\PYGZus{}op\PYGZus{}bus}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Bus\PYGZus{}Multiplexer\PYGZus{}1}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{disp\PYGZus{}source\PYGZus{}selector}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in0}\PYG{p}{(}\PYG{n}{switches}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{in1}\PYG{p}{(}\PYG{n}{alu\PYGZus{}y}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{sel}\PYG{p}{(}\PYG{n}{last\PYGZus{}step}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{out}\PYG{p}{(\PYGZob{}}\PYG{n}{digit1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{digit0}\PYG{p}{\PYGZcb{})}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{SevenSegmentDecode}\PYG{+w}{ }\PYG{n}{disp0}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{digit}\PYG{p}{(}\PYG{n}{digit0}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{segments}\PYG{p}{(}\PYG{n}{seven\PYGZus{}seg0}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{SevenSegmentDecode}\PYG{+w}{ }\PYG{n}{disp1}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{digit}\PYG{p}{(}\PYG{n}{digit1}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{segments}\PYG{p}{(}\PYG{n}{seven\PYGZus{}seg1}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{alu}\PYG{+w}{ }\PYG{n}{ALU}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{en}\PYG{p}{(}\PYG{n}{running}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{clk}\PYG{p}{(}\PYG{n}{clk}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{rst\PYGZus{}n}\PYG{p}{(}\PYG{n}{rst\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{a}\PYG{p}{(}\PYG{n}{alu\PYGZus{}a}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{b}\PYG{p}{(}\PYG{n}{alu\PYGZus{}b}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{op}\PYG{p}{(}\PYG{n}{alu\PYGZus{}op}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{y}\PYG{p}{(}\PYG{n}{alu\PYGZus{}y}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{overflow}\PYG{p}{(}\PYG{n}{overflow\PYGZus{}led}\PYG{p}{),}
+\PYG{+w}{        }\PYG{p}{.}\PYG{n}{done}\PYG{p}{(}\PYG{n}{done\PYGZus{}led}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{);}
+
+
+
+\PYG{k}{endmodule}
+\end{Verbatim}

@@ -1,0 +1,86 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ Project: 8 Bit ALU}
+\PYG{c+cm}{ Seven segment decoder implementation from lab 3}
+
+\PYG{c+cm}{ Nolan Kessler}
+\PYG{c+cm}{*/}
+
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * ECE 272 Lab 3b}
+\PYG{c+cm}{ * Seven Segment Decoder Skeleton File}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * Adapted from Harris \PYGZam{} Harris \PYGZdq{}Digital Design and Computer Achitecture\PYGZdq{}}
+\PYG{c+cm}{ * Example 4.25 \PYGZdq{}Seven\PYGZhy{}Segment Display Decoder\PYGZdq{} (Page 198)}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * Author(s): Quinn Yockey}
+\PYG{c+cm}{ * Last Modified: 03 November 2025}
+\PYG{c+cm}{ */}
+
+\PYG{c+cm}{/* IMPORTANT!  Read the comments carefully.  They are included to help you!  */}
+
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * Instructions:}
+\PYG{c+cm}{ *     Tasks are marked with a number in brackets (e.g., [1]). Each has a}
+\PYG{c+cm}{ *     corresponding TODO comment to replace with SystemVerilog code.}
+\PYG{c+cm}{ */}
+
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * Declare a module named `SevenSegmentDecode` to convert a 4\PYGZhy{}bit hexadecimal}
+\PYG{c+cm}{ * number to a 7\PYGZhy{}bit binary value to output on a 7 segment display.}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * [1] Add a 7\PYGZhy{}bit logic output named `segments` to the `SevenSegmentDecode`}
+\PYG{c+cm}{ *     module.}
+\PYG{c+cm}{ */}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{SevenSegmentDecode}\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{digit}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{6}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{segments}
+\PYG{p}{);}
+
+\PYG{c+cm}{/*}
+\PYG{c+cm}{ * Using the `always\PYGZus{}comb` keyword, create a block that only allows}
+\PYG{c+cm}{ * combinational logic.  This is necessary for the `case` statement used within.}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * Like a `switch` statement in C and other programming languages, the `case`}
+\PYG{c+cm}{ * statement in SystemVerilog matches the value of the argument to determine}
+\PYG{c+cm}{ * what happens next.  In the given branch, if the value of `digit` is 0x0, then}
+\PYG{c+cm}{ * use blocking assignment (`=`) to set the value of `segments` to 0b100\PYGZus{}0000.}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * Remember that the seven segment displays on the DE10\PYGZhy{}lite FPGA are active}
+\PYG{c+cm}{ * low, so a segment set to 1 will be off and a 0 will be on.  Also, the}
+\PYG{c+cm}{ * `segments` has segment a as bit 0 (rightmost) and segment g as bit}
+\PYG{c+cm}{ * 6 (leftmost).}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * Refresher on numerical prefixes in SystemVerilog:}
+\PYG{c+cm}{ * \PYGZhy{} 4\PYGZsq{}h: number is 4 bits wide and formatted in hexadecimal.}
+\PYG{c+cm}{ *       (e.g.: 4\PYGZsq{}h5 = 0x5 = 0b0101 = 5; 4\PYGZsq{}hC = 0xC = 0b1100 = 12)}
+\PYG{c+cm}{ * \PYGZhy{} 7\PYGZsq{}b: number is 7 bits wide and formatted in binary.}
+\PYG{c+cm}{ *}
+\PYG{c+cm}{ * [2] Add branches for the remaining values from 0x1 to 0xF using the values}
+\PYG{c+cm}{ *     you listed in figure 3.3 in Lab 3.}
+\PYG{c+cm}{ */}
+\PYG{k}{always\PYGZus{}comb}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{digit}\PYG{p}{)}
+\PYG{+w}{        }\PYG{c+c1}{//                  abc\PYGZus{}defg}
+\PYG{+w}{        }\PYG{l+m+mh}{4\PYGZsq{}h0}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}0001}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h1}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b100\PYGZus{}1111}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h2}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b001\PYGZus{}0010}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h3}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}0110}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h4}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b100\PYGZus{}1100}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h5}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b010\PYGZus{}0100}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h6}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b010\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h7}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}1111}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h8}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}h9}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}1100}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hA}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b000\PYGZus{}1000}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hB}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b110\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hC}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b011\PYGZus{}0001}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hD}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b100\PYGZus{}0010}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hE}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b011\PYGZus{}0000}\PYG{p}{;}
+\PYG{+w}{		  }\PYG{l+m+mh}{4\PYGZsq{}hF}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{segments}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{7\PYGZsq{}b011\PYGZus{}1000}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{endcase}
+\PYG{k}{end}
+
+\PYG{k}{endmodule}
+
+\end{Verbatim}

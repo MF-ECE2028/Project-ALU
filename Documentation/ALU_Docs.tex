@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{svg}
+\usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{caption}
 \usepackage{array}
@@ -17,7 +18,7 @@
 \pgfplotsset{width=17cm, compat=1.18}
 \usetikzlibrary{angles, quotes}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-\author{Nolan Kessler, Maxwell Fabian, John O'Connor}
+\author{Nolan Kessler (kesslnol@oregonstate.edu) \\ Maxwell Fabian (fabianma@oregonstate.edu)\\ John O'Connor (oconnoj5@oregonstate.edu)}
 \title{ECE 204 Design Project \\
        \normalsize \textit{8 Bit ALU}}
        
@@ -52,12 +53,20 @@
 
 \maketitle
 
+\begin{center}
+    Demonstration Video: \\
+    \urlstyle{rm}
+    \url{https://media.oregonstate.edu/media/t/1_ci3vfnca}
+\end{center}
+
 \begin{figure*}[h!]
     \centering
     \includegraphics*[scale=0.45]{./Diagrams/full_alu_schematic.png}
 \end{figure*}
 
-\subsubsection*{Video Link: ADD HERE}
+\pagebreak
+
+\tableofcontents
 
 \pagebreak
 
@@ -70,7 +79,7 @@ operations which may take more than one clock cycle, the CLK input must be conne
 to a clock signal. The ALU provides one 8 bit result output (Y) an overflow flag (OVER)
 and a done flag (DONE). A table of the ALU's supported operations is given in table 
 \ref{operations_table}. A diagram of the inputs and outputs is shown in figure \ref{alu_io_diagram}.
-A descriton of the function of each bus/pin is given in table \ref{alu_io_table}.
+A description of the function of each bus/pin is given in table \ref{alu_io_table}.
 
 
 \begin{table}[h]
@@ -191,7 +200,7 @@ this type of module is shown in \ref{seq_module_diagram}.
     \label{operation_io_table}
 \end{table}
 
-The following sections will include a breif description of the implementation of each ALU operation, and a listing of its
+The following sections will include a brief description of the implementation of each ALU operation, and a listing of its
 SystemVerilog code.
 
 \subsubsection{A Pass}
@@ -229,7 +238,7 @@ A bit in Y is 1 if either the of the corresponding bits in A or B is 1 but both.
 
 \subsubsection{Addition}
 Addition performs unsigned addition on two 8-bit operands A and B, setting the result of this to Y. In the case where the result
-of A + B exceeds 255, overflow will be set to 1, reprsenting the most significant bit. When enable is low, all outputs float.
+of A + B exceeds 255, overflow will be set to 1, representing the most significant bit. When enable is low, all outputs float.
 \subsubsection*{Listing: addition.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/functions/addition.sv"}
 
@@ -262,7 +271,7 @@ This can also be modeled as a state machine with 3 states, an initial state, mul
 
 \subsection{ALU Utility Modules}
 Three SystemVerilog modules were developed to be used within ALU operations or the ALU itself. These include a variable width
-asynchronously resetabble register with enable, a 3 bit multiplexer with enable, and a variable width counter. The Implementation
+asynchronously resettable register with enable, a 3 bit multiplexer with enable, and a variable width counter. The Implementation
 details and SystemVerilog listings for these modules are provided in the subsequent sections.
 
 \subsubsection{Opcode Decoder}
@@ -352,7 +361,7 @@ at a time, resetting between tests.
 \subsubsection*{Listing: alu.tb.sv}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/alu.tb.sv"}
 
-\subsection{Simuation Testing}
+\subsection{Simulation Testing}
 Simulation can be done using ModelSim. To accompany this, we can run a do file which runs all test benches.
 \subsubsection*{Listing: ALUSim.do}
 \inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALUSim.do"}
@@ -360,8 +369,8 @@ Simulation can be done using ModelSim. To accompany this, we can run a do file w
 \subsubsection*{Do File Output}
 \lstinputlisting{"do_file_output.txt"}
 
-\subsubsection*{ALU Testbench Waveform}
-We can analyze the ALU test bench's wavform using the waveform
+\subsubsection*{ALU Test Bench Waveform}
+We can analyze the ALU test bench's waveform using the waveform
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{./Diagrams/alu_waveform.png}
@@ -372,22 +381,21 @@ We can analyze the ALU test bench's wavform using the waveform
 \section{Hardware Validation}
 Hardware validation requires a couple additional modules for the ALU to work effectively on the FPGA.
 To achieve two 8-bit inputs, we need to be able to input operand A, then have a register hold that value
-while we input operand B. 
+while we input operand B, then a register to hold B while we input the opcode. This is a achieved using a
+four state FSM, where the state is used to control a four-bit bus demultiplexer. When the final user input
+state is finished, the ALU is enabled and the state counter is disabled on the next clock falling edge. The
+display output is switched from the switch input (Num) to the alu output Y, using a one bit bus multiplexer.
+The FSM will remain in this state until the system is reset. A schematic and state transition diagram are
+shown in figures \ref(ALU Hardware Implementation Schematic) and \ref{ALU Hardware Implementation State Machiene} respectively.
+Listings of the SystemVerilog implementations of this system and its components are included in the next section.
 
-NOLAN ADD MORE INFO HERE
-
-To display Y on the seven segment display, Y goies to a seven segment decoder with two outputs: Display 0 
-and Display 1.
-
-\subsection*{Hardware Implementation Schematic}
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{./Diagrams/alu_demo_schematic.png}
+    \includegraphics[scale=0.35]{./Diagrams/alu_demo_schematic.png}
     \caption{ALU Hardware Implementation Schematic}
     \label{ALU Hardware Implementation Schematic}
 \end{figure}
 
-\subsection*{Hardware Implementation State Machiene}
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{./Diagrams/demo_state_machiene.png}
@@ -395,8 +403,23 @@ and Display 1.
     \label{ALU Hardware Implementation State Machiene}
 \end{figure}
 
+\subsection{Hardware Implementation HDL Listings}
+
+\subsubsection*{Listing: alu\_test.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/hardware_validation/alu_test.sv"}
+
+\subsubsection*{Listing: bus\_demultiplexer\_2.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/hardware_validation/bus_demultiplexer_2.sv"}
+
+\subsubsection*{Listing: abus\_multiplexer\_1.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/hardware_validation/bus_multiplexer_1.sv"}
+
+\subsubsection*{Listing: SevenSegmentDecode.sv}
+\inputminted[bgcolor = bggray, linenos, fontsize = \footnotesize, breaklines]{sv}{"../ALU_SystemVerilog/hardware_validation/SevenSegmentDecode.sv"}
+
+
 \pagebreak
-\section{Reflection on Desgin Process}
+\section{Reflection on Design Process}
 Implementing the project overall when well. Implementing each individual combinational modules
 and getting them working in the larger ALU module was quick and relatively simple. However
 we ran into some complications when attempting to implement a more complicated sequential

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+
+\PYG{c+cm}{Bus 1:4 Reverse Multiplexer, Takes one N\PYGZhy{}bit Bus and selector passes said bus to specific output}
+\PYG{c+cm}{*/}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Bus\PYGZus{}Demultiplexer\PYGZus{}2}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{c+c1}{//Parameter to choose bus Width with N number of bits}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{,}\PYG{+w}{    }\PYG{c+c1}{//N\PYGZhy{}bit bus input}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{,}\PYG{+w}{                 }\PYG{c+c1}{//2\PYGZhy{}bit selector   }
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out0}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus output}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out1}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus output}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out2}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus output}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out3}\PYG{+w}{  }\PYG{c+c1}{//N\PYGZhy{}bit bus output}
+\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{//All outputs will pass 0 when not selected}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{out0}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//out0 passes in when selector is 00}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{out1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{in}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{//out1 passes in when selector is 01}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{out2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{in}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//out2 passes in when selector is 10}
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{out3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sel}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{in}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//out3 passes in when selector is 11}
+
+\PYG{k}{endmodule}
+\end{Verbatim}

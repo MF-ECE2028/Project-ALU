@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: Max Fabian}
+
+\PYG{c+cm}{Bus 2:1 Multiplexer, 2 N\PYGZhy{}bit busses, with capability to select one of them.}
+\PYG{c+cm}{*/}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Bus\PYGZus{}Multiplexer\PYGZus{}1}\PYG{+w}{ }\PYG{p}{\PYGZsh{}(}\PYG{k}{parameter}\PYG{+w}{ }\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{c+c1}{//Parameter for choosing Width of N number of bits}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in0}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus input}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{in1}\PYG{p}{,}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus input}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{sel}\PYG{p}{,}\PYG{+w}{                     }\PYG{c+c1}{//1\PYGZhy{}bit selector}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{BUS\PYGZus{}WIDTH}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{c+c1}{//N\PYGZhy{}bit bus output}
+\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{assign}\PYG{+w}{ }\PYG{n}{out}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sel}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{in1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{in0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Out is selected dependant on selector}
+
+\PYG{k}{endmodule}
+\end{Verbatim}
