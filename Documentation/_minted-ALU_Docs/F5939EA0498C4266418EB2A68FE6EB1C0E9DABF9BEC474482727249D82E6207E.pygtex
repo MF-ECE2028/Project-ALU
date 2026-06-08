@@ -1,0 +1,58 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{AdditionTestbench}\PYG{p}{();}
+
+\PYG{c+c1}{//Module Inputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A\PYGZus{}input}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{;}
+
+\PYG{c+c1}{//Module Outputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{overflow}\PYG{p}{;}
+
+\PYG{c+c1}{//Expected Outputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{;}
+
+\PYG{n}{Addition}\PYG{+w}{ }\PYG{n}{dut}\PYG{p}{(}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{A}\PYG{p}{(}\PYG{n}{A\PYGZus{}input}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{B}\PYG{p}{(}\PYG{n}{B\PYGZus{}input}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{Y}\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{overflow}\PYG{p}{(}\PYG{n}{overflow}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{done}\PYG{p}{(}\PYG{n}{done}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{initial}\PYG{+w}{ }\PYG{k}{begin}
+
+\PYG{+w}{    }\PYG{c+c1}{// Test case where enable is low}
+\PYG{+w}{    }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// Y, done, and overflow should all be floating}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Test Failed enable low case\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}
+
+\PYG{+w}{    }\PYG{c+c1}{// Test cases where enable is high}
+\PYG{+w}{    }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Test all possible values for A and B}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{256}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{256}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZob{}}\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{            }\PYG{c+c1}{// Check Y is correct, done is high, and overflow is correct}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed at \PYGZpc{}dA + \PYGZpc{}dB; Y=\PYGZpc{}d and Y\PYGZus{}exp=\PYGZpc{}d and overflow=\PYGZpc{}d and overflow\PYGZus{}exp=\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{overflow}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}exp}\PYG{p}{);}
+\PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{end}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{    }\PYG{k}{end}
+
+\PYG{+w}{    }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}All Tests Passed\PYGZdq{}}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{endmodule}
+\end{Verbatim}

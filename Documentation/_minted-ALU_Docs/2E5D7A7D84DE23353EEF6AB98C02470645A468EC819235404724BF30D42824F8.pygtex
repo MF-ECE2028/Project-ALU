@@ -1,0 +1,159 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{Mult\PYGZus{}8bitTestbench}\PYG{p}{();}
+
+\PYG{c+c1}{//Module Inputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A\PYGZus{}input}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{reset\PYGZus{}n}\PYG{p}{;}
+
+\PYG{c+c1}{//Module Outputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}test}\PYG{p}{;}
+
+\PYG{c+c1}{//Expected Outputs}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{;}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}exp}\PYG{p}{;}
+
+\PYG{c+c1}{//Additional Logic to Help account for overflow}
+\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{overflow\PYGZus{}catch}\PYG{p}{;}
+
+\PYG{c+c1}{//Module Call}
+\PYG{n}{Mult\PYGZus{}8bit}\PYG{+w}{ }\PYG{n}{dut}\PYG{p}{(}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{A}\PYG{p}{(}\PYG{n}{A\PYGZus{}input}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{B}\PYG{p}{(}\PYG{n}{B\PYGZus{}input}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{clock}\PYG{p}{(}\PYG{n}{clock}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{reset\PYGZus{}n}\PYG{p}{(}\PYG{n}{reset\PYGZus{}n}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{Y}\PYG{p}{(}\PYG{n}{Y\PYGZus{}test}\PYG{p}{),}
+\PYG{+w}{    }\PYG{p}{.}\PYG{n}{overflow}\PYG{p}{(}\PYG{n}{cout\PYGZus{}test}\PYG{p}{),}\PYG{+w}{ }\PYG{p}{.}\PYG{n}{done}\PYG{p}{(}\PYG{n}{Done\PYGZus{}test}\PYG{p}{)}
+\PYG{p}{);}
+
+
+\PYG{k}{task}\PYG{+w}{ }\PYG{n}{reset}\PYG{p}{();}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{* Reset Task:}
+\PYG{c+cm}{    * Runs the reset pin at active low}
+\PYG{c+cm}{    * Should reset all registers to 0 and set done flag to 0}
+\PYG{c+cm}{*/}
+\PYG{+w}{    }\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{reset\PYGZus{}n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{;}
+\PYG{k}{endtask}
+
+\PYG{k}{task}\PYG{+w}{ }\PYG{n}{multiply}\PYG{p}{();}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{* Multiply Task:}
+\PYG{c+cm}{    * Since the multiplier Module runs on a number of clock cycles}
+\PYG{c+cm}{    * The test case needs to be predictable for proper comparison}
+\PYG{c+cm}{    *}
+\PYG{c+cm}{    * Therefore the multiply function runs the clock until the Done flag is}
+\PYG{c+cm}{    *  raised. Upon which it should reset}
+\PYG{c+cm}{    *}
+\PYG{c+cm}{    * Since the registers are ran to the output as the done flag is raised}
+\PYG{c+cm}{    *  the output should still be readable inspite of the reset, since}
+\PYG{c+cm}{    *  the reset has no active effect on the output.}
+\PYG{c+cm}{*/}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Done\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{n}{clock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{clock}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{end}
+\PYG{k}{endtask}
+
+\PYG{k}{task}\PYG{+w}{ }\PYG{n}{validate}\PYG{p}{();}
+\PYG{c+cm}{/*}
+\PYG{c+cm}{* Validate Task:}
+\PYG{c+cm}{    * Iterates through a limited set of values for A and B }
+\PYG{c+cm}{    *  and compares the calculated values of multiplication}
+\PYG{c+cm}{    *  to the implimented addition module}
+\PYG{c+cm}{    *}
+\PYG{c+cm}{    * Since the output is limited to 8\PYGZhy{}bits the multiplier }
+\PYG{c+cm}{    *  technically only works for two 4\PYGZhy{}bit inputs,}
+\PYG{c+cm}{    *  and the each test takes 9 clock cycles}
+\PYG{c+cm}{    *  so the test is limited to a 6\PYGZhy{}bit maximum}
+\PYG{c+cm}{*/}
+
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{A2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//Declare variables for use in later test case}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{B2}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{A}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{c+c1}{//If enable is off we should see a floating output}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{c+c1}{//Running multiply here causes the module to run forever}
+\PYG{+w}{            }\PYG{c+c1}{// Which proves that it works correctly}
+\PYG{+w}{            }\PYG{c+c1}{// However this is also why it is commented out.}
+
+\PYG{+w}{            }\PYG{c+c1}{//multiply();}
+\PYG{+w}{            }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Function not yet enabled \PYGZpc{}dY\PYGZus{}test \PYGZpc{}dcout\PYGZus{}test\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{p}{);}
+\PYG{+w}{            }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{64}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{c+c1}{//Assigns the module bus inputs to current values}
+\PYG{+w}{            }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
+\PYG{+w}{            }\PYG{c+c1}{//Calculates expected values and outputs them to expected}
+\PYG{+w}{            }\PYG{p}{\PYGZob{}}\PYG{n}{overflow\PYGZus{}catch}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{;}
+\PYG{+w}{            }\PYG{c+c1}{//Overflow Catch exists because of the output size limitation}
+\PYG{+w}{            }\PYG{c+c1}{// always overflows when the output is bigger than the output}
+\PYG{+w}{            }\PYG{c+c1}{// instead of only when the 9th bit is 1 like for other TBs}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{overflow\PYGZus{}catch}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{end}\PYG{+w}{ }
+
+\PYG{+w}{            }\PYG{n}{multiply}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{//Run the multiply task to give enough clock cycles}
+\PYG{+w}{            }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{+w}{         }\PYG{c+c1}{//Pause to let module process}
+
+\PYG{+w}{            }\PYG{c+c1}{//Checks all expected to tested from module, shows where it fails            }
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{cout\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}exp}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{                }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed at \PYGZpc{}dA * \PYGZpc{}dB; Y=\PYGZpc{}d and Y\PYGZus{}exp=\PYGZpc{}d and cout=\PYGZpc{}d and cout\PYGZus{}exp=\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{A}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}exp}\PYG{p}{);}
+\PYG{+w}{                }\PYG{c+c1}{//Does not stop at fail to identify the pattern of failure}
+\PYG{+w}{                }\PYG{c+c1}{// from test results}
+\PYG{+w}{            }\PYG{k}{end}
+\PYG{+w}{            }\PYG{n}{reset}\PYG{p}{();}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{    }\PYG{k}{end}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{        }\PYG{c+c1}{//This is a special case test for when the value should be}
+\PYG{+w}{        }\PYG{c+c1}{// massively large but will appear much smaller due to the limitation}
+\PYG{+w}{        }\PYG{c+c1}{// of the output.}
+\PYG{+w}{        }\PYG{c+c1}{//}
+\PYG{+w}{        }\PYG{c+c1}{//Same as the looped cases above}
+\PYG{+w}{        }\PYG{n}{A2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{255}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{B2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{128}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A2}\PYG{p}{;}\PYG{+w}{ }
+\PYG{+w}{        }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{B2}\PYG{p}{;}\PYG{+w}{ }
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}\PYG{n}{cout\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{A2}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{B2}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{n}{multiply}\PYG{p}{();}
+\PYG{+w}{        }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{5}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{cout\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}test}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{Done\PYGZus{}exp}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{            }\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Failed at \PYGZpc{}dA * \PYGZpc{}dB; Y=\PYGZpc{}d and Y\PYGZus{}exp=\PYGZpc{}d and cout=\PYGZpc{}d and cout\PYGZus{}exp=\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}
+\PYG{+w}{                }\PYG{n}{A2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Y\PYGZus{}exp}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}test}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cout\PYGZus{}exp}\PYG{p}{);}
+\PYG{+w}{            }\PYG{c+c1}{//\PYGZdl{}stop;}
+\PYG{+w}{        }\PYG{k}{end}
+\PYG{+w}{        }\PYG{n}{reset}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{end}\PYG{+w}{   }
+\PYG{k}{endtask}
+
+\PYG{k}{initial}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{    }\PYG{c+c1}{//Initialize Variables}
+\PYG{+w}{    }\PYG{n}{enable}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//First test enable at 0}
+\PYG{+w}{    }\PYG{n}{A\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{B\PYGZus{}input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Done\PYGZus{}exp}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{//Expected Done flag will always be 1}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{n}{reset}\PYG{p}{();}\PYG{+w}{        }\PYG{c+c1}{//Reset to begin, otherwise last ran test will be output}
+\PYG{+w}{    }\PYG{n}{validate}\PYG{p}{();}\PYG{+w}{     }\PYG{c+c1}{//Should display the not yet enabled message}
+
+\PYG{+w}{    }\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{//Now test enable at 1}
+
+\PYG{+w}{    }\PYG{n}{reset}\PYG{p}{();}\PYG{+w}{        }\PYG{c+c1}{//Reset for same reason as before}
+\PYG{+w}{    }\PYG{n}{validate}\PYG{p}{();}\PYG{+w}{     }\PYG{c+c1}{//Should pass with no error}
+
+\PYG{+w}{    }\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{100}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{//Take a breather}
+\PYG{+w}{    }\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
+\PYG{k}{end}
+
+\PYG{k}{endmodule}
+
+\PYG{+w}{    }
+
+
+\end{Verbatim}

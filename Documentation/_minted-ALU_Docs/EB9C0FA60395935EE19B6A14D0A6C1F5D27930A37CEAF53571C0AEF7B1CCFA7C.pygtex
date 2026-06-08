@@ -1,0 +1,59 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cm}{/*}
+\PYG{c+cm}{Project: 8\PYGZhy{}Bit ALU}
+\PYG{c+cm}{Author: John O\PYGZsq{}Connor}
+\PYG{c+cm}{Sources: N/A}
+
+\PYG{c+cm}{Testbench file for the A passthorugh module (A\PYGZus{}pass.sv).}
+\PYG{c+cm}{*/}
+
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{A\PYGZus{}pass\PYGZus{}tb}\PYG{p}{;}
+\PYG{+w}{	}\PYG{c+c1}{// Inputs}
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{A}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{enable}\PYG{p}{;}
+\PYG{+w}{	}\PYG{c+c1}{// Outputs}
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{Y}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{done}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{logic}\PYG{+w}{ }\PYG{n}{overflow}\PYG{p}{;}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{n}{A\PYGZus{}pass}\PYG{+w}{ }\PYG{n}{dut}\PYG{p}{(}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{A}\PYG{p}{(}\PYG{n}{A}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{enable}\PYG{p}{(}\PYG{n}{enable}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{Y}\PYG{p}{(}\PYG{n}{Y}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{done}\PYG{p}{(}\PYG{n}{done}\PYG{p}{),}
+\PYG{+w}{		}\PYG{p}{.}\PYG{n}{overflow}\PYG{p}{(}\PYG{n}{overflow}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{);}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{k}{initial}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{c+c1}{// Test case where enable is low}
+\PYG{+w}{		}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{		}\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}b0}\PYG{p}{;}
+\PYG{+w}{		}\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{		}\PYG{c+c1}{// Y, done, and overflow should all be floating}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{8\PYGZsq{}bz}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}bz}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{			}\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Test Failed enable low case\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{			}\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{end}
+
+\PYG{+w}{		}\PYG{c+c1}{// Test cases where enable is high}
+\PYG{+w}{	 	}\PYG{n}{enable}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{c+c1}{// Test all possible values for A}
+\PYG{+w}{		}\PYG{c+c1}{// Expected: Y = A for every test}
+\PYG{+w}{		}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{256}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{			}\PYG{n}{A}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{			}\PYG{p}{\PYGZsh{}}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Y}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{n}{A}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{done}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b1}\PYG{+w}{ }\PYG{o}{||}\PYG{+w}{ }\PYG{n}{overflow}\PYG{+w}{ }\PYG{o}{!==}\PYG{+w}{ }\PYG{l+m+mb}{1\PYGZsq{}b0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{				}\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Test Failed for A = \PYGZpc{}0d\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{				}\PYG{p}{\PYGZdl{}}\PYG{n}{stop}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{end}
+\PYG{+w}{		}\PYG{k}{end}
+\PYG{+w}{		}
+\PYG{+w}{		}\PYG{p}{\PYGZdl{}}\PYG{n}{display}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}All Tests Passed\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{k}{end}
+\PYG{+w}{	}
+\PYG{k}{endmodule}
+\end{Verbatim}

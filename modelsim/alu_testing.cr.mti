@@ -1,11 +1,4 @@
-C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/addition.tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module AdditionTestbench
-
-Top level modules:
-	AdditionTestbench
-
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
+C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/bw_xor.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
 -- Compiling module Bitwise_XOR
 
@@ -39,13 +32,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 
 Top level modules:
 	Bitwise_AND
-
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/bw_xor.tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module Xor_tb
-
-Top level modules:
-	Xor_tb
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/addition.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
@@ -103,12 +89,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb 
 Top level modules:
 	A_pass_tb
 
-} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/and.tb.sv
+} {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/testbenches/mult.tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021
--- Compiling module And_tb
+-- Compiling module Mult_8bitTestbench
 
 Top level modules:
-	And_tb
+	Mult_8bitTestbench
 
 } {} {}} C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv {1 {vlog -work work -sv -stats=none C:/Users/nr308/source/ECE_204/Project-ALU/ALU_SystemVerilog/functions/subtraction.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2021.1 Compiler 2021.02 Feb  3 2021

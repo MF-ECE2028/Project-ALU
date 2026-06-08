@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n+nl}{Project:}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{o}{\PYGZhy{}}\PYG{n}{Bit}\PYG{+w}{ }\PYG{n}{ALU}
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n+nl}{Author:}\PYG{+w}{ }\PYG{n}{John}\PYG{+w}{ }\PYG{n}{O}\PYG{p}{\PYGZsq{}}\PYG{n}{Connor}
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n+nl}{Sources:}\PYG{+w}{ }\PYG{n}{None}
+
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n}{Do}\PYG{+w}{ }\PYG{n}{file}\PYG{+w}{ }\PYG{k}{for}\PYG{+w}{ }\PYG{n}{running}\PYG{+w}{ }\PYG{n}{all}\PYG{+w}{ }\PYG{n}{independent}\PYG{+w}{ }\PYG{n}{testbenches}
+
+\PYG{p}{\PYGZsh{}}\PYG{o}{\PYGZhy{}}\PYG{n}{nostdout}
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n}{Run}\PYG{+w}{ }\PYG{k}{module}\PYG{+w}{ }\PYG{n}{testbenches}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{A\PYGZus{}pass\PYGZus{}tb}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{B\PYGZus{}pass\PYGZus{}tb}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{And\PYGZus{}tb}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{Or\PYGZus{}tb}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{Xor\PYGZus{}tb}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{AdditionTestbench}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{SubtractionTestbench}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{quiet}\PYG{+w}{ }\PYG{n}{Mult\PYGZus{}8bitTestbench}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{k}{do}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}run \PYGZhy{}all\PYGZdq{}}
+
+\PYG{p}{\PYGZsh{}}\PYG{+w}{ }\PYG{n}{ALU}\PYG{+w}{ }\PYG{n}{testbench}
+\PYG{n}{vsim}\PYG{+w}{ }\PYG{n}{ALU\PYGZus{}tb}
+\PYG{n}{add}\PYG{+w}{ }\PYG{n}{wave}\PYG{+w}{ }\PYG{o}{*}
+\PYG{n}{run}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{all}
+\end{Verbatim}
